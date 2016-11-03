@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Developers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company name</th>
+      <th>Position</th>
+      <th>Head office address</th>
+      <th>City</th>
+      <th>County</th>
+      <th>Postcode</th>
+      <th>Email</th>
+      <th>Contact number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @developers.each do |developer| %>
+      <tr>
+        <td><%= developer.company_name %></td>
+        <td><%= developer.position %></td>
+        <td><%= developer.head_office_address %></td>
+        <td><%= developer.city %></td>
+        <td><%= developer.county %></td>
+        <td><%= developer.postcode %></td>
+        <td><%= developer.email %></td>
+        <td><%= developer.contact_number %></td>
+        <td><%= link_to 'Show', developer %></td>
+        <td><%= link_to 'Edit', edit_developer_path(developer) %></td>
+        <td><%= link_to 'Destroy', developer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Developer', new_developer_path %>

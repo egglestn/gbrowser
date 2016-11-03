@@ -9,6 +9,11 @@
   </head>
 
   <body>
+      <nav>
+          <%= link_to 'Dashboard', root_path %> |
+          <%= link_to 'Developers', developers_path %>
+      </nav>
+
     <%= yield %>
   </body>
 </html>
