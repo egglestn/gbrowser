@@ -5,7 +5,7 @@ class PhasesController < ApplicationController
   # GET /phases
   # GET /phases.json
   def index
-    @phases = Phase.all
+    @phases = @development.phases.all
   end
 
   # GET /phases/1

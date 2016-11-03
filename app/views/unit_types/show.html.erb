@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @development %>:
+  <%= @unit_type.name %>
+  Unit Type
+</h1>
+
+<p>
+  <strong>Phase:</strong>
+  <%= @unit_type.phase %>
+</p>
+
+<%= link_to 'Edit', edit_development_unit_type_path(@development, @unit_type) %> |
+<%= link_to 'Back', development_unit_types_path(@development) %>
