@@ -1,0 +1,1 @@
+json.partial! "finishes/finish", finish: @finish

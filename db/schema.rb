@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103130512) do
+ActiveRecord::Schema.define(version: 20161103133630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 20161103130512) do
     t.index ["developer_id"], name: "index_divisions_on_developer_id", using: :btree
   end
 
+  create_table "finishes", force: :cascade do |t|
+    t.integer  "room_id"
+    t.string   "name"
+    t.string   "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_finishes_on_room_id", using: :btree
+  end
+
   create_table "phases", force: :cascade do |t|
     t.string   "name"
     t.integer  "development_id"
@@ -89,6 +98,7 @@ ActiveRecord::Schema.define(version: 20161103130512) do
 
   add_foreign_key "developments", "developers"
   add_foreign_key "divisions", "developers"
+  add_foreign_key "finishes", "rooms"
   add_foreign_key "phases", "developments"
   add_foreign_key "plots", "unit_types"
   add_foreign_key "rooms", "unit_types"

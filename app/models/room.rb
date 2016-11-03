@@ -3,6 +3,8 @@ class Room < ApplicationRecord
 
   has_one :development, through: :unit_type
 
+  has_many :finishes
+
   validates :name, presence: true
 
   def to_s

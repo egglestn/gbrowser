@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :rooms, only: [] do
+    resources :finishes
+  end
+
   resources :developments do
     resources :phases
     resources :unit_types

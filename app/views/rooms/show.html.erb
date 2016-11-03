@@ -6,6 +6,10 @@
   Room
 </h1>
 
+<ul>
+  <li><%= link_to 'Finishes', room_finishes_path(@room) %></li>
+</ul>
+
 <p>
   <strong>Unit type:</strong>
   <%= @room.unit_type %>

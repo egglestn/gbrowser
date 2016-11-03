@@ -1,0 +1,27 @@
+<%= form_for([@room, finish]) do |f| %>
+  <% if finish.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(finish.errors.count, "error") %> prohibited this finish from being saved:</h2>
+
+      <ul>
+      <% finish.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

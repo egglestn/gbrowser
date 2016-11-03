@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @room %>, <%= @finish %> <%= @finish.category %> Finish
+</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @finish.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @finish.category %>
+</p>
+
+<%= link_to 'Edit', edit_room_finish_path(@room, @finish) %> |
+<%= link_to 'Back', room_finishes_path(@room) %>
