@@ -1,0 +1,57 @@
+<%= form_for(development) do |f| %>
+  <% if development.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(development.errors.count, "error") %> prohibited this development from being saved:</h2>
+
+      <ul>
+      <% development.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :development_name %>
+    <%= f.text_field :development_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :developer_id %>
+    <%= f.select :developer_id, Developer.pluck(:company_name, :id), include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :office_address %>
+    <%= f.text_field :office_address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :county %>
+    <%= f.text_field :county %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postcode %>
+    <%= f.text_field :postcode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contact_number %>
+    <%= f.text_field :contact_number %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

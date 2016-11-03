@@ -1,0 +1,2 @@
+json.extract! development, :id, :development_name, :developer_id, :office_address, :city, :county, :postcode, :email, :contact_number, :created_at, :updated_at
+json.url development_url(development, format: :json)
