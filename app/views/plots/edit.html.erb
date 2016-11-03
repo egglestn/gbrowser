@@ -1,0 +1,6 @@
+<h1>Editing <%= @development %>, <%= @plot %> Plot</h1>
+
+<%= render 'form', plot: @plot %>
+
+<%= link_to 'Show', [@development, @plot] %> |
+<%= link_to 'Back', development_plots_path(@development) %>

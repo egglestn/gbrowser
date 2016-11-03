@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @development %> Plots</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prefix</th>
+      <th>Number</th>
+      <th>Unit type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plots.each do |plot| %>
+      <tr>
+        <td><%= plot.prefix %></td>
+        <td><%= plot.number %></td>
+        <td><%= plot.unit_type %></td>
+        <td><%= link_to 'Show', [@development, plot] %></td>
+        <td><%= link_to 'Edit', edit_development_plot_path(@development, plot) %></td>
+        <td><%= link_to 'Destroy', [@development, plot], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plot', new_development_plot_path(@development) %> |
+<%= link_to 'Development', development_path(@development) %>

@@ -1,0 +1,32 @@
+<%= form_for([@development, plot]) do |f| %>
+  <% if plot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(plot.errors.count, "error") %> prohibited this plot from being saved:</h2>
+
+      <ul>
+      <% plot.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :prefix %>
+    <%= f.text_field :prefix %>
+  </div>
+
+  <div class="field">
+    <%= f.label :number %>
+    <%= f.number_field :number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :unit_type_id %>
+    <%= f.select :unit_type_id, @development.unit_types.pluck(:name, :id) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

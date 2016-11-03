@@ -13,7 +13,7 @@
       <th>Postcode</th>
       <th>Email</th>
       <th>Contact number</th>
-      <th colspan="6"></th>
+      <th colspan="7"></th>
     </tr>
   </thead>
 
@@ -31,6 +31,7 @@
         <td><%= link_to 'Phases', development_phases_path(development) %></td>
         <td><%= link_to 'Unit Types', development_unit_types_path(development) %></td>
         <td><%= link_to 'Rooms', development_rooms_path(development) %></td>
+        <td><%= link_to 'Plots', development_plots_path(development) %></td>
         <td><%= link_to 'Show', development %></td>
         <td><%= link_to 'Edit', edit_development_path(development) %></td>
         <td><%= link_to 'Destroy', development, method: :delete, data: { confirm: 'Are you sure?' } %></td>

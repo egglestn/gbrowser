@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @development %>: <%= @plot %> Plot</h1> 
+
+<p>
+  <strong>Prefix:</strong>
+  <%= @plot.prefix %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @plot.number %>
+</p>
+
+<p>
+  <strong>Unit type:</strong>
+  <%= @plot.unit_type %>
+</p>
+
+<%= link_to 'Edit', edit_development_plot_path(@development, @plot) %> |
+<%= link_to 'Back', development_plots_path(@development) %>
