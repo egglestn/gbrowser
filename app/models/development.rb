@@ -3,6 +3,7 @@ class Development < ApplicationRecord
 
   has_many :phases
   has_many :unit_types, through: :phases
+  has_many :rooms, through: :unit_types
 
   validates :development_name, presence: true
 

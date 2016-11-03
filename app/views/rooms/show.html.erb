@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @development %>
+  <%= @room.name %>
+  Room
+</h1>
+
+<p>
+  <strong>Unit type:</strong>
+  <%= @room.unit_type %>
+</p>
+
+<%= link_to 'Edit', edit_development_room_path(@development, @room) %> |
+<%= link_to 'Back', development_rooms_path(@development) %>
