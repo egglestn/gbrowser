@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resources :plots
   end
 
-  resources :developers
+  resources :developers do
+    resources :divisions
+  end
+
   root 'dashboard#show'
 end

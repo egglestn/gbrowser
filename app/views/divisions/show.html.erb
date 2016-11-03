@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @developer %>: <%= @division.division_name %>
+</h1>
+
+<p>
+  <strong>Address:</strong>
+  <%= @division.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @division.city %>
+</p>
+
+<p>
+  <strong>County:</strong>
+  <%= @division.county %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @division.postcode %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @division.email %>
+</p>
+
+<p>
+  <strong>Contact number:</strong>
+  <%= @division.contact_number %>
+</p>
+
+<%= link_to 'Edit', edit_developer_division_path(@developer, @division) %> |
+<%= link_to 'Back', developer_divisions_path %>

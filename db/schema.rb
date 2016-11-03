@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103124310) do
+ActiveRecord::Schema.define(version: 20161103130512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,18 @@ ActiveRecord::Schema.define(version: 20161103124310) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.index ["developer_id"], name: "index_developments_on_developer_id", using: :btree
+  end
+
+  create_table "divisions", force: :cascade do |t|
+    t.string  "division_name"
+    t.string  "address"
+    t.string  "city"
+    t.string  "county"
+    t.string  "postcode"
+    t.string  "email"
+    t.string  "contact_number"
+    t.integer "developer_id"
+    t.index ["developer_id"], name: "index_divisions_on_developer_id", using: :btree
   end
 
   create_table "phases", force: :cascade do |t|
@@ -76,6 +88,7 @@ ActiveRecord::Schema.define(version: 20161103124310) do
   end
 
   add_foreign_key "developments", "developers"
+  add_foreign_key "divisions", "developers"
   add_foreign_key "phases", "developments"
   add_foreign_key "plots", "unit_types"
   add_foreign_key "rooms", "unit_types"

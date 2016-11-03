@@ -5,6 +5,10 @@
   <%= @developer.company_name %>
 </h1>
 
+<ul>
+  <li><%= link_to 'Divisions', developer_divisions_path(@developer) %></li>
+</ul>
+
 <p>
   <strong>Position:</strong>
   <%= @developer.position %>
