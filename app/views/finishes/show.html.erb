@@ -14,5 +14,11 @@
   <%= @finish.category %>
 </p>
 
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag(@finish.picture.thumbnail.url) if @finish.picture? %>
+</p>
+
+
 <%= link_to 'Edit', edit_room_finish_path(@room, @finish) %> |
 <%= link_to 'Back', room_finishes_path(@room) %>

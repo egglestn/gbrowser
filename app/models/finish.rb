@@ -1,4 +1,6 @@
 class Finish < ApplicationRecord
+  mount_uploader :picture, PictureUploader
+
   belongs_to :room
 
   has_many :developments, through: :room
