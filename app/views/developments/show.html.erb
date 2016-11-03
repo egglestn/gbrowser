@@ -5,6 +5,10 @@
   <%= @development.development_name %>
 </h1>
 
+<ul>
+  <li><%= link_to 'Phases', development_phases_path(@development) %></li>
+</ul>
+
 <p>
   <strong>Developer:</strong>
   <%= @development.developer %>

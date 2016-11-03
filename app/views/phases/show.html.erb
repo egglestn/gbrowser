@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @phase.name %>
+</p>
+
+<p>
+  <strong>Development:</strong>
+  <%= @phase.development %>
+</p>
+
+<%= link_to 'Edit', edit_development_phase_path(@development, @phase) %> |
+<%= link_to 'Back', development_phases_path(@development) %>
