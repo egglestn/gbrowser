@@ -13,3 +13,106 @@
  *= require_tree .
  *= require_self
  */
+body {
+    color: #2a2a2a;
+    background-color: #f6f6f6;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar-hoozzi {
+    color:                  #fff;
+    background:             #384d5e; /* Old browsers */
+    background:             -moz-linear-gradient(left,  #384d5e 1%, #252f38 100%);
+    background:             -webkit-linear-gradient(left,  #384d5e 1%,#252f38 100%);
+    background:             linear-gradient(to right,  #384d5e 1%,#252f38 100%);
+    filter:                 progid:DXImageTransform.Microsoft.gradient( startColorstr='#384d5e', endColorstr='#252f38',GradientType=1 );
+    margin:                 0;
+    min-height:             0;
+    padding:                10px;
+}
+
+.nav-member {
+  display:          inline-block;
+  vertical-align:   top;
+}
+
+.nav-menu {
+    text-align:     center;
+    color:          white;
+}
+
+.dash-link {
+    color:            white;
+    padding-left:     40px;
+    background-color: inherit;
+    border-style:     none;
+}
+
+/** Need to override the rails default */
+.dash-link:visited {
+    color:  white;
+}
+
+.dash-link:hover {
+    border-style:     none;
+    background-color: inherit;
+}
+
+ul {
+    list-style:  none;
+}
+
+a {
+    line-height:            50px;
+    text-decoration:        none;
+    background-color:       #f77a60;
+    border-color:           #f77a60;
+    border-width:           1px;
+    border-style:           solid;
+    padding-top:            4px;
+    padding-right:          7px;
+    padding-left:           7px;
+    padding-bottom:         4px;
+    -webkit-border-radius:  20px;
+    -moz-border-radius:     20px;
+    border-radius:          20px;
+    color:                  white;
+    font-size:              13px;
+}
+
+a:visited {
+    color:              white;
+}
+
+a:hover {
+    background-color:   white;
+    color:              #f77a60;
+}
+
+label {
+    color:     #adadad;
+}
+
+input[type=submit] {
+    background-color: #f77a60;
+    border-color:     #f77a60;
+    color:            white;
+    font-size:        13px;
+}
+
+input[type=submit]:hover {
+    color:            #f77a60;
+    border-color:     #f77a60;
+    background-color: white;
+}
+
+input {
+    padding-top:            4px;
+    padding-right:          7px;
+    padding-left:           7px;
+    padding-bottom:         4px;
+    -webkit-border-radius:  20px;
+    -moz-border-radius:     20px;
+    border-radius:          20px;
+    border-width:           1px;
+}
