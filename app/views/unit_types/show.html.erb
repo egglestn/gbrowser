@@ -7,8 +7,8 @@
 </h1>
 
 <p>
-  <strong>Phase:</strong>
-  <%= @unit_type.phase %>
+  <strong>Phases:</strong>
+  <%= @unit_type.phases.pluck(:name).to_sentence %>
 </p>
 
 <%= link_to 'Edit', edit_development_unit_type_path(@development, @unit_type) %> |
