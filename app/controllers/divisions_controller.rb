@@ -5,7 +5,7 @@ class DivisionsController < ApplicationController
   # GET /divisions
   # GET /divisions.json
   def index
-    @divisions = @developer.divisions.all
+    @divisions = @developer.divisions.all.uniq
   end
 
   # GET /divisions/1

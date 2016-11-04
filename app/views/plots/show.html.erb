@@ -19,7 +19,37 @@
 
 <br>
 
+<% @hide_documents_header = true %>
+<h3>Plot Documents</h3>
 <%= render 'documents', documentable: @plot, edit_path: edit_development_plot_path(@development, @plot) %>
+
+<br>
+
+<h3>All Documents Related to Plot</h3>
+<table>
+  <thead>
+    <th>From</th>
+    <th>Title</th>
+    <th>File</th>
+  </thead>
+  <tbody>
+    <% if @all_documents.count < 1 %>
+      <tr>
+        <td colspan="3">
+          No documents found.
+        </td>
+      </tr>
+    <% end %>
+
+    <% @all_documents.each do |document| %>
+      <tr>
+        <td><%= document.documentable.class %> - <%= document.documentable %></td>
+        <td><%= document.title %></td>
+        <td><a href="<%= document.file.url %>" target="_blank">Download</a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <br>
 

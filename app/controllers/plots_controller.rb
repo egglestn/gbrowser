@@ -5,12 +5,18 @@ class PlotsController < ApplicationController
   # GET /plots
   # GET /plots.json
   def index
-    @plots = @development.plots.all
+    @plots = @development.plots.all.uniq
   end
 
   # GET /plots/1
   # GET /plots/1.json
   def show
+    @all_documents = []
+    @all_documents << @plot.unit_type.documents
+    @all_documents << @plot.rooms.map(&:documents)
+    @all_documents << @plot.finishes.map(&:documents)
+    @all_documents << @plot.documents
+    @all_documents.flatten!
   end
 
   # GET /plots/new

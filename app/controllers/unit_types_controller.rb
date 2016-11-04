@@ -5,7 +5,7 @@ class UnitTypesController < ApplicationController
   # GET /unit_types
   # GET /unit_types.json
   def index
-    @unit_types = @development.unit_types.all
+    @unit_types = @development.unit_types.all.uniq
   end
 
   # GET /unit_types/1

@@ -5,7 +5,7 @@ class RoomsController < ApplicationController
   # GET /rooms
   # GET /rooms.json
   def index
-    @rooms = @development.rooms.all
+    @rooms = @development.rooms.all.uniq
   end
 
   # GET /rooms/1

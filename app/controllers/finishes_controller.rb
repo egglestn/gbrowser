@@ -5,7 +5,7 @@ class FinishesController < ApplicationController
   # GET /finishes
   # GET /finishes.json
   def index
-    @finishes = @room.finishes.all
+    @finishes = @room.finishes.all.uniq
   end
 
   # GET /finishes/1
