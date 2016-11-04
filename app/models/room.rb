@@ -3,7 +3,7 @@ class Room < ApplicationRecord
 
   has_one :development, through: :unit_type
 
-  has_many :finishes
+  has_many :finishes, dependent: :destroy
 
   validates :name, presence: true
 
