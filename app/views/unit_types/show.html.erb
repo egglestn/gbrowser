@@ -11,5 +11,10 @@
   <%= @unit_type.phases.pluck(:name).to_sentence %>
 </p>
 
+<h3>Rooms</h3>
+<%= render 'rooms/rooms', rooms: @unit_type.rooms %>
+
+<br>
+
 <%= link_to 'Edit', edit_development_unit_type_path(@development, @unit_type) %> |
 <%= link_to 'Back', development_unit_types_path(@development) %>

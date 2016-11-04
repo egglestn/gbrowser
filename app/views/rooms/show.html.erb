@@ -16,4 +16,6 @@
 </p>
 
 <%= link_to 'Edit', edit_development_room_path(@development, @room) %> |
-<%= link_to 'Back', development_rooms_path(@development) %>
+<%= link_to 'Back', development_rooms_path(@development) %> |
+<%= link_to 'Unit Type', development_unit_type_path(@development, @room.unit_type) %>
+
