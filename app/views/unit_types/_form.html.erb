@@ -1,4 +1,4 @@
-<%= form_for([@development, unit_type]) do |f| %>
+<%= simple_form_for([@development, unit_type]) do |f| %>
   <% if unit_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(unit_type.errors.count, "error") %> prohibited this unit_type from being saved:</h2>
@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :phase_id %>
-    <%= f.select :phase_id, @development.phases.pluck(:name, :id) %>
+    <%#= f.input :phases, collection: @development.phases, as: :check_boxes %>
+    <%= f.association :phases, collection: @development.phases, as: :check_boxes %>
   </div>
 
   <div class="actions">

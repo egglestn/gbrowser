@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'carrierwave'
 gem 'mini_magick'
 gem "fog-aws"
+gem 'simple_form'
 
 # Font awesome
 gem "font-awesome-rails"
