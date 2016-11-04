@@ -1,4 +1,4 @@
-<%= form_for([@room, finish], html: { multipart: true }) do |f| %>
+<%= simple_form_for([@room, finish], html: { multipart: true }) do |f| %>
   <% if finish.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(finish.errors.count, "error") %> prohibited this finish from being saved:</h2>
@@ -25,6 +25,10 @@
     <label>Picture</label>
       <%= f.file_field :picture %>
   </div>
+
+  <br>
+
+  <%= render 'documents_form', f: f %>
 
   <br>
 

@@ -19,6 +19,11 @@
   <%= image_tag(@finish.picture.thumbnail.url) if @finish.picture? %>
 </p>
 
+<br>
+
+<%= render 'documents', documentable: @finish, edit_path: edit_room_finish_path(@room, @finish) %>
+
+<br>
 
 <%= link_to 'Edit', edit_room_finish_path(@room, @finish) %> |
 <%= link_to 'Back', room_finishes_path(@room) %>

@@ -20,6 +20,12 @@
     <%= f.association :phases, collection: @development.phases, as: :check_boxes %>
   </div>
 
+  <br>
+
+  <%= render 'documents_form', f: f %>
+
+  <br>
+
   <div class="actions">
     <%= f.submit %>
   </div>

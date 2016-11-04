@@ -26,7 +26,7 @@ class UnitTypesController < ApplicationController
   # POST /unit_types.json
   def create
     @unit_type = UnitType.new(unit_type_params)
-
+byebug
     respond_to do |format|
       if @unit_type.save
         format.html { redirect_to [@development, @unit_type], notice: 'Unit type was successfully created.' }
@@ -73,6 +73,6 @@ class UnitTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unit_type_params
-      params.require(:unit_type).permit(:name, phase_ids: [])
+      params.require(:unit_type).permit(:name, phase_ids: [], documents_attributes: [:id, :title, :file, :_destroy])
     end
 end

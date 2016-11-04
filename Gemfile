@@ -35,6 +35,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem "fog-aws"
 gem 'simple_form'
+gem "cocoon"
 
 # Font awesome
 gem "font-awesome-rails"
