@@ -8,6 +8,7 @@
       <th>Room</th>
       <th>Name</th>
       <th>Category</th>
+      <th>Thumbnail</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= finish.room %></td>
         <td><%= finish.name %></td>
         <td><%= finish.category %></td>
+        <td><%= image_tag(finish.picture.thumbnail.url) if finish.picture? %></td>
         <td><%= link_to 'Show', [@room, finish] %></td>
         <td><%= link_to 'Edit', edit_room_finish_path(@room, finish) %></td>
         <td><%= link_to 'Destroy', [@room, finish], method: :delete, data: { confirm: 'Are you sure?' } %></td>
