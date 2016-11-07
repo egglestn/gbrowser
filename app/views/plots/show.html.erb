@@ -17,6 +17,9 @@
   <%= @plot.unit_type %>
 </p>
 
+<% @hide_images_edit_link = true %>
+<%= render 'images', imageable: @plot.unit_type %>
+
 <br>
 
 <% @hide_documents_header = true %>

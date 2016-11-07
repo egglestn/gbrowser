@@ -16,6 +16,11 @@
       <tr>
         <td><%= unit_type.name %></td>
         <td><%= unit_type.phases.pluck(:name).to_sentence %></td>
+        <td>
+          <% unit_type.images.each do |image| %>
+            <%= render 'image', image: image %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', [@development, unit_type] %></td>
         <td><%= link_to 'Edit', edit_development_unit_type_path(@development, unit_type) %></td>
         <td><%= link_to 'Destroy', [@development, unit_type], method: :delete, data: { confirm: 'Are you sure?' } %></td>

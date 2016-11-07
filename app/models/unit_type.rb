@@ -7,6 +7,8 @@ class UnitType < ApplicationRecord
   has_one :development, through: :phases
   has_many :documents, as: :documentable
   accepts_nested_attributes_for :documents, reject_if: :all_blank, allow_destroy: true
+  has_many :images, as: :imageable
+  accepts_nested_attributes_for :images, reject_if: :all_blank, allow_destroy: true
 
   validates :name, presence: true
   validates :phases, presence: true

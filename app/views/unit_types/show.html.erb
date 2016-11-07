@@ -21,5 +21,8 @@
 <%= render 'documents', documentable: @unit_type, edit_path: edit_development_unit_type_path(@development) %>
 <br>
 
+<%= render 'images', imageable: @unit_type, edit_path: edit_development_unit_type_path(@development) %>
+<br>
+
 <%= link_to 'Edit', edit_development_unit_type_path(@development, @unit_type) %> |
 <%= link_to 'Back', development_unit_types_path(@development) %>
