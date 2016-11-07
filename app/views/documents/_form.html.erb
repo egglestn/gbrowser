@@ -1,0 +1,17 @@
+<%= simple_form_for(@document) do |f| %>
+  <%= f.error_notification %>
+
+  <% if document.documentable %>
+    <p>Document for: <%= render 'resource', resource: document.documentable %></p>
+  <% end %>
+
+  <div class="form-inputs">
+    <%= render @document unless @document.new_record? %>
+    <%= f.input :title %>
+    <%= f.input :file %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

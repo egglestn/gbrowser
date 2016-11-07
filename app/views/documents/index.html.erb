@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Documents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource Type</th>
+      <th>Resource</th>
+      <th>Title</th>
+      <th>File</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @documents.each do |document| %>
+      <tr>
+        <td><%= document.documentable.class.name %></td>
+        <td><%= document.documentable %></td>
+        <td><%= document.title %></td>
+        <td><a href="<%= document.file.url %>" target="_blank"><%= document %></a></td>
+        <td><%= link_to 'Show', document %></td>
+        <td><%= link_to 'Edit', edit_document_path(document) %></td>
+        <td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%# not supporting document creation outside of resource in prototype %>
+<button disabled="disabled">New Document</button> (Go to the parent resource to create a document)

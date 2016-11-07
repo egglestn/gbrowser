@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :documents
   resources :rooms, only: [] do
     resources :finishes
   end
