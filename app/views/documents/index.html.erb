@@ -19,7 +19,7 @@
         <td><%= document.documentable.class.name %></td>
         <td><%= document.documentable %></td>
         <td><%= document.title %></td>
-        <td><a href="<%= document.file.url %>" target="_blank"><%= document %></a></td>
+        <td><a href="<%= document.file.url %>" target="_blank"><%= document.to_s.truncate(50) %></a></td>
         <td><%= link_to 'Show', document %></td>
         <td><%= link_to 'Edit', edit_document_path(document) %></td>
         <td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
