@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :documents
+  resources :documents, except: :new
   resources :rooms, only: [] do
     resources :finishes
   end
