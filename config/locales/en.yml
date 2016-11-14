@@ -20,4 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  # User Enum Roles (enums do not support I18n OOTB)
+  cf_admin: 'CF Admin'
+  client_admin: 'Client Admin'
+  client_user: 'Client User'
+  owner: 'Home Owner'
