@@ -12,9 +12,6 @@ class Ability
       can :manage, :all
     elsif user.owner?
       can :manage, :all
-    else
-      # TODO: Remove once user login is setup
-      can :manage, :all
     end
   end
 end

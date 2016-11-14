@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
 
+  devise_for :users,
+             controllers: {
+               sessions: 'users/sessions'
+             }
+
   resources :users
+
   resources :documents, except: :new
+
   resources :rooms, only: [] do
     resources :finishes
   end

@@ -27,18 +27,27 @@
       </div>
       <div class="nav-member">
         <nav class="nav-menu">
+          <% if current_user %>
           <%= link_to 'Dashboard', root_path, class: "dash-link" %>
           <%= link_to 'Developers', developers_path, class: "dash-link"%>
           <%= link_to 'Developments', developments_path, class: "dash-link" %>
           <%= link_to 'Documents', documents_path, class: "dash-link" %>
           <%= link_to 'Users', users_path, class: "dash-link" %>
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "dash-link" %>
+          <% end %>
         </nav>
       </div>
     </div>
 
-    <% if flash[:alert].present? %>
+    <% if alert.present? %>
       <p style="background: red; color: #fff; padding: 5px; text-align: center;">
-        <%= flash[:alert] %>
+        <%= alert %>
+      </p>
+    <% end %>
+
+    <% if notice.present? %>
+      <p style="background: green; color: #fff; padding: 5px; text-align: center;">
+        <%= notice %>
       </p>
     <% end %>
 

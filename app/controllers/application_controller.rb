@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!
   check_authorization
 
   http_basic_authenticate_with(
@@ -11,9 +12,5 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     flash[:alert] = exception.message
     redirect_to root_url
-  end
-
-  def current_user
-    User.new(first_name: 'Guest', last_name: 'Guest')
   end
 end
