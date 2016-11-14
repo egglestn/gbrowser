@@ -1,4 +1,5 @@
 class PlotsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_development
   before_action :set_plot, only: [:show, :edit, :update, :destroy]
 

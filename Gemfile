@@ -36,6 +36,7 @@ gem 'mini_magick'
 gem "fog-aws"
 gem 'simple_form'
 gem "cocoon"
+gem 'cancancan', '~> 1'
 
 # Font awesome
 gem "font-awesome-rails"

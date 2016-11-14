@@ -1,4 +1,5 @@
 class UnitTypesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_development
   before_action :set_unit_type, only: [:show, :edit, :update, :destroy]
 

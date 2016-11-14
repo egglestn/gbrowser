@@ -36,6 +36,11 @@
       </div>
     </div>
 
+    <% if flash[:alert].present? %>
+      <p style="background: red; color: #fff; padding: 5px; text-align: center;">
+        <%= flash[:alert] %>
+      </p>
+    <% end %>
 
     <%= yield %>
   </body>

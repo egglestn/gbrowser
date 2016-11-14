@@ -1,4 +1,5 @@
 class FinishesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_room
   before_action :set_finish, only: [:show, :edit, :update, :destroy]
 
