@@ -1,12 +1,10 @@
 class PhasesController < ApplicationController
-  load_and_authorize_resource
-  before_action :set_development
-  before_action :set_phase, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :development
+  load_and_authorize_resource :phase, through: :development
 
   # GET /phases
   # GET /phases.json
   def index
-    @phases = @development.phases.all
   end
 
   # GET /phases/1
@@ -16,7 +14,6 @@ class PhasesController < ApplicationController
 
   # GET /phases/new
   def new
-    @phase = @development.phases.new
   end
 
   # GET /phases/1/edit
@@ -26,8 +23,6 @@ class PhasesController < ApplicationController
   # POST /phases
   # POST /phases.json
   def create
-    @phase = @development.phases.new(phase_params)
-
     respond_to do |format|
       if @phase.save
         format.html { redirect_to [@development, @phase], notice: 'Phase was successfully created.' }
@@ -64,15 +59,6 @@ class PhasesController < ApplicationController
   end
 
   private
-
-    def set_development
-      @development = Development.find(params[:development_id])
-    end
-
-    def set_phase
-      @phase = Phase.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def phase_params
       params.require(:phase).permit(:name, :development_id)

@@ -1,12 +1,10 @@
 class UnitTypesController < ApplicationController
-  load_and_authorize_resource
-  before_action :set_development
-  before_action :set_unit_type, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :development
+  load_and_authorize_resource :unit_type, through: :development
 
   # GET /unit_types
   # GET /unit_types.json
   def index
-    @unit_types = @development.unit_types.all.uniq
   end
 
   # GET /unit_types/1
@@ -16,7 +14,6 @@ class UnitTypesController < ApplicationController
 
   # GET /unit_types/new
   def new
-    @unit_type = UnitType.new
   end
 
   # GET /unit_types/1/edit
@@ -26,8 +23,6 @@ class UnitTypesController < ApplicationController
   # POST /unit_types
   # POST /unit_types.json
   def create
-    @unit_type = UnitType.new(unit_type_params)
-
     respond_to do |format|
       if @unit_type.save
         format.html { redirect_to [@development, @unit_type], notice: 'Unit type was successfully created.' }
@@ -64,14 +59,6 @@ class UnitTypesController < ApplicationController
   end
 
   private
-    def set_development
-      @development = Development.find(params[:development_id])
-    end
-
-    def set_unit_type
-      @unit_type = UnitType.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def unit_type_params
       params.require(:unit_type).permit(

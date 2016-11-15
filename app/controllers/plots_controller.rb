@@ -1,12 +1,10 @@
 class PlotsController < ApplicationController
-  load_and_authorize_resource
-  before_action :set_development
-  before_action :set_plot, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :development
+  load_and_authorize_resource :plot, through: :development
 
   # GET /plots
   # GET /plots.json
   def index
-    @plots = @development.plots.all.uniq
   end
 
   # GET /plots/1
@@ -22,7 +20,6 @@ class PlotsController < ApplicationController
 
   # GET /plots/new
   def new
-    @plot = Plot.new
   end
 
   # GET /plots/1/edit
@@ -32,8 +29,6 @@ class PlotsController < ApplicationController
   # POST /plots
   # POST /plots.json
   def create
-    @plot = Plot.new(plot_params)
-
     respond_to do |format|
       if @plot.save
         format.html { redirect_to [@development, @plot], notice: 'Plot was successfully created.' }
@@ -70,14 +65,6 @@ class PlotsController < ApplicationController
   end
 
   private
-    def set_development
-      @development = Development.find(params[:development_id])
-    end
-
-    def set_plot
-      @plot = Plot.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def plot_params
       params.require(:plot).permit(:prefix, :number, :unit_type_id, documents_attributes: [:id, :title, :file, :_destroy])

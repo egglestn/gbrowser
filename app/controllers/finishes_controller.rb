@@ -1,32 +1,33 @@
 class FinishesController < ApplicationController
-  load_and_authorize_resource
-  before_action :set_room
-  before_action :set_finish, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :room
+  load_and_authorize_resource :finish, through: :room
 
   # GET /finishes
   # GET /finishes.json
   def index
-    @finishes = @room.finishes.all.uniq
+    @development = @room.development
   end
 
   # GET /finishes/1
   # GET /finishes/1.json
   def show
+    @development = @room.development
   end
 
   # GET /finishes/new
   def new
-    @finish = @room.finishes.new
+    @development = @room.development
   end
 
   # GET /finishes/1/edit
   def edit
+    @development = @room.development
   end
 
   # POST /finishes
   # POST /finishes.json
   def create
-    @finish = @room.finishes.new(finish_params)
+    @development = @room.development
 
     respond_to do |format|
       if @finish.save
@@ -42,6 +43,8 @@ class FinishesController < ApplicationController
   # PATCH/PUT /finishes/1
   # PATCH/PUT /finishes/1.json
   def update
+    @development = @room.development
+
     respond_to do |format|
       if @finish.update(finish_params)
         format.html { redirect_to [@room, @finish], notice: 'Finish was successfully updated.' }
@@ -64,15 +67,6 @@ class FinishesController < ApplicationController
   end
 
   private
-    def set_room
-      @room = Room.find(params[:room_id])
-      @development = @room.development
-    end
-
-    def set_finish
-      @finish = Finish.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def finish_params
       params.require(:finish).permit(:room_id, :name, :category, :picture, documents_attributes: [:id, :title, :file, :_destroy])

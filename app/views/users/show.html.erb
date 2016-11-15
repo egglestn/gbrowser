@@ -11,8 +11,23 @@
 </p>
 
 <p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
   <strong>Role:</strong>
   <%= t(@user.role) %>
+</p>
+
+<p>
+  <strong>Developer:</strong>
+  <%= @user.developer %>
+</p>
+
+<p>
+  <strong>Division:</strong>
+  <%= @user.division %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

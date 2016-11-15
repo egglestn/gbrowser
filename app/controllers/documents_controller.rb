@@ -1,11 +1,9 @@
 class DocumentsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_document, only: [:show, :edit, :update, :destroy]
 
   # GET /documents
   # GET /documents.json
   def index
-    @documents = Document.all
   end
 
   # GET /documents/1
@@ -15,7 +13,6 @@ class DocumentsController < ApplicationController
 
   # GET /documents/new
   def new
-    @document = Document.new
   end
 
   # GET /documents/1/edit
@@ -25,8 +22,6 @@ class DocumentsController < ApplicationController
   # POST /documents
   # POST /documents.json
   def create
-    @document = Document.new(document_params)
-
     respond_to do |format|
       if @document.save
         format.html { redirect_to @document, notice: 'Document was successfully created.' }
@@ -63,11 +58,6 @@ class DocumentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_document
-      @document = Document.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
       params.require(:document).permit(:title, :file)

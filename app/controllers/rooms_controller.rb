@@ -1,12 +1,10 @@
 class RoomsController < ApplicationController
-  load_and_authorize_resource
-  before_action :set_development
-  before_action :set_room, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :development
+  load_and_authorize_resource :room, through: :development
 
   # GET /rooms
   # GET /rooms.json
   def index
-    @rooms = @development.rooms.all.uniq
   end
 
   # GET /rooms/1
@@ -16,7 +14,6 @@ class RoomsController < ApplicationController
 
   # GET /rooms/new
   def new
-    @room = Room.new
   end
 
   # GET /rooms/1/edit
@@ -26,8 +23,6 @@ class RoomsController < ApplicationController
   # POST /rooms
   # POST /rooms.json
   def create
-    @room = Room.new(room_params)
-
     respond_to do |format|
       if @room.save
         format.html { redirect_to [@development, @room], notice: 'Room was successfully created.' }
@@ -64,15 +59,6 @@ class RoomsController < ApplicationController
   end
 
   private
-
-    def set_development
-      @development = Development.find(params[:development_id])
-    end
-
-    def set_room
-      @room = Room.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
       params.require(:room).permit(:name, :unit_type_id, documents_attributes: [:id, :title, :file, :_destroy])

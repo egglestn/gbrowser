@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:alert] = exception.message
-    redirect_to root_url
+    referrer = request.referrer
+    url = if !referrer.blank? && referrer != request.url
+            referrer
+          else
+            root_url
+          end
+
+    redirect_to url
   end
 end

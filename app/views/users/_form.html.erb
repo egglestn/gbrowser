@@ -4,7 +4,27 @@
   <div class="form-inputs">
     <%= f.input :first_name %>
     <%= f.input :last_name %>
-    <%= f.input :role, as: :select, collection: roles_collection, include_blank: false %>
+    <%= f.input :email %>
+
+
+    <br>
+
+    <fieldset>
+      <%= f.input :role, as: :select, collection: roles_collection, include_blank: false %>
+
+    <br>
+    For Client Users, choose a Developer or Division for the role to apply to:
+
+    <%= f.association :developer,
+        as: :select,
+        collection: Developer.pluck(:company_name, :id),
+        include_blank: true %>
+
+    <%= f.association :division,
+        as: :select,
+        collection: Division.pluck(:division_name, :id),
+        include_blank: true %>
+    </fieldset>
   </div>
 
   <br>

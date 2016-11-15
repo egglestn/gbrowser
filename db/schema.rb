@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114120418) do
+ActiveRecord::Schema.define(version: 20161115164450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,9 @@ ActiveRecord::Schema.define(version: 20161114120418) do
     t.string   "contact_number"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "division_id"
     t.index ["developer_id"], name: "index_developments_on_developer_id", using: :btree
+    t.index ["division_id"], name: "index_developments_on_division_id", using: :btree
   end
 
   create_table "divisions", force: :cascade do |t|
@@ -60,6 +62,12 @@ ActiveRecord::Schema.define(version: 20161114120418) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "file"
+    t.integer  "developer_id"
+    t.integer  "division_id"
+    t.integer  "development_id"
+    t.index ["developer_id"], name: "index_documents_on_developer_id", using: :btree
+    t.index ["development_id"], name: "index_documents_on_development_id", using: :btree
+    t.index ["division_id"], name: "index_documents_on_division_id", using: :btree
     t.index ["documentable_type", "documentable_id"], name: "index_documents_on_documentable_type_and_documentable_id", using: :btree
   end
 
@@ -67,9 +75,15 @@ ActiveRecord::Schema.define(version: 20161114120418) do
     t.integer  "room_id"
     t.string   "name"
     t.string   "category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "picture"
+    t.integer  "developer_id"
+    t.integer  "division_id"
+    t.integer  "development_id"
+    t.index ["developer_id"], name: "index_finishes_on_developer_id", using: :btree
+    t.index ["development_id"], name: "index_finishes_on_development_id", using: :btree
+    t.index ["division_id"], name: "index_finishes_on_division_id", using: :btree
     t.index ["room_id"], name: "index_finishes_on_room_id", using: :btree
   end
 
@@ -78,6 +92,12 @@ ActiveRecord::Schema.define(version: 20161114120418) do
     t.string  "imageable_type"
     t.integer "imageable_id"
     t.string  "file"
+    t.integer "developer_id"
+    t.integer "division_id"
+    t.integer "development_id"
+    t.index ["developer_id"], name: "index_images_on_developer_id", using: :btree
+    t.index ["development_id"], name: "index_images_on_development_id", using: :btree
+    t.index ["division_id"], name: "index_images_on_division_id", using: :btree
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
   end
 
@@ -86,7 +106,11 @@ ActiveRecord::Schema.define(version: 20161114120418) do
     t.integer  "development_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "developer_id"
+    t.integer  "division_id"
+    t.index ["developer_id"], name: "index_phases_on_developer_id", using: :btree
     t.index ["development_id"], name: "index_phases_on_development_id", using: :btree
+    t.index ["division_id"], name: "index_phases_on_division_id", using: :btree
   end
 
   create_table "phases_unit_types", id: false, force: :cascade do |t|
@@ -100,23 +124,41 @@ ActiveRecord::Schema.define(version: 20161114120418) do
     t.string   "prefix"
     t.integer  "number"
     t.integer  "unit_type_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "developer_id"
+    t.integer  "division_id"
+    t.integer  "development_id"
+    t.index ["developer_id"], name: "index_plots_on_developer_id", using: :btree
+    t.index ["development_id"], name: "index_plots_on_development_id", using: :btree
+    t.index ["division_id"], name: "index_plots_on_division_id", using: :btree
     t.index ["unit_type_id"], name: "index_plots_on_unit_type_id", using: :btree
   end
 
   create_table "rooms", force: :cascade do |t|
     t.string   "name"
     t.integer  "unit_type_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "developer_id"
+    t.integer  "division_id"
+    t.integer  "development_id"
+    t.index ["developer_id"], name: "index_rooms_on_developer_id", using: :btree
+    t.index ["development_id"], name: "index_rooms_on_development_id", using: :btree
+    t.index ["division_id"], name: "index_rooms_on_division_id", using: :btree
     t.index ["unit_type_id"], name: "index_rooms_on_unit_type_id", using: :btree
   end
 
   create_table "unit_types", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "developer_id"
+    t.integer  "division_id"
+    t.integer  "development_id"
+    t.index ["developer_id"], name: "index_unit_types_on_developer_id", using: :btree
+    t.index ["development_id"], name: "index_unit_types_on_development_id", using: :btree
+    t.index ["division_id"], name: "index_unit_types_on_division_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -135,14 +177,41 @@ ActiveRecord::Schema.define(version: 20161114120418) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.integer  "developer_id"
+    t.integer  "division_id"
+    t.index ["developer_id"], name: "index_users_on_developer_id", using: :btree
+    t.index ["division_id"], name: "index_users_on_division_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "developments", "developers"
+  add_foreign_key "developments", "divisions"
   add_foreign_key "divisions", "developers"
+  add_foreign_key "documents", "developers"
+  add_foreign_key "documents", "developments"
+  add_foreign_key "documents", "divisions"
+  add_foreign_key "finishes", "developers"
+  add_foreign_key "finishes", "developments"
+  add_foreign_key "finishes", "divisions"
   add_foreign_key "finishes", "rooms"
+  add_foreign_key "images", "developers"
+  add_foreign_key "images", "developments"
+  add_foreign_key "images", "divisions"
+  add_foreign_key "phases", "developers"
   add_foreign_key "phases", "developments"
+  add_foreign_key "phases", "divisions"
+  add_foreign_key "plots", "developers"
+  add_foreign_key "plots", "developments"
+  add_foreign_key "plots", "divisions"
   add_foreign_key "plots", "unit_types"
+  add_foreign_key "rooms", "developers"
+  add_foreign_key "rooms", "developments"
+  add_foreign_key "rooms", "divisions"
   add_foreign_key "rooms", "unit_types"
+  add_foreign_key "unit_types", "developers"
+  add_foreign_key "unit_types", "developments"
+  add_foreign_key "unit_types", "divisions"
+  add_foreign_key "users", "developers"
+  add_foreign_key "users", "divisions"
 end

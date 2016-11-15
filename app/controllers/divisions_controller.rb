@@ -1,12 +1,10 @@
 class DivisionsController < ApplicationController
-  load_and_authorize_resource
-  before_action :set_developer
-  before_action :set_division, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :developer
+  load_and_authorize_resource :division, through: :developer
 
   # GET /divisions
   # GET /divisions.json
   def index
-    @divisions = @developer.divisions.all.uniq
   end
 
   # GET /divisions/1
@@ -16,7 +14,6 @@ class DivisionsController < ApplicationController
 
   # GET /divisions/new
   def new
-    @division = @developer.divisions.new
   end
 
   # GET /divisions/1/edit
@@ -26,8 +23,6 @@ class DivisionsController < ApplicationController
   # POST /divisions
   # POST /divisions.json
   def create
-    @division = @developer.divisions.new(division_params)
-
     respond_to do |format|
       if @division.save
         format.html { redirect_to [@developer, @division], notice: 'Division was successfully created.' }
@@ -64,14 +59,6 @@ class DivisionsController < ApplicationController
   end
 
   private
-    def set_developer
-      @developer = Developer.find(params[:developer_id])
-    end
-
-    def set_division
-      @division = Division.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def division_params
       params.require(:division).permit(:division_name, :address, :city, :county, :postcode, :email, :contact_number)

@@ -1,11 +1,9 @@
 class DevelopmentsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_development, only: [:show, :edit, :update, :destroy]
 
   # GET /developments
   # GET /developments.json
   def index
-    @developments = Development.all
   end
 
   # GET /developments/1
@@ -15,7 +13,6 @@ class DevelopmentsController < ApplicationController
 
   # GET /developments/new
   def new
-    @development = Development.new
   end
 
   # GET /developments/1/edit
@@ -25,8 +22,6 @@ class DevelopmentsController < ApplicationController
   # POST /developments
   # POST /developments.json
   def create
-    @development = Development.new(development_params)
-
     respond_to do |format|
       if @development.save
         format.html { redirect_to @development, notice: 'Development was successfully created.' }
@@ -63,13 +58,8 @@ class DevelopmentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_development
-      @development = Development.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def development_params
-      params.require(:development).permit(:development_name, :developer_id, :office_address, :city, :county, :postcode, :email, :contact_number)
+      params.require(:development).permit(:development_name, :developer_id, :division_id, :office_address, :city, :county, :postcode, :email, :contact_number)
     end
 end
