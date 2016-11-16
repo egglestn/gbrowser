@@ -2,6 +2,10 @@ class User < ApplicationRecord
   belongs_to :developer, optional: true
   belongs_to :division, optional: true
 
+  # as home owner, maybe move these out?
+  has_many :plot_residents
+  has_many :plots, through: :plot_residents
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,

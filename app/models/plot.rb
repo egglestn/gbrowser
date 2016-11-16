@@ -4,9 +4,11 @@ class Plot < ApplicationRecord
   belongs_to :division, optional: true
   belongs_to :development, optional: false
 
+  has_many :plot_residents
+  has_many :residents, through: :plot_residents
+
   has_many :rooms, through: :unit_type
   has_many :finishes, through: :rooms
-
   has_many :documents, as: :documentable
   accepts_nested_attributes_for :documents, reject_if: :all_blank, allow_destroy: true
 
