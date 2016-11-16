@@ -64,9 +64,9 @@ class Ability
     elsif user.owner?
       development_ids = user.plots.pluck(:development_id)
 
-      can :read, Developer, development: { id: development_ids }
+      can :read, Developer, developments: { id: development_ids }
       can :read, Development, id: development_ids
-      can :read, Division, developer: { development: { id: development_ids } }
+      can :read, Division, developer: { developments: { id: development_ids } }
       can :read, Document, development_id: development_ids
       can :read, Finish, development_id: development_ids
       can :read, Image, development_id: development_ids
