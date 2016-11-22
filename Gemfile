@@ -39,6 +39,7 @@ gem "simple_form"
 gem "cocoon"
 gem "cancancan", "~> 1"
 gem "devise"
+gem "healthcheck", git: "https://github.com/Alliants/healthcheck.git"
 
 # Font awesome
 gem "font-awesome-rails"
