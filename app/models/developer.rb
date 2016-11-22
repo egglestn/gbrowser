@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Developer < ApplicationRecord
   has_many :divisions, dependent: :destroy
   has_many :developments, dependent: :destroy

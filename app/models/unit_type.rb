@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class UnitType < ApplicationRecord
   ownable_by :developer, :division, from: :development
 
@@ -20,7 +21,7 @@ class UnitType < ApplicationRecord
 
   def phases_are_under_development
     unless phases.map(&:development_id).uniq == [development.id]
-      errors.add(:phases, 'must be from the development the unit type is for')
+      errors.add(:phases, "must be from the development the unit type is for")
     end
   end
 

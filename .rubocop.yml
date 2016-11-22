@@ -1,0 +1,39 @@
+# Alliants Rubocop standards
+
+# inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Include:
+    - Rakefile
+    - Gemfile
+    - config.ru
+  Exclude:
+    - config/**/*
+    - db/**/*
+    - bin/**/*
+    - script/**/*
+    - features/support/**/*
+  TargetRubyVersion: 2.3
+
+Rails:
+  Enabled: true
+Rails/Delegate:
+  Enabled: true
+  Exclude:
+    - lib/**/*
+
+Style/IfUnlessModifier:
+  Enabled: true
+  Exclude:
+    - spec/spec_helper.rb
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  Enabled: true
+Metrics/LineLength:
+  Max: 99
+  Enabled: true
+Documentation:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: true
+

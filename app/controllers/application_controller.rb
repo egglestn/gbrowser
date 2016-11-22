@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   check_authorization
@@ -11,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:alert] = exception.message
-    referrer = request.referrer
+    referrer = request.referer
     url = if !referrer.blank? && referrer != request.url
             referrer
           else

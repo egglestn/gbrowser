@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class RoomsController < ApplicationController
   load_and_authorize_resource :development
   load_and_authorize_resource :room, through: :development
@@ -25,7 +26,7 @@ class RoomsController < ApplicationController
   def create
     respond_to do |format|
       if @room.save
-        format.html { redirect_to [@development, @room], notice: 'Room was successfully created.' }
+        format.html { redirect_to [@development, @room], notice: "Room was successfully created." }
         format.json { render :show, status: :created, location: @room }
       else
         format.html { render :new }
@@ -39,7 +40,7 @@ class RoomsController < ApplicationController
   def update
     respond_to do |format|
       if @room.update(room_params)
-        format.html { redirect_to [@development, @room], notice: 'Room was successfully updated.' }
+        format.html { redirect_to [@development, @room], notice: "Room was successfully updated." }
         format.json { render :show, status: :ok, location: @room }
       else
         format.html { render :edit }
@@ -53,14 +54,15 @@ class RoomsController < ApplicationController
   def destroy
     @room.destroy
     respond_to do |format|
-      format.html { redirect_to development_rooms_url(@development), notice: 'Room was successfully destroyed.' }
+      format.html { redirect_to development_rooms_url(@development), notice: "Room was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def room_params
-      params.require(:room).permit(:name, :unit_type_id, documents_attributes: [:id, :title, :file, :_destroy])
-    end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def room_params
+    params.require(:room).permit(:name, :unit_type_id, documents_attributes: [:id, :title, :file, :_destroy])
+  end
 end

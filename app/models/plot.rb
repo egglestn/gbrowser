@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Plot < ApplicationRecord
   ownable_by :developer, :division, from: :development
 

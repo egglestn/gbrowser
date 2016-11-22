@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Development < ApplicationRecord
   belongs_to :developer, optional: false
   belongs_to :division, optional: true
@@ -18,7 +19,7 @@ class Development < ApplicationRecord
 
   def division_is_under_developer
     unless division.developer_id == developer.id
-      errors.add(:division, 'must be under the chosen Developer')
+      errors.add(:division, "must be under the chosen Developer")
     end
   end
 end
