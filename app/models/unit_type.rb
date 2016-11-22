@@ -1,4 +1,6 @@
 class UnitType < ApplicationRecord
+  ownable_by :developer, :division, from: :development
+
   belongs_to :developer, optional: false
   belongs_to :division, optional: true
   belongs_to :development, optional: true
@@ -15,17 +17,6 @@ class UnitType < ApplicationRecord
   validates :name, presence: true
   validates :phases, presence: true
   validate :phases_are_under_development
-
-  before_validation :add_developer, if: -> { developer.blank? }
-  before_validation :add_division, if: -> { division.blank? }
-
-  def add_developer
-    self.developer = development.developer
-  end
-
-  def add_division
-    self.division = development.division
-  end
 
   def phases_are_under_development
     unless phases.map(&:development_id).uniq == [development.id]

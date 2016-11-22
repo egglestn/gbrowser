@@ -28,13 +28,13 @@
         <td><%= development.postcode %></td>
         <td><%= development.email %></td>
         <td><%= development.contact_number %></td>
-        <td><%= link_to 'Phases', development_phases_path(development) %></td>
-        <td><%= link_to 'Unit Types', development_unit_types_path(development) %></td>
-        <td><%= link_to 'Rooms', development_rooms_path(development) %></td>
-        <td><%= link_to 'Plots', development_plots_path(development) %></td>
-        <td><%= link_to 'Show', development %></td>
-        <td><%= link_to 'Edit', edit_development_path(development) %></td>
-        <td><%= link_to 'Destroy', development, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to_unless cannot?(:read, Phase), 'Phases', development_phases_path(development) %></td>
+        <td><%= link_to_unless cannot?(:read, UnitType), 'Unit Types', development_unit_types_path(development) %></td>
+        <td><%= link_to_unless cannot?(:read, Room), 'Rooms', development_rooms_path(development) %></td>
+        <td><%= link_to_unless cannot?(:read, Plot), 'Plots', development_plots_path(development) %></td>
+        <td><%= link_to_unless cannot?(:read, development), 'Show', development %></td>
+        <td><%= link_to_unless cannot?(:edit, development), 'Edit', edit_development_path(development) %></td>
+        <td><%= link_to_unless cannot?(:destroy, development), 'Destroy', development, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +42,4 @@
 
 <br>
 
-<%= link_to 'New Development', new_development_path %>
+<%= link_to_unless cannot?(:create, Development), 'New Development', new_development_path %>

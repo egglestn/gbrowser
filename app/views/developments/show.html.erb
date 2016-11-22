@@ -6,10 +6,10 @@
 </h1>
 
 <ul>
-  <li><%= link_to 'Phases', development_phases_path(@development) %></li>
-  <li><%= link_to 'Unit Types', development_unit_types_path(@development) %></li>
-  <li><%= link_to 'Rooms', development_rooms_path(@development) %></li>
-  <li><%= link_to 'Plots', development_plots_path(@development) %></li>
+  <li><%= link_to_unless cannot?(:read, Phase), 'Phases', development_phases_path(@development) %></li>
+  <li><%= link_to_unless cannot?(:read, UnitType), 'Unit Types', development_unit_types_path(@development) %></li>
+  <li><%= link_to_unless cannot?(:read, Room), 'Rooms', development_rooms_path(@development) %></li>
+  <li><%= link_to_unless cannot?(:read, Plot), 'Plots', development_plots_path(@development) %></li>
 </ul>
 
 <p>
@@ -47,5 +47,5 @@
   <%= @development.contact_number %>
 </p>
 
-<%= link_to 'Edit', edit_development_path(@development) %> |
+<%= link_to_unless cannot?(:edit, @development), 'Edit', edit_development_path(@development) %> |
 <%= link_to 'Back', developments_path %>

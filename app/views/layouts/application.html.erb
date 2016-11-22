@@ -32,7 +32,12 @@
           <%= link_to 'Developers', developers_path, class: "dash-link"%>
           <%= link_to 'Developments', developments_path, class: "dash-link" %>
           <%= link_to 'Documents', documents_path, class: "dash-link" %>
-          <%= link_to 'Users', users_path, class: "dash-link" %>
+          <% unless current_user.owner? %>
+            <%= link_to 'Users', users_path, class: "dash-link" %>
+          <% end %>
+
+          <%= link_to 'Profile', user_path(current_user), class: "dash-link" %>
+
           <%= link_to "Sign out (#{current_user})", destroy_user_session_path, method: :delete, class: "dash-link" %>
           <% end %>
         </nav>
