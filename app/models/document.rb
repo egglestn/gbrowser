@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Document < ApplicationRecord
   ownable_by :developer, :division, :development, from: :documentable
   mount_uploader :file, DocumentUploader

@@ -1,9 +1,10 @@
+# frozen_string_literal: true
 module OwnableBy
   def ownable_by(*resources, from:)
     resources.map(&:to_sym).each do |resource|
       method_name = :"set_#{resource}"
 
-      class_eval <<~RUBY, __FILE__, __LINE__+1
+      class_eval <<~RUBY, __FILE__, __LINE__ + 1
 
       define_method method_name do
         from_class = send(from)

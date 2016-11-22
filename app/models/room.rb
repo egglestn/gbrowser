@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Room < ApplicationRecord
   ownable_by :developer, :division, :development, from: :unit_type
 

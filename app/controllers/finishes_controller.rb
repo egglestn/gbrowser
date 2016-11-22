@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class FinishesController < ApplicationController
   load_and_authorize_resource :room
   load_and_authorize_resource :finish, through: :room
@@ -31,7 +32,7 @@ class FinishesController < ApplicationController
 
     respond_to do |format|
       if @finish.save
-        format.html { redirect_to [@room, @finish], notice: 'Finish was successfully created.' }
+        format.html { redirect_to [@room, @finish], notice: "Finish was successfully created." }
         format.json { render :show, status: :created, location: @finish }
       else
         format.html { render :new }
@@ -47,7 +48,7 @@ class FinishesController < ApplicationController
 
     respond_to do |format|
       if @finish.update(finish_params)
-        format.html { redirect_to [@room, @finish], notice: 'Finish was successfully updated.' }
+        format.html { redirect_to [@room, @finish], notice: "Finish was successfully updated." }
         format.json { render :show, status: :ok, location: @finish }
       else
         format.html { render :edit }
@@ -61,14 +62,15 @@ class FinishesController < ApplicationController
   def destroy
     @finish.destroy
     respond_to do |format|
-      format.html { redirect_to room_finishes_url(@room), notice: 'Finish was successfully destroyed.' }
+      format.html { redirect_to room_finishes_url(@room), notice: "Finish was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def finish_params
-      params.require(:finish).permit(:room_id, :name, :category, :picture, documents_attributes: [:id, :title, :file, :_destroy])
-    end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def finish_params
+    params.require(:finish).permit(:room_id, :name, :category, :picture, documents_attributes: [:id, :title, :file, :_destroy])
+  end
 end

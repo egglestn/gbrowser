@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Finish < ApplicationRecord
   ownable_by :developer, :division, :development, from: :room
   mount_uploader :picture, PictureUploader

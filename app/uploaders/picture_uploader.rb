@@ -1,7 +1,7 @@
 # encoding: utf-8
+# frozen_string_literal: true
 
 class PictureUploader < CarrierWave::Uploader::Base
-
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
@@ -39,14 +39,14 @@ class PictureUploader < CarrierWave::Uploader::Base
   #   process :resize_to_fit => [50, 50]
   # end
 
-  process :resize_to_fit => [800, 800]
+  process resize_to_fit: [800, 800]
 
   version :medium do
-    process :resize_to_fit => [300, 300]
+    process resize_to_fit: [300, 300]
   end
 
   version :thumbnail do
-    process :resize_to_fit => [150, 150]
+    process resize_to_fit: [150, 150]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -60,5 +60,4 @@ class PictureUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
 end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class DivisionsController < ApplicationController
   load_and_authorize_resource :developer
   load_and_authorize_resource :division, through: :developer
@@ -25,7 +26,7 @@ class DivisionsController < ApplicationController
   def create
     respond_to do |format|
       if @division.save
-        format.html { redirect_to [@developer, @division], notice: 'Division was successfully created.' }
+        format.html { redirect_to [@developer, @division], notice: "Division was successfully created." }
         format.json { render :show, status: :created, location: @division }
       else
         format.html { render :new }
@@ -39,7 +40,7 @@ class DivisionsController < ApplicationController
   def update
     respond_to do |format|
       if @division.update(division_params)
-        format.html { redirect_to [@developer, @division], notice: 'Division was successfully updated.' }
+        format.html { redirect_to [@developer, @division], notice: "Division was successfully updated." }
         format.json { render :show, status: :ok, location: @division }
       else
         format.html { render :edit }
@@ -53,14 +54,15 @@ class DivisionsController < ApplicationController
   def destroy
     @division.destroy
     respond_to do |format|
-      format.html { redirect_to developer_divisions_url, notice: 'Division was successfully destroyed.' }
+      format.html { redirect_to developer_divisions_url, notice: "Division was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def division_params
-      params.require(:division).permit(:division_name, :address, :city, :county, :postcode, :email, :contact_number)
-    end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def division_params
+    params.require(:division).permit(:division_name, :address, :city, :county, :postcode, :email, :contact_number)
+  end
 end

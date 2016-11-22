@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class PhasesController < ApplicationController
   load_and_authorize_resource :development
   load_and_authorize_resource :phase, through: :development
@@ -25,7 +26,7 @@ class PhasesController < ApplicationController
   def create
     respond_to do |format|
       if @phase.save
-        format.html { redirect_to [@development, @phase], notice: 'Phase was successfully created.' }
+        format.html { redirect_to [@development, @phase], notice: "Phase was successfully created." }
         format.json { render :show, status: :created, location: @phase }
       else
         format.html { render :new }
@@ -39,7 +40,7 @@ class PhasesController < ApplicationController
   def update
     respond_to do |format|
       if @phase.update(phase_params)
-        format.html { redirect_to [@development, @phase], notice: 'Phase was successfully updated.' }
+        format.html { redirect_to [@development, @phase], notice: "Phase was successfully updated." }
         format.json { render :show, status: :ok, location: @phase }
       else
         format.html { render :edit }
@@ -53,14 +54,15 @@ class PhasesController < ApplicationController
   def destroy
     @phase.destroy
     respond_to do |format|
-      format.html { redirect_to development_phases_url(@development), notice: 'Phase was successfully destroyed.' }
+      format.html { redirect_to development_phases_url(@development), notice: "Phase was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def phase_params
-      params.require(:phase).permit(:name, :development_id)
-    end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def phase_params
+    params.require(:phase).permit(:name, :development_id)
+  end
 end
