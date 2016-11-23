@@ -1,0 +1,18 @@
+@scss stylesheets/application.css.scss
+@title Hoozzi Pattern Library
+@import stylesheets/**/*.lsg
+
+@header {
+  <div class="my-header" style="text-align: center; padding: 10px;">
+    <img style="display: inline;"src="/assets/styleguide-logo.png" alt="My Style Guide">
+  </div>
+}
+
+@footer {
+  <div class="my-header" style="margin-top: 150px; background-color: #eee; text-align: center; padding: 20px">
+    <p style="font-size: 10px; color: #ccc">Built and maintained by Alliants Ltd.</p>
+    <style>
+    .lsg-logo {display: none}
+    </style>
+  </div>
+}

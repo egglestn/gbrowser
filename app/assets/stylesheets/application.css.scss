@@ -110,6 +110,7 @@ td {
     white-space: nowrap;
 }
 
+button,
 input[type=submit] {
     background-color: #f77a60;
     border-color:     #f77a60;
@@ -117,12 +118,14 @@ input[type=submit] {
     font-size:        13px;
 }
 
+button:hover,
 input[type=submit]:hover {
     color:            #f77a60;
     border-color:     #f77a60;
     background-color: white;
 }
 
+button,
 input {
     padding-top:            4px;
     padding-right:          7px;
