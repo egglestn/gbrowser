@@ -9,5 +9,17 @@ FactoryGirl.define do
     factory :cf_admin do
       role { :cf_admin }
     end
+
+    factory :client_admin do
+      role { :client_admin }
+    end
+
+    factory :client_user do
+      role { :client_user }
+    end
+
+    factory :home_owner do
+      role { :owner }
+    end
   end
 end

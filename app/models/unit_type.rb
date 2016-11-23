@@ -4,7 +4,7 @@ class UnitType < ApplicationRecord
 
   belongs_to :developer, optional: false
   belongs_to :division, optional: true
-  belongs_to :development, optional: true
+  belongs_to :development, optional: false
 
   has_many :rooms, dependent: :destroy
   has_many :plots, dependent: :destroy
@@ -20,9 +20,8 @@ class UnitType < ApplicationRecord
   validate :phases_are_under_development
 
   def phases_are_under_development
-    unless phases.map(&:development_id).uniq == [development.id]
-      errors.add(:phases, "must be from the development the unit type is for")
-    end
+    return if phases.map(&:development_id).uniq == [development.id]
+    errors.add(:phases, "must be from the development the unit type is for")
   end
 
   def to_s
