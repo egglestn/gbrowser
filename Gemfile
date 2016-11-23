@@ -49,6 +49,7 @@ gem "livingstyleguide", git: 'https://github.com/Alliants/livingstyleguide.git',
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platform: :mri
+  gem "pry-rails"
   gem "rubocop"
 end
 
@@ -62,6 +63,16 @@ group :development do
   gem "guard"
   gem "guard-rake"
   gem 'guard-sass', :require => false
+end
+
+group :test do
+  gem "codeclimate-test-reporter"
+  gem "cucumber-rails", require: false
+  gem "database_cleaner"
+  gem "rspec-rails"
+  gem "simplecov", require: false
+  gem "timecop"
+  gem "webmock"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
