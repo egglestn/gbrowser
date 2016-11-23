@@ -8,7 +8,7 @@ class UnitType < ApplicationRecord
 
   has_many :rooms, dependent: :destroy
   has_many :plots, dependent: :destroy
-  has_many :phases_unit_types, dependent: :destroy
+  has_many :phases_unit_types
   has_many :phases, through: :phases_unit_types
   has_many :documents, as: :documentable
   accepts_nested_attributes_for :documents, reject_if: :all_blank, allow_destroy: true
