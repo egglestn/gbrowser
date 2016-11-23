@@ -1,6 +1,7 @@
+# frozen_string_literal: true
 FactoryGirl.define do
   factory :development do
-    development_name {  "#{Faker::Company.name} Develoment" }
+    development_name { "#{Faker::Company.name} Develoment" }
     office_address { Faker::Address.street_name }
     city { Faker::Address.city }
     postcode { Faker::Address.postcode }

@@ -1,6 +1,6 @@
 # Alliants Rubocop standards
 
-# inherit_from: .rubocop_todo.yml
+inherit_from: .rubocop_todo.yml
 
 AllCops:
   Include:
@@ -37,3 +37,9 @@ Documentation:
 Metrics/MethodLength:
   Enabled: true
 
+# Exclude auto-generated devise controllers
+Style/ClassAndModuleChildren:
+  Exclude:
+    - app/controllers/users/**
+
+# Exclude line lengths for format.html
