@@ -16,3 +16,8 @@ Before do
 end
 
 World(WebMock::API)
+World(FactoryGirl::Syntax::Methods)
+
+Warden.test_mode!
+World Warden::Test::Helpers
+After { Warden.test_reset! }
