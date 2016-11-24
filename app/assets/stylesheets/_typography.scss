@@ -1,0 +1,125 @@
+
+$base-font-family: 'Open Sans', sans-serif;
+$base-font-size: 14px;
+$base-font-line-height: 22px;
+$base-font-weight: 400;
+
+$title-font-size-1: 38px;
+$title-font-size-2: 28px;
+$title-font-size-3: 20px;
+$title-font-size-4: 18px;
+$title-font-size-5: 16px;
+
+$title-margin-large:  0 0 $spacing-large;
+$title-margin-medium: 0 0 $spacing-medium;
+$title-margin-small: 0 0 $spacing-small;
+
+$font-title-color: $primary-red;
+$font-copy-color: $type-grey;
+$font-link-color: $primary-red;
+
+$paragraph-padding: 0;
+$paragraph-margin: 0 0 $spacing-medium;
+
+$list-padding: 0;
+$list-margin: 0 0 $spacing-medium;
+
+$list-title-padding: 0;
+$list-title-margin: 0 0 $spacing-small;
+$list-title-color: $primary-red;
+$list-item-padding: 0;
+$list-item-margin: 0 0 $spacing-small;
+
+
+body {
+  font-family: $base-font-family;
+}
+
+// Title Styles
+h1, h2, h3, h4, h5 {
+  color: $font-title-color;
+  font-weight: $base-font-weight;
+  font-family: $base-font-family;
+}
+
+h1 { 
+  font-size: $title-font-size-1;
+  margin: $title-margin-large;
+}
+h2 { 
+  font-size: $title-font-size-2; 
+  margin: $title-margin-medium;
+}
+h3 { 
+  font-size: $title-font-size-3;
+  margin: $title-margin-medium; 
+}
+h4 { 
+  font-size: $title-font-size-4;
+  margin: $title-margin-medium; 
+}
+h5 { 
+  font-size: $title-font-size-5;
+  margin: $title-margin-small; 
+}
+
+//Paragraph Styles
+p {
+  padding: $paragraph-padding;
+  margin: $paragraph-margin;
+  color: $font-copy-color;
+  font-size: $base-font-size;
+  line-height: $base-font-line-height;
+  font-weight: $base-font-weight;
+  font-family: $base-font-family;
+}
+
+//List Styles
+ul,
+ol,
+dl {
+  padding: $list-padding;
+  margin: $list-margin;
+  list-style-position: inside;
+  font-family: $base-font-family;
+}
+
+li {
+  padding: $list-item-padding;
+  margin: $list-item-margin;
+  color: $font-copy-color;
+  font-size: $base-font-size;
+  line-height: $base-font-line-height;
+  font-weight: $base-font-weight;
+}
+
+dt {
+  display: list-item;
+  color: $list-title-color;
+  padding: $list-item-padding;
+  margin: $list-item-margin;
+  font-size: $base-font-size;
+  line-height: $base-font-line-height;
+  font-weight: $base-font-weight;
+}
+
+dd {
+  display: list-item;
+  padding: $list-item-padding;
+  margin: $list-item-margin;
+  list-style-type: disc;
+  font-size: $base-font-size;
+  line-height: $base-font-line-height;
+  font-weight: $base-font-weight;
+  color: $font-copy-color;
+}
+
+//Link Styles
+
+a {
+  color: $font-link-color;
+  font-size: $base-font-size;
+  line-height: $base-font-line-height;
+  font-weight: $base-font-weight;
+  font-family: $base-font-family;
+}

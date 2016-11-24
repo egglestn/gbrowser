@@ -1,0 +1,40 @@
+
+//Primary Colour Palette
+$primary-red: #F7525E;
+$primary-black: #252C31;
+$primary-green: #18A895;
+$primary-yellow: #FFC85D;
+
+//Secondary Colour Palette
+$secondary-blue: #394F5F;
+$secondary-orange: #F79461;
+$secondary-pink: #C53D72;
+$secondary-green: #48D5D9;
+
+//Type Palette
+$type-grey: #67747C;
+$type-red: #F7525E;
+
+//UI Palette
+$ui-white: #FFFFFF;
+$ui-light-grey: #EAEAEA;
+$ui-grey: #EAEAEA;
+$ui-black: #252C31;
+
+//Gradients
+
+@mixin grad-orange-pink() {
+  @include linear-gradient(135deg, $secondary-orange, $primary-red, $secondary-pink);
+}
+
+@mixin grad-blue-black() {
+  @include linear-gradient(135deg, $secondary-blue, $primary-black);
+}
+
+@mixin grad-green-green() {
+  @include linear-gradient(135deg, $secondary-green, $primary-green);
+}
+
+@mixin grad-yellow-orange() {
+  @include linear-gradient(135deg, $primary-yellow, $secondary-orange);
+}

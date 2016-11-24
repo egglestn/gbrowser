@@ -1,6 +1,16 @@
-@scss stylesheets/application.css.scss
+@scss stylesheets/application.scss
 @title Hoozzi Pattern Library
-@import stylesheets/**/*.lsg
+
+@style font-family: 'Open Sans', sans-serif
+
+@import stylesheets/_colors.lsg
+@import stylesheets/_geometry.lsg
+@import stylesheets/_responsive.lsg
+@import stylesheets/_typography.lsg
+
+@head {
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+}
 
 @header {
   <div class="my-header" style="text-align: center; padding: 10px;">
@@ -12,7 +22,32 @@
   <div class="my-header" style="margin-top: 150px; background-color: #eee; text-align: center; padding: 20px">
     <p style="font-size: 10px; color: #ccc">Built and maintained by Alliants Ltd.</p>
     <style>
-    .lsg-logo {display: none}
+    .lsg-logo,
+    #responsive-breakpoints-1 .lsg-code-block,
+    #responsive-breakpoints-2 .lsg-code-block,
+    #colors-gradients-1 .lsg-code-block  {
+      display: none
+    }
+
+    .lsg-html {
+      padding: 0;
+    }
+
+    section > table {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #eee;
+      padding: 10px;
+    }
+
     </style>
   </div>
+  <script src="https://use.fontawesome.com/4b512ba9f1.js"></script>
 }

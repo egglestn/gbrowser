@@ -41,11 +41,11 @@ gem "cancancan", "~> 1"
 gem "devise"
 gem "healthcheck", git: "https://github.com/Alliants/healthcheck.git"
 
-# Font awesome
+# Frontend
 gem "font-awesome-rails"
-
-# CSS Styleguide
-gem "livingstyleguide", git: "https://github.com/Alliants/livingstyleguide.git", branch: "rails_5"
+gem "livingstyleguide", git: 'https://github.com/Alliants/livingstyleguide.git', branch: 'rails_5'
+gem 'bourbon'
+gem 'neat'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

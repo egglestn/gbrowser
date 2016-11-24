@@ -1,0 +1,87 @@
+# Responsive Settings
+
+## Breakpoints
+
+The following viewport sizes are defined:
+
+```
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Viewport Width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$x-small</td>
+      <td>480px</td>
+    </tr>
+    <tr>
+      <td>$small</td>
+      <td>720px</td>
+    </tr>
+    <tr>
+      <td>$medium</td>
+      <td>1024px</td>
+    </tr>
+    <tr>
+      <td>$large</td>
+      <td>1440px</td>
+    </tr>
+    <tr>
+      <td>$x-large</td>
+      <td>1600px</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+These are then used in conjuction with neat's `new-breakpoint()` mixin to create the following breakpoints:
+
+```
+<table>
+  <thead>
+    <tr>
+    <th>Device Type</th>
+    <th>Breakpoint</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$mobile</td>
+      <td>$x-small</td>
+    </tr>
+    <tr>
+      <td>$tablet-portrait</td>
+      <td>$small</td>
+    </tr>
+    <tr>
+      <td>$tablet-landscape</td>
+      <td>$medium</td>
+    </tr>
+    <tr>
+      <td>$desktop</td>
+      <td>$large</td>
+    </tr>
+    <tr>
+      <td>$desktop-large</td>
+      <td>$desktop-large</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+These can then be used within your classes using neat's `media()` mixin:
+
+``` plain
+.element {
+  @include media($tablet-landscape) {
+    color: red;
+  }
+}
+```
+
+Note that we use `min-width` to create our media queries, meaning mobile-first should be observed when writing styles.
+
+In this example the text colour of `.element` will be red for `$tablet-landscape` and larger devices (`$desktop` and `$desktop-large`)
