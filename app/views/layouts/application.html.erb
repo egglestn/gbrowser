@@ -23,9 +23,13 @@
   </head>
 
   <body>
+    <%= render partial: 'components/menu' %>
     <div class="navbar-hoozzi">
       <div class="nav-member">
         <%= image_tag 'logo.png' %>
+      </div>
+      <div class="nav-member">
+        <button id="menu-btn">Menu</button>
       </div>
       <div class="nav-member">
         <nav class="nav-menu">

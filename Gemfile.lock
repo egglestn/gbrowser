@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: https://github.com/Alliants/livingstyleguide.git
-  revision: c7bb0caa7932716bd824d9227686f5766fa48231
+  revision: 2abb140ac3a9e6e69266847d30912513663f08f0
   branch: rails_5
   specs:
     livingstyleguide (2.0.1)
