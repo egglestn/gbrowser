@@ -1,28 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Running the tests
 
-Things you may want to cover:
+`$ bundle exec bin/test`
 
-* Ruby version
+The CI runs `bin/test` which does use the standard test frameworks CLI runners.
+Consequently running `$ cucumber` locally will run slightly different to the CI.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+In order to run individual parts of the suite:
+```
+$ bundle exec bin/test rubocop
+$ bundle exec bin/test rspec
+$ bundle exec bin/test cucumber
+```
 
 ## Component Styleguide
 

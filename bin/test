@@ -1,0 +1,75 @@
+#!/usr/bin/env ruby
+
+module HoozziTesting
+  module_function
+
+  def run_all_with_coverage
+    with_coverage do
+      HoozziTesting.run_rubocop
+      HoozziTesting.run_rspec
+      HoozziTesting.run_cucumber
+    end
+  end
+
+  def run_rubocop
+    require "rubocop"
+    require "benchmark"
+    cli = RuboCop::CLI.new
+    result = 0
+    time = Benchmark.realtime do
+      result = cli.run
+    end
+    puts "Finished in #{time} seconds" if cli.options[:debug]
+    exit result unless result == 0
+  end
+
+  def run_rspec
+    require "rspec/core"
+    $LOAD_PATH.unshift("spec")
+    require "rails_helper"
+    Dir.glob("spec/**/*_spec.rb").each { |f| require_relative(File.join("..", f)) }
+    RSpec::Core::Runner.invoke
+  end
+
+  def run_cucumber
+    require "cucumber"
+    args = Dir.glob("features/**/*.feature")
+    # args += %w(-d -f Cucumber::Formatter::Custom)
+    Cucumber::Cli::Main.new(args).execute!
+
+  rescue SystemExit => e
+    # Cucumber calls @kernel.exit(), killing your script unless you rescue
+    exit e.status unless e.status == 0
+  end
+
+  def with_coverage(&block)
+    require "codeclimate-test-reporter"
+    require "simplecov"
+    require "webmock"
+    CodeClimate::TestReporter.start
+
+    at_exit do
+      WebMock.allow_net_connect!
+    end
+
+    SimpleCov.start "rails" do
+      minimum_coverage 100
+    end
+
+    block && block.call
+  end
+end
+
+test_type = ARGV.shift
+
+case test_type
+when "rubocop"
+  HoozziTesting.run_rubocop
+when "rspec"
+  HoozziTesting.run_rspec
+when "cucumber"
+  HoozziTesting.run_cucumber
+else
+  HoozziTesting.run_all_with_coverage
+end
+
