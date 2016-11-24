@@ -1,4 +1,4 @@
-<%= form_for([@developer, division]) do |f| %>
+<%= form_for([division.developer, division]) do |f| %>
   <% if division.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(division.errors.count, "error") %> prohibited this division from being saved:</h2>

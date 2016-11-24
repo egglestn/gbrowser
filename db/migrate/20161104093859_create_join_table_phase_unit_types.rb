@@ -9,13 +9,6 @@ class CreateJoinTablePhaseUnitTypes < ActiveRecord::Migration[5.0]
       t.index [:phase_id, :unit_type_id]
       t.index [:unit_type_id, :phase_id]
     end
-
-    phase_unit_types.each do |(unit_type_id, phase_id)|
-      PhasesUnitType.create!(
-        unit_type_id: unit_type_id,
-        phase_id: phase_id
-      )
-    end
   end
 
   def down

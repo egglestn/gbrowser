@@ -16,9 +16,9 @@
         <td><%= room.name %></td>
         <td><%= room.unit_type %></td>
         <td><%= link_to 'Finishes', room_finishes_path(room) %></td>
-        <td><%= link_to 'Show', [@development, room] %></td>
-        <td><%= link_to 'Edit', edit_development_room_path(@development, room) %></td>
-        <td><%= link_to 'Destroy', [@development, room], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [room.development, room] %></td>
+        <td><%= link_to 'Edit', edit_development_room_path(room.development, room) %></td>
+        <td><%= link_to 'Destroy', [room.development, room], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

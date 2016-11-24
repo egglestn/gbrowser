@@ -1,4 +1,4 @@
-<%= simple_form_for([@development, room]) do |f| %>
+<%= simple_form_for([room.development, room]) do |f| %>
   <% if room.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :unit_type_id %>
-    <%= f.select :unit_type_id, @development.unit_types.pluck(:name, :id) %>
+    <%= f.select :unit_type_id, room.development.unit_types.pluck(:name, :id) %>
   </div>
 
   <br>

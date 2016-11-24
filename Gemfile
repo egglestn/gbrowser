@@ -54,6 +54,7 @@ group :development, :test do
   gem "rubocop"
   gem "factory_girl_rails"
   gem "faker"
+  gem "rails_best_practices", require: false
 end
 
 group :development do
