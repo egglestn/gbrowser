@@ -69,6 +69,11 @@ class PlotsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def plot_params
-    params.require(:plot).permit(:prefix, :number, :unit_type_id, documents_attributes: [:id, :title, :file, :_destroy])
+    params.require(:plot).permit(
+      :prefix,
+      :number,
+      :unit_type_id,
+      documents_attributes: [:id, :title, :file, :_destroy]
+    )
   end
 end

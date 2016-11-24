@@ -26,7 +26,9 @@ class UnitTypesController < ApplicationController
   def create
     respond_to do |format|
       if @unit_type.save
+        # rubocop:disable LineLength
         format.html { redirect_to [@development, @unit_type], notice: "Unit type was successfully created." }
+        # rubocop:enable LineLength
         format.json { render :show, status: :created, location: @unit_type }
       else
         format.html { render :new }
@@ -40,7 +42,9 @@ class UnitTypesController < ApplicationController
   def update
     respond_to do |format|
       if @unit_type.update(unit_type_params)
+        # rubocop:disable LineLength
         format.html { redirect_to [@development, @unit_type], notice: "Unit type was successfully updated." }
+        # rubocop:enable LineLength
         format.json { render :show, status: :ok, location: @unit_type }
       else
         format.html { render :edit }

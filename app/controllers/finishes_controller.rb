@@ -62,7 +62,9 @@ class FinishesController < ApplicationController
   def destroy
     @finish.destroy
     respond_to do |format|
+      # rubocop:disable LineLength
       format.html { redirect_to room_finishes_url(@room), notice: "Finish was successfully destroyed." }
+      # rubocop:enable LineLength
       format.json { head :no_content }
     end
   end
@@ -71,6 +73,12 @@ class FinishesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def finish_params
-    params.require(:finish).permit(:room_id, :name, :category, :picture, documents_attributes: [:id, :title, :file, :_destroy])
+    params.require(:finish).permit(
+      :room_id,
+      :name,
+      :category,
+      :picture,
+      documents_attributes: [:id, :title, :file, :_destroy]
+    )
   end
 end

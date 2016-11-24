@@ -18,8 +18,7 @@ class Development < ApplicationRecord
   delegate :to_s, to: :development_name
 
   def division_is_under_developer
-    unless division.developer_id == developer.id
-      errors.add(:division, "must be under the chosen Developer")
-    end
+    return if division.developer_id == developer.id
+    errors.add(:division, "must be under the chosen Developer")
   end
 end

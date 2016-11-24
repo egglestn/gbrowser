@@ -53,7 +53,9 @@ class DevelopmentsController < ApplicationController
   def destroy
     @development.destroy
     respond_to do |format|
+      # rubocop:disable LineLength
       format.html { redirect_to developments_url, notice: "Development was successfully destroyed." }
+      # rubocop:enable LineLength
       format.json { head :no_content }
     end
   end
@@ -62,6 +64,16 @@ class DevelopmentsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def development_params
-    params.require(:development).permit(:development_name, :developer_id, :division_id, :office_address, :city, :county, :postcode, :email, :contact_number)
+    params.require(:development).permit(
+      :development_name,
+      :developer_id,
+      :division_id,
+      :office_address,
+      :city,
+      :county,
+      :postcode,
+      :email,
+      :contact_number
+    )
   end
 end

@@ -27,15 +27,14 @@ class User < ApplicationRecord
   validate :non_client_user_assignment, unless: :client_user?
 
   def client_user_assignment
-    if developer.blank? && division.blank?
-      errors.add(:role, "must have a Developer or Division for a Client User.")
-    end
+    return unless developer.blank? && division.blank?
+    errors.add(:role, "must have a Developer or Division for a Client User.")
   end
 
   def non_client_user_assignment
-    if !developer.blank? || !division.blank?
-      errors.add(:role, "other than Client User must not have a Developer or Division. Please leave those fields blank.")
-    end
+    return unless !developer.blank? || !division.blank?
+    errors.add(:role, "other than Client User must not have a Developer or Division."\
+                      " Please leave those fields blank.")
   end
 
   def to_s

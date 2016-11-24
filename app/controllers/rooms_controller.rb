@@ -54,7 +54,9 @@ class RoomsController < ApplicationController
   def destroy
     @room.destroy
     respond_to do |format|
+      # rubocop:disable LineLength
       format.html { redirect_to development_rooms_url(@development), notice: "Room was successfully destroyed." }
+      # rubocop:enable LineLength
       format.json { head :no_content }
     end
   end
@@ -63,6 +65,10 @@ class RoomsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def room_params
-    params.require(:room).permit(:name, :unit_type_id, documents_attributes: [:id, :title, :file, :_destroy])
+    params.require(:room).permit(
+      :name,
+      :unit_type_id,
+      documents_attributes: [:id, :title, :file, :_destroy]
+    )
   end
 end
