@@ -1,0 +1,11 @@
+$header-bg-color: $ui-white;
+
+header {
+  @include pad($spacing-small $spacing-large $spacing-small $spacing-large);
+  background-color: $header-bg-color;
+  text-align: center;
+
+  @include media($tablet-landscape-up) {
+    text-align: left;
+  }
+}

@@ -14,11 +14,16 @@
  *= require font-awesome
  */
 
-@import "bourbon/bourbon";
-@import "neat/neat";
-@import "neat/neat-helpers";
+@import 'geometry';
 
-@import '_colors';
-@import '_geometry';
-@import '_responsive';
-@import '_typography';
+@import 'bourbon/bourbon';
+@import 'grid_settings';
+@import 'neat/neat';
+
+@import 'colors';
+@import 'reset';
+@import 'grid';
+@import 'typography';
+
+@import 'components/sidebar-navigation';
+@import 'components/header';

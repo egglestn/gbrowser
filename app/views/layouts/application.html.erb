@@ -3,6 +3,7 @@
   <head>
     <title>HoozziDemo</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -23,45 +24,32 @@
   </head>
 
   <body>
-    <%= render partial: 'components/menu' %>
-    <div class="navbar-hoozzi">
-      <div class="nav-member">
-        <%= image_tag 'logo.png' %>
+    <div class="outer-container">
+      <div class="navigation-container">
+        <%= render 'components/navigation' %>
       </div>
-      <div class="nav-member">
-        <button id="menu-btn">Menu</button>
-      </div>
-      <div class="nav-member">
-        <nav class="nav-menu">
-          <% if current_user %>
-          <%= link_to 'Dashboard', root_path, class: "dash-link" %>
-          <%= link_to 'Developers', developers_path, class: "dash-link"%>
-          <%= link_to 'Developments', developments_path, class: "dash-link" %>
-          <%= link_to 'Documents', documents_path, class: "dash-link" %>
-          <% unless current_user.owner? %>
-            <%= link_to 'Users', users_path, class: "dash-link" %>
-          <% end %>
+      <div class="content-container">
+        <div class="header-container">
+          <%= render 'components/header' %>
+        </div>
+        <div class="main-container">
+          <main>
+            <% if alert.present? %>
+              <p style="background: red; color: #fff; padding: 5px; text-align: center;">
+                <%= alert %>
+              </p>
+            <% end %>
 
-          <%= link_to 'Profile', user_path(current_user), class: "dash-link" %>
+            <% if notice.present? %>
+              <p style="background: green; color: #fff; padding: 5px; text-align: center;">
+                <%= notice %>
+              </p>
+            <% end %>
 
-          <%= link_to "Sign out (#{current_user})", destroy_user_session_path, method: :delete, class: "dash-link" %>
-          <% end %>
-        </nav>
+            <%= yield %>
+          </main>
+        </div>
       </div>
     </div>
-
-    <% if alert.present? %>
-      <p style="background: red; color: #fff; padding: 5px; text-align: center;">
-        <%= alert %>
-      </p>
-    <% end %>
-
-    <% if notice.present? %>
-      <p style="background: green; color: #fff; padding: 5px; text-align: center;">
-        <%= notice %>
-      </p>
-    <% end %>
-
-    <%= yield %>
   </body>
 </html>
