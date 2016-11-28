@@ -2,34 +2,29 @@
 class FinishesController < ApplicationController
   load_and_authorize_resource :room
   load_and_authorize_resource :finish, through: :room
+  before_action :set_development
 
   # GET /finishes
   # GET /finishes.json
   def index
-    @development = @room.development
   end
 
   # GET /finishes/1
   # GET /finishes/1.json
   def show
-    @development = @room.development
   end
 
   # GET /finishes/new
   def new
-    @development = @room.development
   end
 
   # GET /finishes/1/edit
   def edit
-    @development = @room.development
   end
 
   # POST /finishes
   # POST /finishes.json
   def create
-    @development = @room.development
-
     respond_to do |format|
       if @finish.save
         format.html { redirect_to [@room, @finish], notice: "Finish was successfully created." }
@@ -44,8 +39,6 @@ class FinishesController < ApplicationController
   # PATCH/PUT /finishes/1
   # PATCH/PUT /finishes/1.json
   def update
-    @development = @room.development
-
     respond_to do |format|
       if @finish.update(finish_params)
         format.html { redirect_to [@room, @finish], notice: "Finish was successfully updated." }
@@ -70,6 +63,10 @@ class FinishesController < ApplicationController
   end
 
   private
+
+  def set_development
+    @development = @room.development
+  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def finish_params

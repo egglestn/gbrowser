@@ -1,4 +1,4 @@
-<%= simple_form_for([@room, finish], html: { multipart: true }) do |f| %>
+<%= simple_form_for([finish.room, finish], html: { multipart: true }) do |f| %>
   <% if finish.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(finish.errors.count, "error") %> prohibited this finish from being saved:</h2>

@@ -16,7 +16,7 @@
   <tbody>
     <% @documents.each do |document| %>
       <tr>
-        <td><%= document.documentable.class.name %></td>
+        <td>Documentable class name</td>
         <td><%= document.documentable %></td>
         <td><%= document.title %></td>
         <td><a href="<%= document.file.url %>" target="_blank"><%= document.to_s.truncate(50) %></a></td>

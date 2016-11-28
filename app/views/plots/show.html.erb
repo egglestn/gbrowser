@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @development %>: <%= @plot %> Plot</h1> 
+<h1><%= @development %>: <%= @plot %> Plot</h1>
 
 <p>
   <strong>Prefix:</strong>
@@ -18,7 +18,7 @@
 </p>
 
 <% @hide_images_edit_link = true %>
-<%= render 'images', imageable: @plot.unit_type %>
+<%= render 'images', imageable: @plot.unit_type, edit_path: edit_development_plot_path(@development, @plot) %>
 
 <br>
 
@@ -46,7 +46,7 @@
 
     <% @all_documents.each do |document| %>
       <tr>
-        <td><%= document.documentable.class %> - <%= document.documentable %></td>
+        <td>Document documentable class - <%= document.documentable %></td>
         <td><%= document.title %></td>
         <td><a href="<%= document.file.url %>" target="_blank">Download</a></td>
       </tr>
