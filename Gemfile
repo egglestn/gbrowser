@@ -41,6 +41,9 @@ gem "cancancan", "~> 1"
 gem "devise"
 gem "healthcheck", git: "https://github.com/Alliants/healthcheck.git"
 
+# Rollbar for monitoring, see https://rollbar.com/alliants/Hoozzi/#rails"
+gem 'rollbar'
+
 # Frontend
 gem "font-awesome-rails"
 gem "livingstyleguide", git: "https://github.com/Alliants/livingstyleguide.git", branch: "rails_5"
