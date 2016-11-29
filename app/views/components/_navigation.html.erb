@@ -1,15 +1,27 @@
-<nav>
-  <% if current_user %>
-  <%= link_to 'Dashboard', root_path %>
-  <%= link_to 'Developers', developers_path %>
-  <%= link_to 'Developments', developments_path %>
-  <%= link_to 'Documents', documents_path %>
-  <% unless current_user.owner? %>
-    <%= link_to 'Users', users_path %>
-  <% end %>
+<div class="navbar">
+  <label class="navbar-trigger-label" for="navbar-trigger">
+    <%= fa_icon "bars" %>
+  </label>
+  <input id="navbar-trigger" type="checkbox">
+  <nav class="navbar-menu">
+    <% if current_user %>
+      <%= navigation_link(root_path, "tachometer", "Dashboard", "navbar-link") %>
+      <%= navigation_link(developers_path, "vcard", "Developers", "navbar-link") %>
+      <%= navigation_link(developments_path, "building", "Developments", "navbar-link") %>
+      <%= navigation_link(documents_path, "file", "Documents", "navbar-link") %>
 
-  <%= link_to 'Profile', user_path(current_user) %>
+      <% unless current_user.owner? %>
+        <%= navigation_link(users_path, "users", "Users", "navbar-link") %>
+      <% end %>
 
-  <%= link_to "Sign out (#{current_user})", destroy_user_session_path, method: :delete %>
-  <% end %>
-</nav>
+      <%= navigation_link(user_path(current_user), "user", "Profile", "navbar-link") %>
+
+      <div class="navbar-item">
+        <%= link_to destroy_user_session_path, method: :delete, class: "navbar-link" do %>
+          <%= fa_icon "sign-out" %>
+          Sign Out
+        <% end %>
+      </div>
+    <% end %>
+  </nav>
+</div>

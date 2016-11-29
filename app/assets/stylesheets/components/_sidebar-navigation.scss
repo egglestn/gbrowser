@@ -1,9 +1,0 @@
-.navigation-container {
-  display: none;
-  //For tablet portrait and up
-  @include media($tablet-landscape-up) {
-    display: block;
-    @include grad-blue-black();
-    height: 100%;
-  }
-}

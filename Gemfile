@@ -42,7 +42,7 @@ gem "devise"
 gem "healthcheck", git: "https://github.com/Alliants/healthcheck.git"
 
 # Rollbar for monitoring, see https://rollbar.com/alliants/Hoozzi/#rails"
-gem 'rollbar'
+gem "rollbar"
 
 # Frontend
 gem "font-awesome-rails"

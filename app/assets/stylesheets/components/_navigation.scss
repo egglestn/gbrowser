@@ -1,0 +1,114 @@
+//Trigger Variables
+$navbar-trigger-color: $primary-red;
+$navbar-trigger-size: $title-font-size-1;
+$navbar-trigger-offset: 10px;
+
+//Link Variables
+$navbar-link-padding-mobile: $spacing-medium;
+$navbar-link-padding-desktop: $spacing-small $spacing-medium $spacing-small ($spacing-medium + $spacing-small);
+$navbar-link-color: $ui-white;
+$navbar-link-icon-color: $primary-red;
+$navbar-link-bg-hover-color: rgba($ui-white, 0.1);
+$navbar-link-icon-margin: 0 $spacing-medium 0 0;
+$navbar-link-font-size-mobile: $title-font-size-3;
+
+//Nav Variables
+$navbar-bg-color-mobile: $ui-white;
+
+
+.sidebar-container {
+
+  //For tablet portrait and up
+  @include media($tablet-landscape-up) {
+    @include grad-blue-black();
+    height: 100%;
+  }
+}
+
+.navbar-trigger-label {
+  color: $navbar-trigger-color;
+  display: block;
+  position: absolute;
+  font-size: $title-font-size-1;
+  height: $title-font-size-1;
+  line-height: $title-font-size-1;
+  right: $navbar-trigger-offset;
+  top: $navbar-trigger-offset;
+
+  @include media($tablet-landscape-up) {
+    display: none;
+  }
+}
+
+.navbar-menu {
+
+  @include media($tablet-landscape-down) { 
+    max-height: 0;
+    overflow: hidden; 
+    @include transition(max-height 0.2s ease-in-out);
+
+  }
+
+  @include media($tablet-landscape-up) {
+    display: block;
+    max-height: 100%;
+  }
+
+}
+
+// Navbar trigger uses +checked selector
+// in combination with the checkbox label
+// to hide/show nav on smaller devices
+
+#navbar-trigger {
+  display: none;
+}
+
+#navbar-trigger:checked + .navbar-menu {
+  max-height: 100%;
+}
+
+.navbar-menu {
+  @include media($tablet-landscape-down) {
+    position: absolute;
+    top: $navbar-trigger-size + ($navbar-trigger-offset * 2);
+    background-color: $navbar-bg-color-mobile;
+    width: 100%;
+  }
+}
+
+.navbar-item {
+  .fa {
+    margin: $navbar-link-icon-margin;
+    width: $base-font-size;
+
+    @include media($tablet-landscape-down) {
+      display: inline-block;
+      text-align: center;
+      width: $navbar-link-font-size-mobile;
+    }
+  }
+}
+
+.navbar-link {
+  text-decoration: none;
+  display: block;
+
+  @include media($tablet-landscape-down) {
+    padding: $navbar-link-padding-mobile;
+    font-size: $navbar-link-font-size-mobile;
+  }
+
+  @include media($tablet-landscape-up) {
+    padding: $navbar-link-padding-desktop;
+    color: $navbar-link-color;
+    opacity: 0.6;
+
+    &:hover,
+    &.active {
+      background-color: $navbar-link-bg-hover-color;
+      opacity: 1;
+    }
+
+  }
+}
