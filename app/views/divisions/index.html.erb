@@ -26,6 +26,7 @@
         <td><%= division.postcode %></td>
         <td><%= division.email %></td>
         <td><%= division.contact_number %></td>
+        <td><%= link_to 'Developments', division_developments_path(division) %></td>
         <td><%= link_to 'Show', [@developer, division] %></td>
         <td><%= link_to 'Edit', edit_developer_division_path(@developer, division) %></td>
         <td><%= link_to 'Destroy', [@developer, division], method: :delete, data: { confirm: 'Are you sure?' } %></td>

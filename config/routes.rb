@@ -22,6 +22,11 @@ Rails.application.routes.draw do
 
   resources :developers do
     resources :divisions
+    resources :developments
+  end
+
+  resources :divisions do
+    resources :developments
   end
 
   root 'dashboard#show'

@@ -27,6 +27,7 @@
         <td><%= developer.email %></td>
         <td><%= developer.contact_number %></td>
         <td><%= link_to 'Divisions', developer_divisions_path(developer) %></td>
+        <td><%= link_to 'Developments', developer_developments_path(developer) %></td>
         <td><%= link_to 'Show', developer %></td>
         <td><%= link_to 'Edit', edit_developer_path(developer) %></td>
         <td><%= link_to 'Destroy', developer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
