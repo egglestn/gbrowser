@@ -12,6 +12,7 @@ AllCops:
     - db/**/*
     - bin/**/*
     - script/**/*
+    - vendor/**/*
     - features/support/**/*
   TargetRubyVersion: 2.3
 
