@@ -3,54 +3,37 @@ class UnitTypesController < ApplicationController
   load_and_authorize_resource :development
   load_and_authorize_resource :unit_type, through: :development
 
-  # GET /unit_types
   def index
   end
 
-  # GET /unit_types/1
-  def show
-  end
-
-  # GET /unit_types/new
   def new
   end
 
-  # GET /unit_types/1/edit
   def edit
   end
 
-  # POST /unit_types
+  def show
+  end
+
   def create
-    respond_to do |format|
-      if @unit_type.save
-        # rubocop:disable LineLength
-        format.html { redirect_to [@development, @unit_type], notice: "Unit type was successfully created." }
-        # rubocop:enable LineLength
-      else
-        format.html { render :new }
-      end
+    if @unit_type.save
+      redirect_to [@development, @unit_type], notice: "Unit type was successfully created."
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /unit_types/1
   def update
-    respond_to do |format|
-      if @unit_type.update(unit_type_params)
-        # rubocop:disable LineLength
-        format.html { redirect_to [@development, @unit_type], notice: "Unit type was successfully updated." }
-        # rubocop:enable LineLength
-      else
-        format.html { render :edit }
-      end
+    if @unit_type.update(unit_type_params)
+      redirect_to [@development, @unit_type], notice: "Unit type was successfully updated."
+    else
+      render :edit
     end
   end
 
-  # DELETE /unit_types/1
   def destroy
     @unit_type.destroy
-    respond_to do |format|
-      format.html { redirect_to unit_types_url, notice: "Unit type was successfully destroyed." }
-    end
+    redirect_to unit_types_url, notice: "Unit type was successfully destroyed."
   end
 
   private

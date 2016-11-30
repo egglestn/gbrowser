@@ -2,50 +2,37 @@
 class DocumentsController < ApplicationController
   load_and_authorize_resource
 
-  # GET /documents
   def index
   end
 
-  # GET /documents/1
-  def show
-  end
-
-  # GET /documents/new
   def new
   end
 
-  # GET /documents/1/edit
   def edit
   end
 
-  # POST /documents
+  def show
+  end
+
   def create
-    respond_to do |format|
-      if @document.save
-        format.html { redirect_to @document, notice: "Document was successfully created." }
-      else
-        format.html { render :new }
-      end
+    if @document.save
+      redirect_to @document, notice: "Document was successfully created."
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /documents/1
   def update
-    respond_to do |format|
-      if @document.update(document_params)
-        format.html { redirect_to @document, notice: "Document was successfully updated." }
-      else
-        format.html { render :edit }
-      end
+    if @document.update(document_params)
+      redirect_to @document, notice: "Document was successfully updated."
+    else
+      render :edit
     end
   end
 
-  # DELETE /documents/1
   def destroy
     @document.destroy
-    respond_to do |format|
-      format.html { redirect_to documents_url, notice: "Document was successfully destroyed." }
-    end
+    redirect_to documents_url, notice: "Document was successfully destroyed."
   end
 
   private

@@ -3,56 +3,37 @@ class DivisionsController < ApplicationController
   load_and_authorize_resource :developer
   load_and_authorize_resource :division, through: :developer
 
-  # GET /divisions
   def index
   end
 
-  # GET /divisions/1
-  def show
-  end
-
-  # GET /divisions/new
   def new
   end
 
-  # GET /divisions/1/edit
   def edit
   end
 
-  # POST /divisions
+  def show
+  end
+
   def create
-    respond_to do |format|
-      if @division.save
-        # rubocop:disable LineLength
-        format.html { redirect_to [@developer, @division], notice: "Division was successfully created." }
-        # rubocop:enable LineLength
-      else
-        format.html { render :new }
-      end
+    if @division.save
+      redirect_to [@developer, @division], notice: "Division was successfully created."
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /divisions/1
   def update
-    respond_to do |format|
-      if @division.update(division_params)
-        # rubocop:disable LineLength
-        format.html { redirect_to [@developer, @division], notice: "Division was successfully updated." }
-        # rubocop:enable LineLength
-      else
-        format.html { render :edit }
-      end
+    if @division.update(division_params)
+      redirect_to [@developer, @division], notice: "Division was successfully updated."
+    else
+      render :edit
     end
   end
 
-  # DELETE /divisions/1
   def destroy
     @division.destroy
-    respond_to do |format|
-      # rubocop:disable LineLength
-      format.html { redirect_to developer_divisions_url, notice: "Division was successfully destroyed." }
-      # rubocop:enable LineLength
-    end
+    redirect_to developer_divisions_url, notice: "Division was successfully destroyed."
   end
 
   private

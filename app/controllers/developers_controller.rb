@@ -2,50 +2,37 @@
 class DevelopersController < ApplicationController
   load_and_authorize_resource
 
-  # GET /developers
   def index
   end
 
-  # GET /developers/1
-  def show
-  end
-
-  # GET /developers/new
   def new
   end
 
-  # GET /developers/1/edit
   def edit
   end
 
-  # POST /developers
+  def show
+  end
+
   def create
-    respond_to do |format|
-      if @developer.save
-        format.html { redirect_to @developer, notice: "Developer was successfully created." }
-      else
-        format.html { render :new }
-      end
+    if @developer.save
+      redirect_to @developer, notice: "Developer was successfully created."
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /developers/1
   def update
-    respond_to do |format|
-      if @developer.update(developer_params)
-        format.html { redirect_to @developer, notice: "Developer was successfully updated." }
-      else
-        format.html { render :edit }
-      end
+    if @developer.update(developer_params)
+      redirect_to @developer, notice: "Developer was successfully updated."
+    else
+      render :edit
     end
   end
 
-  # DELETE /developers/1
   def destroy
     @developer.destroy
-    respond_to do |format|
-      format.html { redirect_to developers_url, notice: "Developer was successfully destroyed." }
-    end
+    redirect_to developers_url, notice: "Developer was successfully destroyed."
   end
 
   private

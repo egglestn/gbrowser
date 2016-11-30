@@ -3,11 +3,15 @@ class PlotsController < ApplicationController
   load_and_authorize_resource :development
   load_and_authorize_resource :plot, through: :development
 
-  # GET /plots
   def index
   end
 
-  # GET /plots/1
+  def new
+  end
+
+  def edit
+  end
+
   def show
     @all_documents = []
     @all_documents << @plot.unit_type.documents
@@ -17,42 +21,25 @@ class PlotsController < ApplicationController
     @all_documents.flatten!
   end
 
-  # GET /plots/new
-  def new
-  end
-
-  # GET /plots/1/edit
-  def edit
-  end
-
-  # POST /plots
   def create
-    respond_to do |format|
-      if @plot.save
-        format.html { redirect_to [@development, @plot], notice: "Plot was successfully created." }
-      else
-        format.html { render :new }
-      end
+    if @plot.save
+      redirect_to [@development, @plot], notice: "Plot was successfully created."
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /plots/1
   def update
-    respond_to do |format|
-      if @plot.update(plot_params)
-        format.html { redirect_to [@development, @plot], notice: "Plot was successfully updated." }
-      else
-        format.html { render :edit }
-      end
+    if @plot.update(plot_params)
+      redirect_to [@development, @plot], notice: "Plot was successfully updated."
+    else
+      frender :edit
     end
   end
 
-  # DELETE /plots/1
   def destroy
     @plot.destroy
-    respond_to do |format|
-      format.html { redirect_to development_plots_url, notice: "Plot was successfully destroyed." }
-    end
+    redirect_to development_plots_url, notice: "Plot was successfully destroyed."
   end
 
   private

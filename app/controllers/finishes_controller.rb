@@ -4,52 +4,37 @@ class FinishesController < ApplicationController
   load_and_authorize_resource :finish, through: :room
   before_action :set_development
 
-  # GET /finishes
   def index
   end
 
-  # GET /finishes/1
-  def show
-  end
-
-  # GET /finishes/new
   def new
   end
 
-  # GET /finishes/1/edit
   def edit
   end
 
-  # POST /finishes
+  def show
+  end
+
   def create
-    respond_to do |format|
-      if @finish.save
-        format.html { redirect_to [@room, @finish], notice: "Finish was successfully created." }
-      else
-        format.html { render :new }
-      end
+    if @finish.save
+      redirect_to [@room, @finish], notice: "Finish was successfully created."
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /finishes/1
   def update
-    respond_to do |format|
-      if @finish.update(finish_params)
-        format.html { redirect_to [@room, @finish], notice: "Finish was successfully updated." }
-      else
-        format.html { render :edit }
-      end
+    if @finish.update(finish_params)
+      redirect_to [@room, @finish], notice: "Finish was successfully updated."
+    else
+      render :edit
     end
   end
 
-  # DELETE /finishes/1
   def destroy
     @finish.destroy
-    respond_to do |format|
-      # rubocop:disable LineLength
-      format.html { redirect_to room_finishes_url(@room), notice: "Finish was successfully destroyed." }
-      # rubocop:enable LineLength
-    end
+    redirect_to room_finishes_url(@room), notice: "Finish was successfully destroyed."
   end
 
   private
