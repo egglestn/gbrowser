@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Developments</h1>
-
 <table>
   <thead>
     <tr>
@@ -13,12 +11,12 @@
       <th>Postcode</th>
       <th>Email</th>
       <th>Contact number</th>
-      <th colspan="7"></th>
+      <th colspan="7">Links</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @developments.each do |development| %>
+    <% developments.each do |development| %>
       <tr>
         <td><%= development.development_name %></td>
         <td><%= development.developer %></td>
@@ -32,14 +30,10 @@
         <td><%= link_to_unless cannot?(:read, UnitType), 'Unit Types', development_unit_types_path(development) %></td>
         <td><%= link_to_unless cannot?(:read, Room), 'Rooms', development_rooms_path(development) %></td>
         <td><%= link_to_unless cannot?(:read, Plot), 'Plots', development_plots_path(development) %></td>
-        <td><%= link_to_unless cannot?(:read, development), 'Show', development %></td>
-        <td><%= link_to_unless cannot?(:edit, development), 'Edit', edit_development_path(development) %></td>
-        <td><%= link_to_unless cannot?(:destroy, development), 'Destroy', development, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to_unless cannot?(:read, development), 'Show', polymorphic_url([parent, development]) %></td>
+        <td><%= link_to_unless cannot?(:edit, development), 'Edit', edit_polymorphic_url([parent, development]) %></td>
+        <td><%= link_to_unless cannot?(:destroy, development), 'Destroy', polymorphic_url([parent, development]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to_unless cannot?(:create, Development), 'New Development', new_development_path %>

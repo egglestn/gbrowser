@@ -1,0 +1,6 @@
+<h1>Edit Development <%= @development.development_name %></h1>
+
+<%= render 'developments/form', parent: @developer, development: @development %>
+
+<%= link_to 'Show', developer_development_path(@developer, @development) %> |
+<%= link_to 'Back', developer_developments_path(@developer) %>
