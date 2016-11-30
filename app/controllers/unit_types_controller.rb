@@ -4,12 +4,10 @@ class UnitTypesController < ApplicationController
   load_and_authorize_resource :unit_type, through: :development
 
   # GET /unit_types
-  # GET /unit_types.json
   def index
   end
 
   # GET /unit_types/1
-  # GET /unit_types/1.json
   def show
   end
 
@@ -22,44 +20,36 @@ class UnitTypesController < ApplicationController
   end
 
   # POST /unit_types
-  # POST /unit_types.json
   def create
     respond_to do |format|
       if @unit_type.save
         # rubocop:disable LineLength
         format.html { redirect_to [@development, @unit_type], notice: "Unit type was successfully created." }
         # rubocop:enable LineLength
-        format.json { render :show, status: :created, location: @unit_type }
       else
         format.html { render :new }
-        format.json { render json: @unit_type.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /unit_types/1
-  # PATCH/PUT /unit_types/1.json
   def update
     respond_to do |format|
       if @unit_type.update(unit_type_params)
         # rubocop:disable LineLength
         format.html { redirect_to [@development, @unit_type], notice: "Unit type was successfully updated." }
         # rubocop:enable LineLength
-        format.json { render :show, status: :ok, location: @unit_type }
       else
         format.html { render :edit }
-        format.json { render json: @unit_type.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /unit_types/1
-  # DELETE /unit_types/1.json
   def destroy
     @unit_type.destroy
     respond_to do |format|
       format.html { redirect_to unit_types_url, notice: "Unit type was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

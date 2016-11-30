@@ -1,1 +1,0 @@
-json.array! @finishes, partial: 'finishes/finish', as: :finish

@@ -4,12 +4,10 @@ class DivisionsController < ApplicationController
   load_and_authorize_resource :division, through: :developer
 
   # GET /divisions
-  # GET /divisions.json
   def index
   end
 
   # GET /divisions/1
-  # GET /divisions/1.json
   def show
   end
 
@@ -22,46 +20,38 @@ class DivisionsController < ApplicationController
   end
 
   # POST /divisions
-  # POST /divisions.json
   def create
     respond_to do |format|
       if @division.save
         # rubocop:disable LineLength
         format.html { redirect_to [@developer, @division], notice: "Division was successfully created." }
         # rubocop:enable LineLength
-        format.json { render :show, status: :created, location: @division }
       else
         format.html { render :new }
-        format.json { render json: @division.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /divisions/1
-  # PATCH/PUT /divisions/1.json
   def update
     respond_to do |format|
       if @division.update(division_params)
         # rubocop:disable LineLength
         format.html { redirect_to [@developer, @division], notice: "Division was successfully updated." }
         # rubocop:enable LineLength
-        format.json { render :show, status: :ok, location: @division }
       else
         format.html { render :edit }
-        format.json { render json: @division.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /divisions/1
-  # DELETE /divisions/1.json
   def destroy
     @division.destroy
     respond_to do |format|
       # rubocop:disable LineLength
       format.html { redirect_to developer_divisions_url, notice: "Division was successfully destroyed." }
       # rubocop:enable LineLength
-      format.json { head :no_content }
     end
   end
 
