@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Developments for <%= @developer %></h1>
+
+<%= render 'developments/developments', developments: @developments, parent: @developer %>
+
+<%= link_to_unless cannot?(:create, Development), 'New Development', new_developer_development_path(@developer) %>

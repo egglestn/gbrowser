@@ -4,6 +4,10 @@
   <%= @developer %>: <%= @division.division_name %>
 </h1>
 
+<ul>
+<li><%= link_to 'Developments', division_developments_path(@division) %></li>
+</ul>
+
 <p>
   <strong>Address:</strong>
   <%= @division.address %>

@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <strong>Development:</strong>
+  <%= development.development_name %>
+</h1>
+
+<ul>
+  <li><%= link_to_unless cannot?(:read, Phase), 'Phases', development_phases_path(development) %></li>
+  <li><%= link_to_unless cannot?(:read, UnitType), 'Unit Types', development_unit_types_path(development) %></li>
+  <li><%= link_to_unless cannot?(:read, Room), 'Rooms', development_rooms_path(development) %></li>
+  <li><%= link_to_unless cannot?(:read, Plot), 'Plots', development_plots_path(development) %></li>
+</ul>
+
+<p>
+  <strong>Developer:</strong>
+  <%= development.developer %>
+</p>
+
+<p>
+  <strong>Office address:</strong>
+  <%= development.office_address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= development.city %>
+</p>
+
+<p>
+  <strong>County:</strong>
+  <%= development.county %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= development.postcode %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= development.email %>
+</p>
+
+<p>
+  <strong>Contact number:</strong>
+  <%= development.contact_number %>
+</p>
