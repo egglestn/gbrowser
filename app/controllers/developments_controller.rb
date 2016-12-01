@@ -2,62 +2,37 @@
 class DevelopmentsController < ApplicationController
   load_and_authorize_resource
 
-  # GET /developments
-  # GET /developments.json
   def index
   end
 
-  # GET /developments/1
-  # GET /developments/1.json
-  def show
-  end
-
-  # GET /developments/new
   def new
   end
 
-  # GET /developments/1/edit
   def edit
   end
 
-  # POST /developments
-  # POST /developments.json
+  def show
+  end
+
   def create
-    respond_to do |format|
-      if @development.save
-        format.html { redirect_to @development, notice: "Development was successfully created." }
-        format.json { render :show, status: :created, location: @development }
-      else
-        format.html { render :new }
-        format.json { render json: @development.errors, status: :unprocessable_entity }
-      end
+    if @development.save
+      redirect_to @development, notice: "Development was successfully created."
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /developments/1
-  # PATCH/PUT /developments/1.json
   def update
-    respond_to do |format|
-      if @development.update(development_params)
-        format.html { redirect_to @development, notice: "Development was successfully updated." }
-        format.json { render :show, status: :ok, location: @development }
-      else
-        format.html { render :edit }
-        format.json { render json: @development.errors, status: :unprocessable_entity }
-      end
+    if @development.update(development_params)
+      redirect_to @development, notice: "Development was successfully updated."
+    else
+      render :edit
     end
   end
 
-  # DELETE /developments/1
-  # DELETE /developments/1.json
   def destroy
     @development.destroy
-    respond_to do |format|
-      # rubocop:disable LineLength
-      format.html { redirect_to developments_url, notice: "Development was successfully destroyed." }
-      # rubocop:enable LineLength
-      format.json { head :no_content }
-    end
+    redirect_to developments_url, notice: "Development was successfully destroyed."
   end
 
   private

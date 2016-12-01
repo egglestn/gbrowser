@@ -3,66 +3,37 @@ class PhasesController < ApplicationController
   load_and_authorize_resource :development
   load_and_authorize_resource :phase, through: :development
 
-  # GET /phases
-  # GET /phases.json
   def index
   end
 
-  # GET /phases/1
-  # GET /phases/1.json
-  def show
-  end
-
-  # GET /phases/new
   def new
   end
 
-  # GET /phases/1/edit
   def edit
   end
 
-  # POST /phases
-  # POST /phases.json
+  def show
+  end
+
   def create
-    respond_to do |format|
-      if @phase.save
-        # rubocop:disable LineLength
-        format.html { redirect_to [@development, @phase], notice: "Phase was successfully created." }
-        # rubocop:enable LineLength
-        format.json { render :show, status: :created, location: @phase }
-      else
-        format.html { render :new }
-        format.json { render json: @phase.errors, status: :unprocessable_entity }
-      end
+    if @phase.save
+      redirect_to [@development, @phase], notice: "Phase was successfully created."
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /phases/1
-  # PATCH/PUT /phases/1.json
   def update
-    respond_to do |format|
-      if @phase.update(phase_params)
-        # rubocop:disable LineLength
-        format.html { redirect_to [@development, @phase], notice: "Phase was successfully updated." }
-        # rubocop:enable LineLength
-        format.json { render :show, status: :ok, location: @phase }
-      else
-        format.html { render :edit }
-        format.json { render json: @phase.errors, status: :unprocessable_entity }
-      end
+    if @phase.update(phase_params)
+      redirect_to [@development, @phase], notice: "Phase was successfully updated."
+    else
+      render :edit
     end
   end
 
-  # DELETE /phases/1
-  # DELETE /phases/1.json
   def destroy
     @phase.destroy
-    respond_to do |format|
-      # rubocop:disable LineLength
-      format.html { redirect_to development_phases_url(@development), notice: "Phase was successfully destroyed." }
-      # rubocop:enable LineLength
-      format.json { head :no_content }
-    end
+    redirect_to development_phases_url(@development), notice: "Phase was successfully destroyed."
   end
 
   private
