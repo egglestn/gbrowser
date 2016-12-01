@@ -26,7 +26,6 @@ class PhasesController < ApplicationController
   def update
     if @phase.update(phase_params)
       redirect_to [@development, @phase], notice: "Phase was successfully updated."
-      # rubocop:enable LineLength
     else
       render :edit
     end
