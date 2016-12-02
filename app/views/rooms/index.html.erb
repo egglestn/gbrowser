@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
-
-<h1><%= @development %> Rooms</h1>
+<h1><%= @development %>  <%= Room.model_name.human.pluralize %></h1>
 
 <%= render 'rooms', rooms: @rooms %>
 <br>
 
-<%= link_to 'New Room', new_development_room_path(@development) %>
+<%= link_to t("views.add_type", type: Room.model_name.human), new_development_room_path(@development) %>

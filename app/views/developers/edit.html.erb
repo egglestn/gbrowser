@@ -1,6 +1,6 @@
-<h1>Editing Developer</h1>
+<h1><%= t("views.edit_name", name: @developer.company_name) %></h1>
 
 <%= render 'form', developer: @developer %>
 
-<%= link_to 'Show', @developer %> |
-<%= link_to 'Back', developers_path %>
+<%= link_to t("views.show"), @developer %> |
+<%= link_to t("views.back"), developers_path %>

@@ -17,7 +17,7 @@ class PhasesController < ApplicationController
 
   def create
     if @phase.save
-      redirect_to [@development, @phase], notice: "Phase was successfully created."
+      redirect_to [@development, @phase], notice: t("controller.success.create", name: @phase.name)
     else
       render :new
     end
@@ -25,7 +25,7 @@ class PhasesController < ApplicationController
 
   def update
     if @phase.update(phase_params)
-      redirect_to [@development, @phase], notice: "Phase was successfully updated."
+      redirect_to [@development, @phase], notice: t("controller.success.update", name: @phase.name)
     else
       render :edit
     end
@@ -33,7 +33,11 @@ class PhasesController < ApplicationController
 
   def destroy
     @phase.destroy
-    redirect_to development_phases_url(@development), notice: "Phase was successfully destroyed."
+    notice = t(
+      "controller.success.destroy",
+      name: @phase.name
+    )
+    redirect_to development_phases_url(@development), notice: notice
   end
 
   private

@@ -1,13 +1,9 @@
-<p id="notice"><%= notice %></p>
-
 <h1>
-  <%= @development %>:
   <%= @unit_type.name %>
-  Unit Type
 </h1>
 
 <p>
-  <strong>Phases:</strong>
+  <strong><%= Phase.model_name.human %></strong>
   <%= @unit_type.phases.pluck(:name).to_sentence %>
 </p>
 
@@ -24,4 +20,4 @@
 <%= render 'images', imageable: @unit_type, edit_path: edit_development_unit_type_path(@development) %>
 <br>
 
-<%= link_to 'Edit', edit_development_unit_type_path(@development, @unit_type) %>
+<%= link_to t("views.edit"), edit_development_unit_type_path(@development, @unit_type) %>

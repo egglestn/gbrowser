@@ -16,7 +16,7 @@ class DevelopersController < ApplicationController
 
   def create
     if @developer.save
-      redirect_to @developer, notice: "Developer was successfully created."
+      redirect_to @developer, notice: t("controller.success.create", name: @developer.company_name)
     else
       render :new
     end
@@ -24,7 +24,7 @@ class DevelopersController < ApplicationController
 
   def update
     if @developer.update(developer_params)
-      redirect_to @developer, notice: "Developer was successfully updated."
+      redirect_to @developer, notice: t("controller.success.update", name: @developer.company_name)
     else
       render :edit
     end
@@ -32,7 +32,11 @@ class DevelopersController < ApplicationController
 
   def destroy
     @developer.destroy
-    redirect_to developers_url, notice: "Developer was successfully destroyed."
+    notice = t(
+      "controller.success.destroy",
+      name: @developer.company_name
+    )
+    redirect_to developers_url, notice: notice
   end
 
   private

@@ -17,7 +17,11 @@ class UnitTypesController < ApplicationController
 
   def create
     if @unit_type.save
-      redirect_to [@development, @unit_type], notice: "Unit type was successfully created."
+      notice = t(
+        "controller.success.create",
+        name: @unit_type.name
+      )
+      redirect_to [@development, @unit_type], notice: notice
     else
       render :new
     end
@@ -25,7 +29,11 @@ class UnitTypesController < ApplicationController
 
   def update
     if @unit_type.update(unit_type_params)
-      redirect_to [@development, @unit_type], notice: "Unit type was successfully updated."
+      notice = t(
+        "controller.success.update",
+        name: @unit_type.name
+      )
+      redirect_to [@development, @unit_type], notice: notice
     else
       render :edit
     end
@@ -33,7 +41,7 @@ class UnitTypesController < ApplicationController
 
   def destroy
     @unit_type.destroy
-    redirect_to unit_types_url, notice: "Unit type was successfully destroyed."
+    redirect_to unit_types_url, notice: t("controller.success.destroy", name: @unit_type.name)
   end
 
   private

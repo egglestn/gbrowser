@@ -10,6 +10,10 @@
 #
 #     <%= t('hello') %>
 #
+# Here's an example of text with a parameter from a controller
+#
+#  redirect_to @developer, notice: "#{@developer.company_name}#{t("controller.success.create")}"
+#
 # To use a different locale, set it with `I18n.locale`:
 #
 #     I18n.locale = :es
@@ -19,9 +23,150 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+# =========================== Style guide ====================
+# Use double quotes
+# Phrases should begin with capital letter
+# Do not use a full stop at the end of the text
+# Otherwise use punctuation as normal
+# Avoid apostrophes: can not instead of can't
+# (they can cause both code pain and translation pain)
+# Words that are likely to be reused a lot are under "views"
+# ===========================================================
+
 en:
   # User Enum Roles (enums do not support I18n OOTB)
-  cf_admin: 'CF Admin'
-  client_admin: 'Client Admin'
-  client_user: 'Client User'
-  owner: 'Home Owner'
+  cf_admin: "CF Admin"
+  client_admin: "Developer Admin"
+  division_admin: "Division Admin"
+  client_user: "Development Admin"
+  owner: "Home Owner"
+
+  controller:
+    success:
+      create: "%{name} was created successfully"
+      update: "%{name} was updated successfully"
+      destroy: "%{name} was archived successfully"
+
+  views:
+    add: "Add"
+    add_type: "Add %{type}"
+    remove: "Remove"
+    edit: "Edit"
+    edit_name: "Edit %{name}"
+    download: "Download"
+    show: "Show"
+    name: "Name"
+    back: "Back"
+    need_fix: "This can not be created because you need to fix the error(s) shown"
+    destroy: "Archive"
+    actions: "Actions"
+    links: "Links"
+    thumbnail: "Thumbnail"
+    sure: "Are you sure you wish to archive this?"
+
+  dashboard:
+    header: "Dashboard title for Hoozzi"
+    title: "Dashboard"
+
+  development:
+    add: "Add development for"
+
+  folders:
+    title: "Folders"
+    one: "Folder"
+
+  images:
+    title: "Pictures"
+    img_name: "Picture name"
+    not_yet: "You can add pictures after this resource has been saved"
+
+  profiles:
+    title: "Profile"
+    prefix: "Title"
+
+  rooms:
+    no_rooms: "No rooms found"
+
+  users:
+    sign_out: "Sign out"
+    choose_scope: "Select a developer, division, or development to associate this user with"
+
+  documents:
+    all_docs: "All documents from rooms in this plot"
+    no_docs: "No documents found"
+    file_name: "Original file name"
+    for: "Document for"
+    size: "File size"
+    loaded_by: "Uploaded by"
+    loaded_date: "Upload date"
+    not_yet: "You can add documents after this resource has been saved"
+    loaded_scope: "Upload scope"
+    loaded_name: "Upload parent"
+
+  activerecord:
+    models:
+      Developer: "Developer"
+      Division: "Division"
+      Development: "Development"
+      Phase: "Phase"
+      Unit_Type: "Unit Type"
+      Plot: "Plot"
+      Room: "Room"
+      Finish: "Finish"
+      Document: "Document"
+      User: "User"
+
+    attributes:
+      developer:
+        company_name: "Developer name"
+        head_office_address: "Head office address"
+        city: "Town / city"
+        county: "County"
+        postcode: "Postcode"
+        email: "Email address"
+        contact_number: "Contact number"
+      division:
+        division_name: "Division name"
+        address: "Division address"
+        city: "Town / city"
+        county: "County"
+        postcode: "Postcode"
+        email: "Email address"
+        contact_number: "Contact number"
+      development:
+        development_name: "Development name"
+        office_address: "Marketing suite address"
+        city: "Town / city"
+        county: "County"
+        postcode: "Postcode"
+        email: "Email address"
+        contact_number: "Contact number"
+      phase:
+        name: "Name"
+      unit_type:
+        name: "Unit type name"
+      plot:
+        title: "Plots"
+        one: "Plot"
+        prefix: "Prefix"
+        number: "Number"
+      room:
+        name: "Room Name"
+      finish:
+        name: "Name"
+        type: "Type"
+        manuf: "Manufacturer"
+        descr: "Description"
+        image: "Picture"
+        provider: "Provider"
+      document:
+        title: "Document name"
+        file: "File"
+      user:
+        email: "Email address"
+        tel: "Contact number"
+        access: "Access"
+        role: "Role"
+        first_name: "First name"
+        last_name: "Last name"
+

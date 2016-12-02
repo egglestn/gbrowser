@@ -26,6 +26,9 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # Alert if missing translation
+  config.action_view.raise_on_missing_translations = true
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 

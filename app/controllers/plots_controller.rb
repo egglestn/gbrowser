@@ -23,7 +23,7 @@ class PlotsController < ApplicationController
 
   def create
     if @plot.save
-      redirect_to [@development, @plot], notice: "Plot was successfully created."
+      redirect_to [@development, @plot], notice: t("controller.success.create", name: @plot.id)
     else
       render :new
     end
@@ -31,7 +31,7 @@ class PlotsController < ApplicationController
 
   def update
     if @plot.update(plot_params)
-      redirect_to [@development, @plot], notice: "Plot was successfully updated."
+      redirect_to [@development, @plot], notice: t("controller.success.update", name: @plot.id)
     else
       frender :edit
     end
@@ -39,7 +39,7 @@ class PlotsController < ApplicationController
 
   def destroy
     @plot.destroy
-    redirect_to development_plots_url, notice: "Plot was successfully destroyed."
+    redirect_to development_plots_url, notice: t("controller.success.destroy", name: @plot.id)
   end
 
   private

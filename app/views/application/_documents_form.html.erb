@@ -1,13 +1,13 @@
 <% unless f.object.new_record? %>
   <div class="field">
-    <h3>Manage Documents</h3>
+    <h3><%= Document.model_name.human.pluralize %></h3>
     <div id="documents">
       <%= f.simple_fields_for :documents do |document| %>
         <%= render 'document_fields', f: document %>
       <% end %>
 
       <div class="links">
-        <%= link_to_add_association 'add document', f, :documents %>
+        <%= link_to_add_association t("views.add"), f, :documents %>
       </div>
     </div>
   </div>
@@ -15,6 +15,6 @@
   <br>
 
 <% else %>
-  <h3>Manage Documents</h3>
-  <p> You can add documents once this resource has been saved.</p>
+  <h3><%= Document.model_name.human.pluralize %></h3>
+  <p><%= t("documents.not_yet") %></p>
 <% end %>

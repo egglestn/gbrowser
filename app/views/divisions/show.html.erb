@@ -1,42 +1,42 @@
 <p id="notice"><%= notice %></p>
 
 <h1>
-  <%= @developer %>: <%= @division.division_name %>
+  <%= @division.division_name %>
 </h1>
 
 <ul>
-<li><%= link_to 'Developments', division_developments_path(@division) %></li>
+<li><%= link_to Division.model_name.human.pluralize, division_developments_path(@division) %></li>
 </ul>
 
 <p>
-  <strong>Address:</strong>
+  <strong><%=Division.human_attribute_name("address") %></strong>
   <%= @division.address %>
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong><%= Division.human_attribute_name("city") %></strong>
   <%= @division.city %>
 </p>
 
 <p>
-  <strong>County:</strong>
+  <strong><%= Division.human_attribute_name("county") %></strong>
   <%= @division.county %>
 </p>
 
 <p>
-  <strong>Postcode:</strong>
+  <strong><%= Division.human_attribute_name("postcode") %></strong>
   <%= @division.postcode %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong><%= Division.human_attribute_name("email") %></strong>
   <%= @division.email %>
 </p>
 
 <p>
-  <strong>Contact number:</strong>
+  <strong><%= Division.human_attribute_name("contact_number") %></strong>
   <%= @division.contact_number %>
 </p>
 
-<%= link_to 'Edit', edit_developer_division_path(@developer, @division) %> |
-<%= link_to 'Back', developer_divisions_path %>
+<%= link_to t("views.edit"), edit_developer_division_path(@developer, @division) %> |
+<%= link_to t("views.back"), developer_divisions_path %>

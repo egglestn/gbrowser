@@ -1,12 +1,9 @@
-<h1>Editing Document</h1>
+<h1><%= t("views.edit_name", name: @document.title) %></h1>
 
 <%= render 'form', document: @document %>
 
 <br>
 
-<%= link_to 'Destroy', @document, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-<br>
-
-<%= link_to 'Show', @document %> |
-<%= link_to 'Back', documents_path %>
+<%= link_to t("views.destroy"), @document, method: :delete, data: { confirm: t("views.sure") } %> |
+<%= link_to t("views.show"), @document %> |
+<%= link_to t("views.back"), documents_path %>

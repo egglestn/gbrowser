@@ -1,19 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<h1><%= @development %>: <%= @plot %> Plot</h1>
+<h1><%= @development %>: <%= @plot.prefix %> <%= @plot.number %></h1>
 
 <p>
-  <strong>Prefix:</strong>
+  <strong><%= Plot.human_attribute_name("prefix") %></strong>
   <%= @plot.prefix %>
 </p>
 
 <p>
-  <strong>Number:</strong>
+  <strong><%= Plot.human_attribute_name("number") %></strong>
   <%= @plot.number %>
 </p>
 
 <p>
-  <strong>Unit type:</strong>
+  <strong><%= UnitType.model_name.human %></strong>
   <%= @plot.unit_type %>
 </p>
 
@@ -22,33 +20,31 @@
 
 <br>
 
-<% @hide_documents_header = true %>
-<h3>Plot Documents</h3>
 <%= render 'documents', documentable: @plot, edit_path: edit_development_plot_path(@development, @plot) %>
 
 <br>
 
-<h3>All Documents Related to Plot</h3>
+<h3><%= t("documents.all_docs") %></h3>
 <table>
   <thead>
-    <th>From</th>
-    <th>Title</th>
-    <th>File</th>
+    <th><%= t("documents.for") %></th>
+    <th><%= Document.human_attribute_name("title") %></th>
+    <th><%= t("views.download") %></th>
   </thead>
   <tbody>
     <% if @all_documents.count < 1 %>
       <tr>
         <td colspan="3">
-          No documents found.
+          <%= t("documents.no_docs") %>
         </td>
       </tr>
     <% end %>
 
     <% @all_documents.each do |document| %>
       <tr>
-        <td>Document documentable class - <%= document.documentable %></td>
+        <td>document documentable class name <%= document.documentable %></td>
         <td><%= document.title %></td>
-        <td><a href="<%= document.file.url %>" target="_blank">Download</a></td>
+        <td><a href="<%= document.file.url %>" target="_blank"><%= document.file %></a></td>
       </tr>
     <% end %>
   </tbody>
@@ -56,5 +52,5 @@
 
 <br>
 
-<%= link_to 'Edit', edit_development_plot_path(@development, @plot) %> |
-<%= link_to 'Back', development_plots_path(@development) %>
+<%= link_to t("views.edit"), edit_development_plot_path(@development, @plot) %> |
+<%= link_to t("views.back"), development_plots_path(@development) %>

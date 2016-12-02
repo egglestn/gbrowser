@@ -1,44 +1,41 @@
-<p id="notice"><%= notice %></p>
-
 <h1>
-  <strong>Developer:</strong>
   <%= @developer.company_name %>
 </h1>
 
 <ul>
-  <li><%= link_to 'Divisions', developer_divisions_path(@developer) %></li>
-  <li><%= link_to 'Developments', developer_developments_path(@developer) %></li>
+  <li><%= link_to Division.model_name.human.pluralize, developer_divisions_path(@developer) %></li>
+  <li><%= link_to Development.model_name.human.pluralize, developer_developments_path(@developer) %></li>
 </ul>
 
 <p>
-  <strong>Head office address:</strong>
+  <strong><%= Developer.human_attribute_name("head_office_address") %></strong>
   <%= @developer.head_office_address %>
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong><%= Developer.human_attribute_name("city") %></strong>
   <%= @developer.city %>
 </p>
 
 <p>
-  <strong>County:</strong>
+  <strong><%= Developer.human_attribute_name("county") %></strong>
   <%= @developer.county %>
 </p>
 
 <p>
-  <strong>Postcode:</strong>
+  <strong><%= Developer.human_attribute_name("postcode") %></strong>
   <%= @developer.postcode %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong><%= Developer.human_attribute_name("email") %></strong>
   <%= @developer.email %>
 </p>
 
 <p>
-  <strong>Contact number:</strong>
+  <strong><%= Developer.human_attribute_name("contact_number") %></strong>
   <%= @developer.contact_number %>
 </p>
 
-<%= link_to 'Edit', edit_developer_path(@developer) %> |
-<%= link_to 'Back', developers_path %>
+<%= link_to t("views.edit"), edit_developer_path(@developer) %> |
+<%= link_to t("views.back"), developers_path %>

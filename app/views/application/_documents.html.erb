@@ -1,14 +1,14 @@
 <h3>Documents</h3>
 <table>
   <thead>
-    <th>Title</th>
-    <th>File</th>
+    <th><%= Document.human_attribute_name("doc_name") %></th>
+    <th><%= t("views.download") %></th>
   </thead>
   <tbody>
     <% if documentable.documents.count < 1 %>
       <tr>
         <td colspan="2">
-          <%= link_to "Add documents", edit_path %>
+          <%= link_to t("views.add"), edit_path %>
         </td>
       </tr>
     <% end %>
@@ -16,7 +16,7 @@
     <% documentable.documents.each do |document| %>
       <tr>
         <td><%= document.title %></td>
-        <td><a href="<%= document.file.url %>" target="_blank">Download</a></td>
+        <td><a href="<%= document.file.url %>" target="_blank"><%= document.file %></a></td>
       </tr>
     <% end %>
   </tbody>
