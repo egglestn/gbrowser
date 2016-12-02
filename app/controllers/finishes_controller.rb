@@ -18,7 +18,7 @@ class FinishesController < ApplicationController
 
   def create
     if @finish.save
-      redirect_to [@room, @finish], notice: "Finish was successfully created."
+      redirect_to [@room, @finish], notice: t("controller.success.create", name: @finish.name)
     else
       render :new
     end
@@ -26,7 +26,7 @@ class FinishesController < ApplicationController
 
   def update
     if @finish.update(finish_params)
-      redirect_to [@room, @finish], notice: "Finish was successfully updated."
+      redirect_to [@room, @finish], notice: t("controller.success.update", name: @finish.name)
     else
       render :edit
     end
@@ -34,7 +34,11 @@ class FinishesController < ApplicationController
 
   def destroy
     @finish.destroy
-    redirect_to room_finishes_url(@room), notice: "Finish was successfully destroyed."
+    notice = t(
+      "controller.success.destroy",
+      name: @finish.name
+    )
+    redirect_to room_finishes_url(@room), notice: notice
   end
 
   private

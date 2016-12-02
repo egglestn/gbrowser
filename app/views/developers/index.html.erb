@@ -1,18 +1,16 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Developers</h1>
+<h1><%= Developer.model_name.human.pluralize %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Company name</th>
-      <th>Head office address</th>
-      <th>City</th>
-      <th>County</th>
-      <th>Postcode</th>
-      <th>Email</th>
-      <th>Contact number</th>
-      <th colspan="4"></th>
+      <th><%= Developer.human_attribute_name("company_name") %></th>
+      <th><%= Developer.human_attribute_name("head_office_address") %></th>
+      <th><%= Developer.human_attribute_name("city") %></th>
+      <th><%= Developer.human_attribute_name("county") %></th>
+      <th><%= Developer.human_attribute_name("postcode") %></th>
+      <th><%= Developer.human_attribute_name("email") %></th>
+      <th><%= Developer.human_attribute_name("contact_number") %></th>
+      <th colspan="4"><%= t("views.actions") %></th>
     </tr>
   </thead>
 
@@ -26,11 +24,11 @@
         <td><%= developer.postcode %></td>
         <td><%= developer.email %></td>
         <td><%= developer.contact_number %></td>
-        <td><%= link_to 'Divisions', developer_divisions_path(developer) %></td>
-        <td><%= link_to 'Developments', developer_developments_path(developer) %></td>
-        <td><%= link_to 'Show', developer %></td>
-        <td><%= link_to 'Edit', edit_developer_path(developer) %></td>
-        <td><%= link_to 'Destroy', developer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to Division.model_name.human.pluralize, developer_divisions_path(developer) %></td>
+        <td><%= link_to Development.model_name.human.pluralize, developer_developments_path(developer) %></td>
+        <td><%= link_to t("views.show"), developer %></td>
+        <td><%= link_to t("views.edit"), edit_developer_path(developer) %></td>
+        <td><%= link_to t("views.destroy"), developer, method: :delete, data: { confirm: t("views.sure") } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Developer', new_developer_path %>
+<%= link_to t("views.add_type", type: Developer.model_name.human), new_developer_path %>

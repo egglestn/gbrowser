@@ -1,14 +1,32 @@
 <%= simple_form_for(document) do |f| %>
   <%= f.error_notification %>
 
-  <% if document.documentable %>
-    <p>Document for: <%= render 'resource', resource: document.documentable %></p>
-  <% end %>
-
   <div class="form-inputs">
     <%= render document unless document.new_record? %>
-    <%= f.input :title %>
-    <%= f.input :file %>
+    <p>
+      <%= f.label Document.human_attribute_name("title") %>
+      <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.label t("documents.file_name") %>
+      <%= f.text_field :file %>
+    </p>
+    <p>
+
+      <%= f.label t("folders.one") %>
+    </p>
+    <p>
+
+      <%= f.label t("documents.size") %>
+    </p>
+    <p>
+
+      <%= f.label t("documents.loaded_by") %>
+    </p>
+    <p>
+      <%= f.label t("documents.loaded_date") %>
+    </p>
+
   </div>
 
   <div class="form-actions">

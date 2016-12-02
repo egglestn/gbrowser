@@ -1,17 +1,15 @@
-<p id="notice"><%= notice %></p>
-
 <table>
   <thead>
     <tr>
-      <th>Development name</th>
-      <th>Developer</th>
-      <th>Office address</th>
-      <th>City</th>
-      <th>County</th>
-      <th>Postcode</th>
-      <th>Email</th>
-      <th>Contact number</th>
-      <th colspan="7">Links</th>
+      <th><%= Developer.human_attribute_name("company_name") %></th>
+      <th><%= Developer.model_name.human %></th>
+      <th><%= Developer.human_attribute_name("head_office_address") %></th>
+      <th><%= Developer.human_attribute_name("city") %></th>
+      <th><%= Developer.human_attribute_name("county") %></th>
+      <th><%= Developer.human_attribute_name("postcode") %></th>
+      <th><%= Developer.human_attribute_name("email") %></th>
+      <th><%= Developer.human_attribute_name("contact_number") %></th>
+      <th colspan="7"><%= t("views.actions") %></th>
     </tr>
   </thead>
 
@@ -26,13 +24,13 @@
         <td><%= development.postcode %></td>
         <td><%= development.email %></td>
         <td><%= development.contact_number %></td>
-        <td><%= link_to_unless cannot?(:read, Phase), 'Phases', development_phases_path(development) %></td>
-        <td><%= link_to_unless cannot?(:read, UnitType), 'Unit Types', development_unit_types_path(development) %></td>
-        <td><%= link_to_unless cannot?(:read, Room), 'Rooms', development_rooms_path(development) %></td>
-        <td><%= link_to_unless cannot?(:read, Plot), 'Plots', development_plots_path(development) %></td>
-        <td><%= link_to_unless cannot?(:read, development), 'Show', polymorphic_url([parent, development]) %></td>
-        <td><%= link_to_unless cannot?(:edit, development), 'Edit', edit_polymorphic_url([parent, development]) %></td>
-        <td><%= link_to_unless cannot?(:destroy, development), 'Destroy', polymorphic_url([parent, development]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to_unless cannot?(:read, Phase), Phase.model_name.human.pluralize, development_phases_path(development) %></td>
+        <td><%= link_to_unless cannot?(:read, UnitType), UnitType.model_name.human.pluralize, development_unit_types_path(development) %></td>
+        <td><%= link_to_unless cannot?(:read, Room), Room.model_name.human.pluralize, development_rooms_path(development) %></td>
+        <td><%= link_to_unless cannot?(:read, Plot), Plot.model_name.human.pluralize, development_plots_path(development) %></td>
+        <td><%= link_to_unless cannot?(:read, development), t("views.show"), polymorphic_url([parent, development]) %></td>
+        <td><%= link_to_unless cannot?(:edit, development), t("views.edit"), edit_polymorphic_url([parent, development]) %></td>
+        <td><%= link_to_unless cannot?(:destroy, development), t("views.destroy"), polymorphic_url([parent, development]), method: :delete, data: { confirm: t("views.sure") } %></td>
       </tr>
     <% end %>
   </tbody>

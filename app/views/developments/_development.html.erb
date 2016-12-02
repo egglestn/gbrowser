@@ -1,48 +1,45 @@
-<p id="notice"><%= notice %></p>
-
 <h1>
-  <strong>Development:</strong>
   <%= development.development_name %>
 </h1>
 
 <ul>
-  <li><%= link_to_unless cannot?(:read, Phase), 'Phases', development_phases_path(development) %></li>
-  <li><%= link_to_unless cannot?(:read, UnitType), 'Unit Types', development_unit_types_path(development) %></li>
-  <li><%= link_to_unless cannot?(:read, Room), 'Rooms', development_rooms_path(development) %></li>
-  <li><%= link_to_unless cannot?(:read, Plot), 'Plots', development_plots_path(development) %></li>
+  <li><%= link_to_unless cannot?(:read, Phase), Phase.model_name.human.pluralize, development_phases_path(development) %></li>
+  <li><%= link_to_unless cannot?(:read, UnitType), UnitType.model_name.human.pluralize, development_unit_types_path(development) %></li>
+  <li><%= link_to_unless cannot?(:read, Room), Room.model_name.human.pluralize, development_rooms_path(development) %></li>
+  <li><%= link_to_unless cannot?(:read, Plot), Plot.model_name.human.pluralize, development_plots_path(development) %></li>
 </ul>
 
 <p>
-  <strong>Developer:</strong>
+  <strong><%= Developer.human_attribute_name("company_name") %></strong>
   <%= development.developer %>
 </p>
 
 <p>
-  <strong>Office address:</strong>
+  <strong><%= Development.human_attribute_name("office_address") %></strong>
   <%= development.office_address %>
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong><%= Development.human_attribute_name("city") %></strong>
   <%= development.city %>
 </p>
 
 <p>
-  <strong>County:</strong>
+  <strong><%= Development.human_attribute_name("county") %></strong>
   <%= development.county %>
 </p>
 
 <p>
-  <strong>Postcode:</strong>
+  <strong><%= Development.human_attribute_name("postcode") %></strong>
   <%= development.postcode %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong><%= Development.human_attribute_name("email") %></strong>
   <%= development.email %>
 </p>
 
 <p>
-  <strong>Contact number:</strong>
+  <strong><%= Development.human_attribute_name("contact_number") %></strong>
   <%= development.contact_number %>
 </p>

@@ -16,7 +16,7 @@ class DocumentsController < ApplicationController
 
   def create
     if @document.save
-      redirect_to @document, notice: "Document was successfully created."
+      redirect_to @document, notice: t("controller.success.create", name: @document.title)
     else
       render :new
     end
@@ -24,7 +24,7 @@ class DocumentsController < ApplicationController
 
   def update
     if @document.update(document_params)
-      redirect_to @document, notice: "Document was successfully updated."
+      redirect_to @document, notice: t("controller.success.update", name: @document.title)
     else
       render :edit
     end
@@ -32,7 +32,7 @@ class DocumentsController < ApplicationController
 
   def destroy
     @document.destroy
-    redirect_to documents_url, notice: "Document was successfully destroyed."
+    redirect_to documents_url, notice: t("controller.success.destroy", name: @document.title)
   end
 
   private

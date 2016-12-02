@@ -17,7 +17,11 @@ class DivisionsController < ApplicationController
 
   def create
     if @division.save
-      redirect_to [@developer, @division], notice: "Division was successfully created."
+      notice = t(
+        "controller.success.create",
+        name: @division.division_name
+      )
+      redirect_to [@developer, @division], notice: notice
     else
       render :new
     end
@@ -25,7 +29,11 @@ class DivisionsController < ApplicationController
 
   def update
     if @division.update(division_params)
-      redirect_to [@developer, @division], notice: "Division was successfully updated."
+      notice = t(
+        "controller.success.update",
+        name: @division.division_name
+      )
+      redirect_to [@developer, @division], notice: notice
     else
       render :edit
     end
@@ -33,7 +41,11 @@ class DivisionsController < ApplicationController
 
   def destroy
     @division.destroy
-    redirect_to developer_divisions_url, notice: "Division was successfully destroyed."
+    notice = t(
+      "controller.success.destroy",
+      name: @division.division_name
+    )
+    redirect_to developer_divisions_url, notice: notice
   end
 
   private

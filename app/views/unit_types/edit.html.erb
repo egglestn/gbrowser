@@ -1,4 +1,4 @@
-<h1>Editing <%= @development %>, <%= @unit_type %> Unit Type</h1>
+<h1><%= t("views.edit_name", name: @unit_type.name) %></h1>
 
 <%= render 'form', unit_type: @unit_type %>
 

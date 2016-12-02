@@ -3,8 +3,11 @@
     <%= render 'image', image: f.object %>
   <% end %>
 
-  <%= f.input :title %>
-  <%= f.input :file %>
+  <br />
+  <%= f.label t("images.img_name") %>
+  <%= f.text_field :title %>
 
-  <%= link_to_remove_association "remove image", f %>
+  <%= f.input :file, label: false %>
+
+  <%= link_to_remove_association t("views.remove"), f %>
 </div>

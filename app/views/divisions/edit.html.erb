@@ -1,6 +1,6 @@
-<h1>Editing <%= @developer %>, <%= @division %> Division</h1>
+<h1><%= t("views.edit_name", name: @division.division_name) %></h1>
 
 <%= render 'form', division: @division %>
 
-<%= link_to 'Show', [@developer, @division] %> |
-<%= link_to 'Back', developer_divisions_path(@developer) %>
+<%= link_to t("views.show"), [@developer, @division] %> |
+<%= link_to t("views.back"), developer_divisions_path(@developer) %>

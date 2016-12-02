@@ -1,13 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<h1><%= @development %>: Unit Types</h1>
+<h1><%= @development %>: <%= UnitType.model_name.human.pluralize %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Phases</th>
-      <th colspan="3"></th>
+      <th> <%= UnitType.model_name.human.pluralize %></th>
+      <th><%= Phase.model_name.human.pluralize %></th>
+      <th><%= t("images.title") %></th>
+      <th colspan="3"><%= t("views.actions") %></th>
     </tr>
   </thead>
 
@@ -21,9 +20,9 @@
             <%= render 'image', image: image %>
           <% end %>
         </td>
-        <td><%= link_to 'Show', [@development, unit_type] %></td>
-        <td><%= link_to 'Edit', edit_development_unit_type_path(@development, unit_type) %></td>
-        <td><%= link_to 'Destroy', [@development, unit_type], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t("views.show"), [@development, unit_type] %></td>
+        <td><%= link_to t("views.edit"), edit_development_unit_type_path(@development, unit_type) %></td>
+        <td><%= link_to t("views.destroy"), [@development, unit_type], method: :delete, data: { confirm: t("views.sure") } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Unit Type', new_development_unit_type_path(@development) %>
+<%= link_to t("views.add_type", type: UnitType.model_name.human), new_development_unit_type_path(@development) %>

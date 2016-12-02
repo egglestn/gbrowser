@@ -1,7 +1,7 @@
 <%= form_for([division.developer, division]) do |f| %>
   <% if division.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(division.errors.count, "error") %> prohibited this division from being saved:</h2>
+      <h2><%= t("views.need_fix") %><%= pluralize(division.errors.count, "error") %></h2>
 
       <ul>
       <% division.errors.full_messages.each do |message| %>
@@ -12,37 +12,37 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :division_name %>
+    <%= f.label Division.human_attribute_name("division_name") %>
     <%= f.text_field :division_name %>
   </div>
 
   <div class="field">
-    <%= f.label :address %>
+    <%= f.label Division.human_attribute_name("address") %>
     <%= f.text_field :address %>
   </div>
 
   <div class="field">
-    <%= f.label :city %>
+    <%= f.label Division.human_attribute_name("city") %>
     <%= f.text_field :city %>
   </div>
 
   <div class="field">
-    <%= f.label :county %>
+    <%= f.label Division.human_attribute_name("county") %>
     <%= f.text_field :county %>
   </div>
 
   <div class="field">
-    <%= f.label :postcode %>
+    <%= f.label Division.human_attribute_name("postcode") %>
     <%= f.text_field :postcode %>
   </div>
 
   <div class="field">
-    <%= f.label :email %>
+    <%= f.label Division.human_attribute_name("email") %>
     <%= f.text_field :email %>
   </div>
 
   <div class="field">
-    <%= f.label :contact_number %>
+    <%= f.label Division.human_attribute_name("contact_number") %>
     <%= f.text_field :contact_number %>
   </div>
 

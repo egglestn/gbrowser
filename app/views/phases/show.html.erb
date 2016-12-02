@@ -1,7 +1,5 @@
-<p id="notice"><%= notice %></p>
-
 <h1>
-  <%= @development %>: <%= @phase.name %> Phase
+  <%= @development %>: <%= @phase.name %>
 </h1>
 
 <p>
@@ -9,5 +7,5 @@
   <%= @phase.development %>
 </p>
 
-<%= link_to 'Edit', edit_development_phase_path(@development, @phase) %> |
-<%= link_to 'Back', development_phases_path(@development) %>
+<%= link_to t("views.edit"), edit_development_phase_path(@development, @phase) %> |
+<%= link_to t("views.back"), development_phases_path(@development) %>

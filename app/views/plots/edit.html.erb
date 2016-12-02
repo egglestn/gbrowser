@@ -1,4 +1,4 @@
-<h1>Editing <%= @development %>, <%= @plot %> Plot</h1>
+<h1><%= t("views.edit_name", name: @plot.id) %></h1>
 
 <%= render 'form', plot: @plot %>
 

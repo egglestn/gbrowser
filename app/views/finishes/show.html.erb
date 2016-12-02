@@ -1,21 +1,19 @@
-<p id="notice"><%= notice %></p>
-
 <h1>
-  <%= @room %>, <%= @finish %> <%= @finish.category %> Finish
+  <%= @room %>, <%= @finish %> <%= @finish.category %>
 </h1>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= Finish.human_attribute_name("name") %></strong>
   <%= @finish.name %>
 </p>
 
 <p>
-  <strong>Category:</strong>
+  <strong><%= Document.human_attribute_name("category") %></strong>
   <%= @finish.category %>
 </p>
 
 <p>
-  <strong>Picture:</strong>
+  <strong><%= Image.model_name.human %></strong>
   <%= image_tag(@finish.picture.thumbnail.url) if @finish.picture? %>
 </p>
 
@@ -25,5 +23,5 @@
 
 <br>
 
-<%= link_to 'Edit', edit_room_finish_path(@room, @finish) %> |
-<%= link_to 'Back', room_finishes_path(@room) %>
+<%= link_to t("views.edit"), edit_room_finish_path(@room, @finish) %> |
+<%= link_to t("views.back"), room_finishes_path(@room) %>

@@ -1,4 +1,4 @@
-<h1>Editing <%= @development %>, <%= @room %>  Room</h1>
+<h1><%= t("views.edit_name", name: @room.name) %></h1>
 
 <%= render 'form', room: @room %>
 

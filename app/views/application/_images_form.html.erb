@@ -1,13 +1,13 @@
 <% unless f.object.new_record? %>
   <div class="field">
-    <h3>Manage Images</h3>
+    <h3><%= t("images.title") %></h3>
     <div id="images">
       <%= f.simple_fields_for :images do |image| %>
         <%= render 'image_fields', f: image %>
       <% end %>
 
       <div class="links">
-        <%= link_to_add_association 'add image', f, :images %>
+        <%= link_to_add_association t("views.add"), f, :images %>
       </div>
     </div>
   </div>
@@ -15,6 +15,6 @@
   <br>
 
 <% else %>
-  <h3>Manage Images</h3>
-  <p> You can add images once this resource has been saved.</p>
+  <h3><%= t("images.title") %></h3>
+  <p><%= t("images.not_yet") %></p>
 <% end %>
