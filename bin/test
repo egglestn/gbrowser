@@ -7,6 +7,7 @@ module HoozziTesting
     with_coverage do
       HoozziTesting.run_rubocop
       HoozziTesting.run_rails_best_practices
+      HoozziTesting.run_brakeman
       HoozziTesting.run_rspec
       HoozziTesting.run_cucumber
     end
@@ -20,7 +21,8 @@ module HoozziTesting
     time = Benchmark.realtime do
       result = cli.run
     end
-    puts "Finished in #{time} seconds" if cli.options[:debug]
+    puts "Finished rubocop in #{time} seconds" if cli.options[:debug]
+    SimpleCov.command_name "rubocop" unless result == 0
     exit result unless result == 0
   end
 
@@ -34,8 +36,30 @@ module HoozziTesting
       analyzer.output
       result = analyzer.runner.errors.size
     end
-    puts "Finished in #{time} seconds"
+    puts "Finished best practices in #{time} seconds"
+    SimpleCov.command_name "rails_best_practices" unless result == 0
     exit result unless result == 0
+  end
+
+  def run_brakeman
+    require "brakeman"
+    require "benchmark"
+    tracker = 0
+    time = Benchmark.realtime do
+      tracker = Brakeman.run app_path: '.', skip_files: ['lib/ownable_by.rb'], exit_on_warn: true
+    end
+    puts "Finished brakeman in #{time} seconds"
+
+    warnings = tracker.warnings
+    if warnings.size > 0
+       puts "Offenses:"
+       puts ""
+       puts warnings
+       puts ""
+       puts warnings.size.to_s + " possible security exposure(s) detected"
+       SimpleCov.command_name "brakeman"
+       exit warnings.size
+    end
   end
 
   def run_rspec
@@ -58,6 +82,7 @@ module HoozziTesting
   end
 
   def with_coverage(&block)
+
     require "codeclimate-test-reporter"
     require "simplecov"
     require "webmock"
@@ -68,7 +93,6 @@ module HoozziTesting
     end
 
     SimpleCov.start "rails" do
-      # minimum_coverage 100
     end
 
     block && block.call
@@ -82,6 +106,8 @@ when "rubocop"
   HoozziTesting.run_rubocop
 when "rails_best_practices"
   HoozziTesting.run_rails_best_practices
+when "brakeman"
+  HoozziTesting.run_brakeman
 when "rspec"
   HoozziTesting.run_rspec
 when "cucumber"
