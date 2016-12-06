@@ -40,6 +40,9 @@ en:
   division_admin: "Division Admin"
   client_user: "Development Admin"
   owner: "Home Owner"
+  
+  app:
+    title: "Hoozzi Demo Site"
 
   controller:
     success:
