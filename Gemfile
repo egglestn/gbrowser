@@ -76,6 +76,8 @@ group :development do
   gem "guard"
   gem "guard-rake"
   gem "guard-sass", require: false
+  # Bullet for analysing DB queries, see https://github.com/flyerhzm/bullet
+  gem "bullet"
 end
 
 group :test do
