@@ -28,6 +28,7 @@ body {
 
 .content-container {
   @include span-columns(16 of 16);
+  overflow: scroll;
 
   @include media($tablet-landscape-up) {
     @include span-columns(13 of 16, block-collapse);

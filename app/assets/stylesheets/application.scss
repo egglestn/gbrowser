@@ -12,6 +12,7 @@
  *
  *= require_self
  *= require font-awesome
+ *= require jquery-ui
  */
 
 @import 'geometry';
@@ -30,3 +31,5 @@
 @import 'components/header';
 @import 'components/record_list';
 @import 'components/section';
+@import 'components/flashes';
+@import 'components/dialogs';

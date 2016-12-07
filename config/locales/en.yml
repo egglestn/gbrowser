@@ -48,7 +48,7 @@ en:
     success:
       create: "%{name} was created successfully"
       update: "%{name} was updated successfully"
-      destroy: "%{name} was archived successfully"
+      destroy: "%{name} was deleted successfully"
 
   views:
     add: "Add"
@@ -61,11 +61,13 @@ en:
     name: "Name"
     back: "Back"
     need_fix: "This can not be created because you need to fix the error(s) shown"
-    destroy: "Archive"
+    destroy: "Delete"
+    cancel: "Cancel"
     actions: "Actions"
     links: "Links"
     thumbnail: "Thumbnail"
-    sure: "Are you sure you wish to archive this?"
+    confirm_title: "Confirm delete"
+    confirm_text: "Are you sure you wish to delete %{type}"
 
   dashboard:
     header: "Dashboard title for Hoozzi"
@@ -81,9 +83,17 @@ en:
       faqs: 
         title: "Recent FAQs"
         new: "New FAQ"
+      documents:
+        title: "Recent Documents"
+      faqs: 
+        title: "Recent FAQs"
 
   development:
     add: "Add development for"
+
+  developers:
+    index:
+      add: "Add Developer"
 
   folders:
     title: "Folders"

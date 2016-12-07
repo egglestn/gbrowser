@@ -28,7 +28,7 @@
         <td><%= link_to Development.model_name.human.pluralize, division_developments_path(division) %></td>
         <td><%= link_to t("views.show"), [@developer, division] %></td>
         <td><%= link_to t("views.edit"), edit_developer_division_path(@developer, division) %></td>
-        <td><%= link_to t("views.destroy"), [@developer, division], method: :delete, data: { confirm: t("views.sure") } %></td>
+        <td><%= link_to t("views.destroy"), [@developer, division], method: :delete, data: { confirm: t("views.confirm_text") } %></td>
       </tr>
     <% end %>
   </tbody>
