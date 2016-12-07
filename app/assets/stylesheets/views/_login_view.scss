@@ -1,0 +1,52 @@
+$login-form-bg-color: rgba($ui-white, 0.9);
+$login-title-left-color: $primary-green;
+$login-title-right-color: $primary-red;
+
+.login-view {
+  background-image: url('http://lorempixel.com/1920/1280/');
+  background-size: cover;
+  width: 65%;
+  margin: 0 auto;
+}
+
+.login-panel {
+  @include display(flex);
+  border-radius: $border-radius;
+  overflow: hidden;
+
+  background-color: $login-form-bg-color;
+}
+
+.login-form {
+  @include grad-orange-pink();
+  @include flex(1);
+  flex-basis: 1;
+  padding: $spacing-medium;
+
+  img.logo {
+    width: 70%;
+    margin: $spacing-large 15% $spacing-small;
+  }
+}
+
+.login-blurb {
+  @include flex(2);
+  flex-basis: 2;
+  padding: ($spacing-large * 2);
+}
+
+.login-title {
+  font-style: italic;
+  font-weight: 200;
+
+  .left {
+    display: block;
+    text-align: left;
+    color: $login-title-left-color;
+  }
+  .right {
+    display: block;
+    text-align: right;
+    color: $login-title-right-color;
+  }
+}

@@ -40,9 +40,21 @@ en:
   division_admin: "Division Admin"
   client_user: "Development Admin"
   owner: "Home Owner"
-  
-  app:
-    title: "Hoozzi Demo Site"
+
+  # LAYOUTS
+  layouts:
+    application:
+      title: "Hoozzi"
+    home:
+      title: "Hoozzi Home"
+    homeowner:
+      title: "My Home"
+      nav:
+        my_home: "My Home"
+    admin_login:
+      title: "Admin Login to Hoozzi"
+    login:
+      title: "Login to Hoozzi"
 
   controller:
     success:
@@ -69,11 +81,25 @@ en:
     confirm_title: "Confirm delete"
     confirm_text: "Are you sure you wish to delete %{type}"
 
+
   pagination:
     per_page_10: "10"
     per_page_25: "25"
     per_page_50: "50"
     per_page_100: "100"
+
+  components:
+    homeowner:
+      header:
+        hi: "Hi %{first_name}"
+        logout: "Logout"
+    home:
+      header:
+        nav:
+          login: "Login"
+          home: "Home"
+    navigation:
+      log_out: "Log out"
 
   dashboard:
     header: "Dashboard title for Hoozzi"
@@ -90,12 +116,41 @@ en:
         title: "Recent FAQs"
         new: "New FAQ"
 
+  home:
+    show:
+      home: "Home"
+
+  homeowner:
+    dashboard:
+      show:
+        my_home: "My Home"
+
   development:
     add: "Add development for"
 
   developers:
     index:
       add: "Add Developer"
+
+  devise:
+    admin:
+      sessions:
+        new:
+          login_cta: "Login"
+    sessions:
+      new:
+        title: 
+          left: "Hoozzi isn't just a map,"
+          right: "it's a tour guide"
+        login_cta: Login
+        intro_html: <p>With pen in hand and fresh ideas in mind,
+                    Hoozzi is constantly churning out fun and
+                    helpful articles.</p>
+
+                    <p>You can scroll away to your hearts content,
+                    discovering exciting ideas on
+                    how to make the most of your home,
+                    habbits and hobbies.</p>
 
   folders:
     title: "Folders"
@@ -189,7 +244,8 @@ en:
         title: "Document name"
         file: "File"
       user:
-        email: "Email address"
+        email: "Email Address"
+        password: "Password"
         tel: "Contact number"
         access: "Access"
         role: "Role"

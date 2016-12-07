@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <%= render partial: 'layouts/head', locals: { title: t(".title") } %>
+  <body class="login-view">
+    <div class="outer-container">
+        <div class="main-container">
+          <main>
+            <%= render "components/flashes" %>
+            <%= yield %>
+          </main>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

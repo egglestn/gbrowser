@@ -14,6 +14,7 @@ $secondary-green: #48D5D9;
 //Type Palette
 $type-grey: #67747C;
 $type-red: #F7525E;
+$type-white: #FFFFFF;
 
 //UI Palette
 $ui-white: #FFFFFF;
@@ -22,10 +23,13 @@ $ui-grey: #EAEAEA;
 $ui-dark-grey: rgb(179,181,183);
 $ui-black: #252C31;
 
+//Opacity Levels
+$base-opacity: 0.9;
+
 //Gradients
 
-@mixin grad-orange-pink() {
-  @include linear-gradient(135deg, $secondary-orange, $primary-red, $secondary-pink);
+@mixin grad-orange-pink($deg:135deg) {
+  @include linear-gradient($deg, $secondary-orange, $primary-red, $secondary-pink);
 }
 
 @mixin grad-blue-black() {

@@ -1,12 +1,23 @@
 # frozen_string_literal: true
 class Users::SessionsController < Devise::SessionsController
+  layout -> { admin_route? ? "admin_login" : "login" }
   skip_authorization_check
+  skip_before_action :redirect_homeowners
+
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    self.resource = resource_class.new(sign_in_params)
+    clean_up_passwords(resource)
+    yield resource if block_given?
+
+    if admin_route?
+      render "devise/admin/sessions/new"
+    else
+      respond_with(resource, serialize_options(resource))
+    end
+  end
 
   # POST /resource/sign_in
   # def create
@@ -24,4 +35,10 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  private
+
+  def admin_route?
+    request.path == "/admin"
+  end
 end

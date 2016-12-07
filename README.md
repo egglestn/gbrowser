@@ -20,6 +20,13 @@ email: admin@alliants.com
 password: 12345678
 ```
 
+For development mode only, the default homeowner user's credentials are:
+
+```
+email: homeowner@alliants.com
+password: 12345678
+```
+
 This user is added when you run `bin/setup`.
 
 ## Running the tests

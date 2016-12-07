@@ -3,18 +3,22 @@
   <%= render partial: 'layouts/head', locals: { title: t(".title") } %>
   <body>
     <div class="outer-container">
-      <div class="sidebar-container">
-        <%= render 'components/navigation' %>
-      </div>
       <div class="content-container">
         <div class="header-container">
-          <%= render 'components/header' %>
+          <%= render 'components/homeowner/header' %>
         </div>
-        <div class="breadcrumb-container">
-          <%= breadcrumbs separator: " &rsaquo; ", display_single_fragment: true %>
+
+        <div class="navigation-container">
+          <%= render partial: 'components/navbar_item', locals: {
+                     path: root_path,
+                     link_class: 'active',
+                     icon: 'home',
+                     label: t(".nav.my_home")
+                   } %>
+          </div>
         </div>
+
         <div class="main-container">
-          <main>
             <%= render "components/flashes" %>
             <%= yield %>
           </main>

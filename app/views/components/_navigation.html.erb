@@ -5,7 +5,7 @@
   <input id="navbar-trigger" type="checkbox">
   <nav class="navbar-menu">
     <% if current_user %>
-      <%= navigation_link(root_path, "tachometer", t("dashboard.title"), "navbar-link") %>
+      <%= navigation_link(admin_dashboard_path, "tachometer", t("dashboard.title"), "navbar-link") %>
       <%= navigation_link(developers_path, "vcard", Developer.model_name.human.pluralize, "navbar-link") %>
       <%= navigation_link(documents_path, "file", Document.model_name.human.pluralize, "navbar-link") %>
 
@@ -18,7 +18,7 @@
       <div class="navbar-item">
         <%= link_to destroy_user_session_path, method: :delete, class: "navbar-link" do %>
           <%= fa_icon "sign-out" %>
-          <%= t("users.sign_out") %>
+          <%= t(".log_out") %>
         <% end %>
       </div>
     <% end %>

@@ -1,0 +1,23 @@
+$login-form-bg-color: $ui-white;
+$login-title-left-color: $primary-green;
+$login-title-right-color: $primary-red;
+
+.admin-login-view {
+  @include grad-orange-pink(180deg);
+}
+
+.admin-login-panel {
+  margin: 0 auto;
+  width: 400px;
+
+  .logo {
+    margin: $spacing-large 15% $spacing-small;
+  }
+}
+
+.admin-login-form {
+  background-color: $login-form-bg-color;
+  border-radius: $border-radius;
+  overflow: hidden;
+  padding: $spacing-medium;
+}

@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html>
   <%= render partial: 'layouts/head', locals: { title: t(".title") } %>
-  <body>
+  <body class="home">
     <div class="outer-container">
-      <div class="sidebar-container">
-        <%= render 'components/navigation' %>
-      </div>
       <div class="content-container">
         <div class="header-container">
-          <%= render 'components/header' %>
+          <%= render 'components/home/header' %>
         </div>
-        <div class="breadcrumb-container">
-          <%= breadcrumbs separator: " &rsaquo; ", display_single_fragment: true %>
-        </div>
+
         <div class="main-container">
           <main>
             <%= render "components/flashes" %>

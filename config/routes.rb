@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_scope :user do
+    get '/admin', to: "users/sessions#new"
+  end
   devise_for :users,
              controllers: {
                sessions: 'users/sessions'
@@ -29,5 +32,7 @@ Rails.application.routes.draw do
     resources :developments, controller: 'divisions/developments'
   end
 
-  root 'dashboard#show'
+  get "/admin/dashboard", to: 'admin/dashboard#show', as: :admin_dashboard
+  get "/dashboard", to: 'homeowner/dashboard#show', as: :homeowner_dashboard
+  root 'home#show'
 end

@@ -76,3 +76,11 @@
 }
 
 ```
+
+Include a gradient mixin within the CSS selector you want to apply it to:
+
+```plain
+.some-selector {
+  @include grad-orange-pink();
+}
+```

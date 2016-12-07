@@ -10,6 +10,8 @@ Cucumber::Rails::Database.javascript_strategy = :truncation
 require "feature_application_actions"
 require "webmock/cucumber"
 
+Dir[Rails.root.join("features/support/fixtures/*.rb")].each { |f| require f }
+
 Before do
   # load fixtures
   # stub requests

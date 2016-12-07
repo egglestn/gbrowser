@@ -8,22 +8,42 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-if User.none?
+if User.cf_admin.none?
+  admin_email = "admin@alliants.com"
+  admin_password = "12345678"
+
   User.create!(
     first_name: "admin",
     last_name: "admin",
     role: :cf_admin,
-    email: "admin@alliants.com",
-    password: "12345678"
+    email: admin_email,
+    password: admin_password
   )
 
-  STDOUT.puts <<~INFO
+  STDOUT.puts <<-INFO
 
   #{'*' * 100}
-    Default Admin user has been added:
+  Default Admin user has been added:
     email: admin@alliants.com
     password: 12345678
-    #{'*' * 100}
+  #{'*' * 100}
+
+  INFO
+end
+
+if Rails.env.development? && User.owner.none?
+  homeowner_email = "homeowner@alliants.com"
+  homeowner_password = "12345678"
+
+  FactoryGirl.create(:homeowner, email: homeowner_email, password: homeowner_password)
+
+  STDOUT.puts <<-INFO
+
+  #{'*' * 100}
+  Homeowner has been added:
+    email: #{homeowner_email}
+    password: #{homeowner_password}
+  #{'*' * 100}
 
   INFO
 end

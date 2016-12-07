@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :redirect_homeowners, if: -> { current_user }
   check_authorization
 
   protect_from_forgery with: :exception
@@ -15,5 +16,11 @@ class ApplicationController < ActionController::Base
           end
 
     redirect_to url
+  end
+
+  private
+
+  def redirect_homeowners
+    redirect_to(homeowner_dashboard_path) && return if current_user.owner?
   end
 end

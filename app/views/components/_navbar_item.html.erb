@@ -1,6 +1,6 @@
 <div class="navbar-item">
   <%= link_to path, class: link_class do %>
-    <%= fa_icon icon %>
+    <%= fa_icon icon unless icon.blank? %>
     <%= label %>
   <% end %>
 </div>
