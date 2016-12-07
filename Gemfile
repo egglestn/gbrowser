@@ -59,6 +59,7 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "faker"
   gem "rails_best_practices", require: false
+  gem "brakeman", require: false
 end
 
 group :development do
