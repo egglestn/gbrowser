@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HoozziDemo</title>
+    <title><%= t("app.title") %></title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -35,13 +35,13 @@
         <div class="main-container">
           <main>
             <% if alert.present? %>
-              <p style="background: red; color: #fff; padding: 5px; text-align: center;">
+              <p class="alert">
                 <%= alert %>
               </p>
             <% end %>
 
             <% if notice.present? %>
-              <p style="background: green; color: #fff; padding: 5px; text-align: center;">
+              <p class="notice">
                 <%= notice %>
               </p>
             <% end %>
