@@ -19,7 +19,7 @@ FactoryGirl.define do
       role { :client_user }
     end
 
-    factory :home_owner do
+    factory :homeowner do
       role { :owner }
     end
   end
