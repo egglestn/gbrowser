@@ -1,0 +1,97 @@
+$list-item-bg-color: $ui-white;
+$list-item-border-color: $ui-grey;
+$list-item-text-color: $font-copy-color;
+$list-item-text-color-secondary: $ui-dark-grey;
+
+.record-list-item {
+  @include clearfix;
+  background-color: $list-item-bg-color;
+  border: $list-item-border-color;
+  border-radius: $border-radius;
+  padding: $spacing-small $spacing-small $spacing-small $spacing-medium ;
+  list-style-type: none;
+  margin: 0 0 ($spacing-small / 2) 0;
+}
+
+.record-list-item-content {
+  @include display(flex);
+
+
+  @include media($tablet-landscape-down) {
+    @include flex-direction(column);
+  }
+
+  @include media($tablet-landscape-up) {
+    height: 33px;
+  }
+}
+
+.record-list-item-content > * {
+  @include display(flex);
+  @include flex(1);
+
+  text-decoration: none;
+  color: $list-item-text-color;
+  min-width: 0;
+  margin-right: ($spacing-medium);
+  cursor: default;
+
+  > span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .fa {
+    margin-right: ($spacing-small / 2);
+  }
+
+  @include media($tablet-landscape-up) {
+    line-height: 33px;
+
+    .fa {
+      line-height: 35px;
+    }
+  }
+}
+
+@include media($tablet-landscape-up) {
+  .record-list-item-content > a {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.record-list-item-actions {
+  float: right;
+}
+
+
+// Notifications List
+.notifications {
+  .notification-subject {
+    @include flex(2);
+  }
+  .notification-timestamp {
+    @include flex(0.5);
+    color: $list-item-text-color-secondary;
+  }
+
+  .unread {
+    .notification-subject {
+      font-weight: bold;
+    }
+  }
+}
+
+// Documents List
+.documents {
+  .unassigned {
+    .document-category {
+    color: $list-item-text-color-secondary;
+    }
+  }
+}

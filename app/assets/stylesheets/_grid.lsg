@@ -139,3 +139,51 @@ These can then be used within your classes using neat's `media()` mixin:
 The Administration layout grid is made up of 16 columns. The top level layout is made up of two containers: `navigation-container`, `content-container`. Within `content-container` are two further containers, `header-container` and `main-container`. Most views are rendered into `main-container`.
 
 The styles dictating the column count for each containers can be found in `_grid.scss`.
+
+## Content Rows
+
+Inside the main container `.row` elements should be used in conjuction with `.row-item` elements to control layout of main page sections.
+
+Note that these classes should not be used for detailed component styling, instead look to use Flexbox to control component layout.
+
+
+``` html
+<div class="main-container">
+  <div class="row">
+    <div class="row-item">
+      // Full width section
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-item half">
+      // Half width section
+    </div>
+    <div class="row-item half">
+      // Half width section
+    </div>
+  </div>
+</div>
+``` 
+
+The following section sizes are available. To add more, examine the `.row-item` classes in `_grid.scss` as appropriate.
+
+```
+<table><thead>
+  <tr>
+  <th>Row Item Classes</th>
+  <th>Mobile Columns</th>
+  <th>Desktop Columns</th>
+  </tr>
+  </thead><tbody>
+  <tr>
+  <td>.row-item</td>
+  <td>12 of 12</td>
+  <td>12 of 12</td>
+  </tr>
+  <tr>
+  <td>.row-item.half</td>
+  <td>12 of 12</td>
+  <td>6 of 12</td>
+  </tr>
+  </tbody></table>
+```

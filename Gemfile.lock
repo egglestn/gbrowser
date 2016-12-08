@@ -356,8 +356,8 @@ PLATFORMS
 
 DEPENDENCIES
   bourbon
-  bullet
   brakeman
+  bullet
   byebug
   cancancan (~> 1)
   carrierwave

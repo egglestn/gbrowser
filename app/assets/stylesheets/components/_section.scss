@@ -1,0 +1,18 @@
+$font-section-title-color: $primary-green;
+
+.section-header {
+  @include display(flex);
+
+  & > * {
+    @include flex(1);
+  }
+}
+
+.section-title {
+  @include flex(2);
+  color: $font-section-title-color;
+}
+
+.section-actions {
+  text-align: right;
+}

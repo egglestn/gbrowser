@@ -1,21 +1,25 @@
+body {
+  background-color: $ui-light-grey;
+  
+  @include media($tablet-landscape-up) {
+    overflow: hidden;
+  }
+}
+
 .outer-container {
   @include outer-container(100%);
   height: 100%;
   min-height: 100%;
-  background-color: $ui-light-grey;
 }
 
 .sidebar-container {
-  //For mobile and up
   @include span-columns(16 of 16);
 
-  //For tablet portrait and up
   @include media($tablet-landscape-up) {
     @include span-columns(3 of 16, block-collapse);
     @include omega();
   }
 
-  //For large desktop up
   @include media($desktop-large-up) {
     @include span-columns(2 of 16, block-collapse);
     @include omega();
@@ -23,16 +27,14 @@
 }
 
 .content-container {
-  //For mobile and up
   @include span-columns(16 of 16);
 
-  //For tablet portrait and up
   @include media($tablet-landscape-up) {
     @include span-columns(13 of 16, block-collapse);
+    overflow: scroll;
     height: 100%;
   }
 
-  //For large desktop up
   @include media($desktop-large-up) {
     @include span-columns(14 of 16, block-collapse);
     @include omega();
@@ -42,34 +44,57 @@
 .main-container {
   @include span-columns(16 of 16);
 
-  //For tablet portrait and up
-  @include media($tablet-portrait-up) {
+  @include media($tablet-landscape-up) {
     @include span-columns(13 of 13);
+    padding-top: 100px;
   }
 
-  //For large desktop up
   @include media($desktop-large-up) {
     @include span-columns(14 of 14);
   }
   
   main {
     @include pad($spacing-small $spacing-large $spacing-small $spacing-large);
+    @include clearfix();
+
+    //IE 11 fix
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    //
   }
 }
 
 .header-container {
   @include span-columns(16 of 16);
 
-  //For tablet portrait and up
-  @include media($tablet-portrait-up) {
+  @include media($tablet-landscape-up) {
     @include span-columns(13 of 13);
     border-bottom: 1px solid $ui-grey;
+    position: fixed;
   }
 
-  //For large desktop up
   @include media($desktop-large-up) {
     @include span-columns(14 of 14);
   }
-
 }
 
+
+.row {
+  @include span-columns(12 of 12);
+  @include omega();
+}
+
+.row-item {
+  @include span-columns(12 of 12);
+}
+
+.row-item.half {
+  @include media($tablet-landscape-down) {
+    @include span-columns(12 of 12);
+  }
+
+  @include media($tablet-landscape-up) {
+    @include span-columns(6 of 12);
+  }
+}

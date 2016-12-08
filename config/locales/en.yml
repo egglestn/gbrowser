@@ -70,6 +70,17 @@ en:
   dashboard:
     header: "Dashboard title for Hoozzi"
     title: "Dashboard"
+    section:
+      notifications: 
+        title: "Recent Notifications"
+        sent_to: "Sent to "
+        new: "New Notification"
+      documents: 
+        title: "Recent Documents"
+        new: "New Document"
+      faqs: 
+        title: "Recent FAQs"
+        new: "New FAQ"
 
   development:
     add: "Add development for"

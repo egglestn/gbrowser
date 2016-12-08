@@ -22,7 +22,7 @@
 ## UI Palette
 
 @colors {
-  $ui-white $ui-light-grey $ui-grey $ui-black
+  $ui-white $ui-light-grey $ui-grey $ui-dark-grey $ui-black
 }
 
 
