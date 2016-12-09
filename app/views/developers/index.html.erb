@@ -16,7 +16,8 @@
 
   <tbody>
     <% @developers.each do |developer| %>
-      <tr>
+      <%= content_tag(:tr, data_to_delete(developer)) do %>
+
         <td><%= developer.company_name %></td>
         <td><%= developer.head_office_address %></td>
         <td><%= developer.city %></td>
@@ -28,12 +29,10 @@
         <td><%= link_to Development.model_name.human.pluralize, developer_developments_path(developer) %></td>
         <td><%= link_to t("views.show"), developer %></td>
         <td><%= link_to t("views.edit"), edit_developer_path(developer) %></td>
-        <td><%= link_to t("views.destroy"), developer, method: :delete, data: { confirm: t("views.sure") } %></td>
-      </tr>
+        <td><%= button_tag "", name: "delete", 'aria-label': t("views.destroy"), class: "archive-btn fa fa-trash"%></td>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to t("views.add_type", type: Developer.model_name.human), new_developer_path %>
+<%= link_to t(".add"), new_developer_path %>

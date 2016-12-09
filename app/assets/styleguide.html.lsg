@@ -8,7 +8,6 @@
 @import stylesheets/_grid.lsg
 @import stylesheets/_typography.lsg
 @import stylesheets/_buttons.lsg
-
 @import stylesheets/components/_section.lsg
 @import stylesheets/components/_record_list.lsg
 
