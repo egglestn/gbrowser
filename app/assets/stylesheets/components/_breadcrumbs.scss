@@ -1,0 +1,15 @@
+$breadcrumb-bg-color: $ui-white;
+$breadcrumb-font-size: 12px;
+
+
+.breadcrumbs {
+  @include pad($spacing-small $spacing-large $spacing-small $spacing-large);
+
+  font-size: $breadcrumb-font-size;
+  background-color: $breadcrumb-bg-color;
+  line-height: 22px;
+
+  a {
+    font-size: $breadcrumb-font-size;
+  }
+}

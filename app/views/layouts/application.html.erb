@@ -32,6 +32,9 @@
         <div class="header-container">
           <%= render 'components/header' %>
         </div>
+        <div class="breadcrumb-container">
+          <%= breadcrumbs separator: " &rsaquo; ", display_single_fragment: true %>
+        </div>
         <div class="main-container">
           <main>
             <% if alert.present? %>

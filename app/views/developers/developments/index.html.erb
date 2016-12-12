@@ -1,3 +1,5 @@
+<% breadcrumb :developments, @developer %>
+
 <h1><%= @developer %> <%= Development.model_name.human.pluralize %></h1>
 
 <%= render 'developments/developments', developments: @developments, parent: @developer %>
