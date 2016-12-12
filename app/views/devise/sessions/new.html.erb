@@ -1,11 +1,12 @@
 <div class="login-panel">
   <div class="login-blurb">
     <h2 class="login-title">
-      <span class="left"><%= t(".title.left") %></span>
-      <span class="right"><%= t(".title.right") %></span>
+      <span class="left"><%= @content.title_left %></span>
+      <span class="right"><%= @content.title_right %></span>
     </h2>
 
-    <%= t('.intro_html') %>
+    <%= raw(@content.blurb_para_1) %>
+    <%= raw(@content.blurb_para_2) %>
   </div>
 
   <div class="login-form">

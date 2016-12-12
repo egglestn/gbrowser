@@ -20,7 +20,7 @@ When(/^I log in as a homeowner$/) do
 end
 
 When(/^I log out as a homeowner$/) do
-  click_on "Logout"
+  click_on "Log out"
 end
 
 Then(/^I should be on the "My Home" dashboard$/) do

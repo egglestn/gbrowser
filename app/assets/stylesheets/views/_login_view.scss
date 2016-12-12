@@ -3,7 +3,7 @@ $login-title-left-color: $primary-green;
 $login-title-right-color: $primary-red;
 
 .login-view {
-  background-image: url('http://lorempixel.com/1920/1280/');
+  // background image property is set with an inline style on the element
   background-size: cover;
   width: 65%;
   margin: 0 auto;

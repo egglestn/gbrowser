@@ -47,3 +47,12 @@ if Rails.env.development? && User.owner.none?
 
   INFO
 end
+
+if HomeownerLoginContent.none?
+  content = HomeownerLoginContent.new
+  content.title_left = I18n.t('devise.sessions.new.title.left')
+  content.title_right = I18n.t('devise.sessions.new.title.right')
+  content.blurb_para_1 = I18n.t('devise.sessions.new.intro_para_1')
+  content.blurb_para_2 = I18n.t('devise.sessions.new.intro_para_2')
+  content.save!
+end

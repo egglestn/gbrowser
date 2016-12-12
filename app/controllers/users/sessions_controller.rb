@@ -15,6 +15,7 @@ class Users::SessionsController < Devise::SessionsController
     if admin_route?
       render "devise/admin/sessions/new"
     else
+      @content = HomeownerLoginContentService.call
       respond_with(resource, serialize_options(resource))
     end
   end

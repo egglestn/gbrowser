@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116104045) do
+ActiveRecord::Schema.define(version: 20161212115617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,16 @@ ActiveRecord::Schema.define(version: 20161116104045) do
     t.index ["development_id"], name: "index_finishes_on_development_id", using: :btree
     t.index ["division_id"], name: "index_finishes_on_division_id", using: :btree
     t.index ["room_id"], name: "index_finishes_on_room_id", using: :btree
+  end
+
+  create_table "homeowner_login_contents", force: :cascade do |t|
+    t.string   "title_left"
+    t.string   "title_right"
+    t.text     "blurb_para_1"
+    t.text     "blurb_para_2"
+    t.string   "background_image"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "images", force: :cascade do |t|

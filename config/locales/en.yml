@@ -92,7 +92,7 @@ en:
     homeowner:
       header:
         hi: "Hi %{first_name}"
-        logout: "Logout"
+        logout: "Log out"
     home:
       header:
         nav:
@@ -142,15 +142,12 @@ en:
         title: 
           left: "Hoozzi isn't just a map,"
           right: "it's a tour guide"
-        login_cta: Login
-        intro_html: <p>With pen in hand and fresh ideas in mind,
-                    Hoozzi is constantly churning out fun and
-                    helpful articles.</p>
-
-                    <p>You can scroll away to your hearts content,
-                    discovering exciting ideas on
-                    how to make the most of your home,
-                    habbits and hobbies.</p>
+        login_cta: "Login"
+        intro_para_1: With pen in hand and fresh ideas in mind,
+                      Hoozzi is constantly churning out fun and helpful articles.
+        intro_para_2: You can scroll away to your hearts content,
+                      discovering exciting ideas on how to make the most of your home,
+                      habbits and hobbies.
 
   folders:
     title: "Folders"
@@ -183,6 +180,14 @@ en:
     not_yet: "You can add documents after this resource has been saved"
     loaded_scope: "Upload scope"
     loaded_name: "Upload parent"
+
+  services:
+    homeowner_login_content_service:
+      defaults:
+        title_left: "Hoozzi Homeowner"
+        title_right: "Login"
+        blurb_para_1: "Welcome back."
+        blurb_para_2: "Login to access your home owners manual and more."
 
   activerecord:
     models:
