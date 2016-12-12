@@ -28,7 +28,7 @@ $navbar-bg-color-mobile: $ui-white;
 .navbar-trigger-label {
   color: $navbar-trigger-color;
   display: block;
-  position: absolute;
+  position: fixed;
   font-size: $title-font-size-1;
   height: $title-font-size-1;
   line-height: $title-font-size-1;
@@ -50,7 +50,6 @@ $navbar-bg-color-mobile: $ui-white;
   }
 
   @include media($tablet-landscape-up) {
-    display: block;
     max-height: 100%;
   }
 
@@ -71,7 +70,7 @@ $navbar-bg-color-mobile: $ui-white;
 .navbar-menu {
   @include media($tablet-landscape-down) {
     position: absolute;
-    top: $navbar-trigger-size + ($navbar-trigger-offset * 2);
+    top: 109px;
     background-color: $navbar-bg-color-mobile;
     width: 100%;
   }

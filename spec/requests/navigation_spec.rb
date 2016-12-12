@@ -14,4 +14,17 @@ RSpec.describe "Navigation", type: :feature do
       expect(active_links.first.text).to eq("Developers")
     end
   end
+
+  it "displays nested breadcrumbs relative to the current page" do
+    developer = create(:developer)
+
+    login_as create(:cf_admin)
+    visit "/developers/#{developer.id}"
+
+    within ".breadcrumb-container" do
+      expect(page).to have_link("Dashboard", href: "/")
+      expect(page).to have_link("Developers", href: "/developers")
+      expect(page).to have_text(developer.company_name)
+    end
+  end
 end

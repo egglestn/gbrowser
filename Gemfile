@@ -41,6 +41,7 @@ gem "simple_form"
 gem "cocoon"
 gem "cancancan", "~> 1"
 gem "devise"
+gem "gretel" # breadcrumbs
 
 # Rollbar for exception monitoring, see https://rollbar.com/alliants/Hoozzi/#rails
 gem "rollbar"

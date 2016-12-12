@@ -1,3 +1,5 @@
+<% breadcrumb :rooms, @development, @development.developer %>
+
 <h1><%= @development %>  <%= Room.model_name.human.pluralize %></h1>
 
 <%= render 'rooms', rooms: @rooms %>
