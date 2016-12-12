@@ -55,6 +55,9 @@ gem "livingstyleguide", git: "https://github.com/Alliants/livingstyleguide.git",
 gem "bourbon"
 gem "neat"
 
+# Pagination with kaminari: https://github.com/amatsuda/kaminari
+gem "kaminari"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platform: :mri

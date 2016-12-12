@@ -18,7 +18,7 @@
         <td><%= user.role %></td>
         <td><%= link_to t("views.show"), user %></td>
         <td><%= link_to t("views.edit"), edit_user_path(user) %></td>
-        <td><%= link_to t("views.destroy"), user, method: :delete, data: { confirm: t("views.sure") } %></td>
+        <td><%= link_to t("views.destroy"), user, method: :delete, data: { confirm: t("views.confirm_text") } %></td>
       </tr>
     <% end %>
   </tbody>

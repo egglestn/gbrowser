@@ -3,6 +3,7 @@ class DevelopersController < ApplicationController
   load_and_authorize_resource
 
   def index
+    @developers = @developers.page(params[:page]).per(params[:per])
   end
 
   def new

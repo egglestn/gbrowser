@@ -36,3 +36,6 @@
 </table>
 
 <%= link_to t(".add"), new_developer_path %>
+
+<%= render 'components/page_size' %>
+<%= paginate @developers %>

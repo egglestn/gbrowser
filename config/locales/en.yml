@@ -85,7 +85,7 @@ en:
         new: "New FAQ"
       documents:
         title: "Recent Documents"
-      faqs: 
+      faqs:
         title: "Recent FAQs"
 
   development:

@@ -14,4 +14,6 @@ class Developer < ApplicationRecord
   validates :company_name, presence: true
 
   delegate :to_s, to: :company_name
+
+  paginates_per 10
 end

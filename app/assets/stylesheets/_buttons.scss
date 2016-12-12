@@ -13,11 +13,12 @@ $primary-button-font-color-hover: $primary-red;
 $primary-button-bg-color: $primary-red;
 $primary-button-border-color-hover: $primary-red;
 
+$button-line-height: 28px;
 
 button {
   color: $base-button-font-color;
   font-size: $base-button-font-size;
-  line-height: 28px;
+  line-height: $button-line-height;
   padding: 0 $spacing-small;
   background-color: $base-button-bg-color;
   border: 1px solid $base-button-border-color;
@@ -28,7 +29,7 @@ button {
   &:hover {
     color: $primary-red;
     background-color: $base-button-bg-color-hover;
-    border: 1px solid $base-button-border-color-hover;
+    border: $border-size solid $base-button-border-color-hover;
   }
 
   &:focus,
@@ -38,7 +39,7 @@ button {
 
   .fa-plus,
   .fa-minus {
-    font-size: 10px;
+    font-size: $base-font-size;
     position: relative;
     top: -1px;
   }
@@ -46,7 +47,7 @@ button {
 
 .btn-label {
   font-weight: bold;
-  font-size: 12px;
+  font-size: $base-font-size;
 }
 
 
@@ -62,7 +63,7 @@ button {
 
   &:hover {
     color: $primary-button-font-color-hover;
-    border: 1px solid $primary-button-border-color-hover;
+    border: $border-size solid $primary-button-border-color-hover;
   }
 
 }
