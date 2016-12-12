@@ -85,6 +85,9 @@ group :development do
   gem "guard"
   gem "guard-rake"
   gem "guard-sass", require: false
+end
+
+group :development, :qa do
   # Bullet for analysing DB queries, see https://github.com/flyerhzm/bullet
   gem "bullet"
 end

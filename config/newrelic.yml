@@ -41,10 +41,13 @@ test:
   # It doesn't make sense to report to New Relic from automated test runs.
   monitor_mode: false
 
+qa:
+  <<: *default_settings
+  app_name: Hoozzi (QA)
+
 staging:
   <<: *default_settings
   app_name: Hoozzi (Staging)
 
 production:
   <<: *default_settings
-

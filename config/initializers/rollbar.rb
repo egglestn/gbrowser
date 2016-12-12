@@ -4,7 +4,7 @@ Rollbar.configure do |config|
 
   config.access_token = Rails.application.secrets.rollbar_key
 
-  config.enabled = false unless Rails.env.production?
+  config.enabled = false unless Features.rollbar?
 
   # Rollbar.debug("Rollbar config testing from " + Rails.env);
 
