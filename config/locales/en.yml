@@ -69,6 +69,12 @@ en:
     confirm_title: "Confirm delete"
     confirm_text: "Are you sure you wish to delete %{type}"
 
+  pagination:
+    page_10: "10"
+    page_25: "25"
+    page_50: "50"
+    page_100: "100"
+
   dashboard:
     header: "Dashboard title for Hoozzi"
     title: "Dashboard"
