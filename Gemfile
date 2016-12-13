@@ -101,6 +101,8 @@ group :test do
   gem "timecop"
   gem "webmock"
   gem "launchy"
+  # Headless browser, see https://github.com/teampoltergeist/poltergeist
+  gem "poltergeist"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

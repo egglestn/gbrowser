@@ -1,6 +1,7 @@
 Feature: Developers
   As a....
 
+  @javascript
   Scenario: Create and delete developer
     Given I am logged in as an admin
     When I create a developer
@@ -8,5 +9,4 @@ Feature: Developers
     When I update the developer
     Then I should see the updated developer
     When I delete the developer
-    Then I should not see the deleted developer
-
+    Then I should see the delete complete successfully
