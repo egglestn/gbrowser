@@ -43,6 +43,26 @@ $ bundle exec bin/test rspec
 $ bundle exec bin/test cucumber
 ```
 
+### Testing javascript
+
+Phantom js and poltergeist have been integrated, but they do have some quirks, and debugging is tricky.
+
+#### Open a debug view:
+
+When executing javascript, there will be a lag in performing js activities, so you may need a sleep before you use
+debug. For example:
+  * sleep(0.5)
+  * save_and_open_page and/or
+  * save_and_open_screenshot
+
+#### Debug on command line
+
+It's possible to print output to the command line, but generally doesn't provide useful content. You can try this:
+  * btn = find("[name=mybtn]");
+  * puts(btn.native)
+But if poltergeist is involved, the output is unlikely to be helpful. Please update this section if you find a 
+way to debug poltergeist contents, otherwise, the best known approach is the debug view above
+
 ## Component Styleguide
 
 The [`livingstyleguide`](https://livingstyleguide.org/) gem is used to generate a component styleguide from the `.lsg` files in `/assets/stylesheets/`. To view the styleguide, run `rake styleguide:compile`, ensure the rails server is running and visit http://localhost:3000/styleguide.html

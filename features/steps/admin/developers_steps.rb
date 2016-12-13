@@ -23,10 +23,15 @@ end
 
 When(/^I delete the developer$/) do
   click_on "Back"
-  find("[name=delete]").click
-  # click_on("delete")
+  # Launches the confirmation dialog
+  find("[name=delete]").trigger("click")
+  # Click the "real" delete in the confirmation dialog
+  find(".btn-delete").trigger("click")
 end
 
-Then(/^I should not see the deleted developer$/) do
-  pending
+Then(/^I should see the delete complete successfully$/) do
+  expect(page).to have_content("Test company name was deleted successfully")
+  within "table" do
+    expect(page).to have_no_content("Test company name")
+  end
 end

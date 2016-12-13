@@ -77,6 +77,7 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
+    cliver (0.3.2)
     cocoon (1.2.9)
     code_analyzer (0.4.5)
       sexp_processor
@@ -220,6 +221,10 @@ GEM
     parser (2.3.1.4)
       ast (~> 2.2)
     pg (0.19.0)
+    poltergeist (1.12.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
     powerpack (0.1.1)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -393,6 +398,7 @@ DEPENDENCIES
   neat
   newrelic_rpm
   pg (~> 0.18)
+  poltergeist
   pry-rails
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
