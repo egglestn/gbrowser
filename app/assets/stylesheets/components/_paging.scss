@@ -1,117 +1,58 @@
 
+.paging {
+  @include clearfix();
+  clear: both;
+
+  ul {
+    font-size: 0;
+  }
+
+  li {
+    background-color: $base-button-bg-color;
+    border-width: $border-size $border-size $border-size 0;
+    border-style: solid;
+    border-color: $base-button-border-color;
+    line-height: $button-line-height;
+    padding: 0;
+    border-radius: 0;
+    display: inline-block;
+    list-style-type: none;
+
+    &:first-child {
+      border-left: $border-size solid $base-button-border-color;
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+
+    &:last-child {
+      border-radius: 0 $border-radius $border-radius 0;
+    }
+
+    a {
+      text-decoration: none;
+      padding: $spacing-small;
+    }
+  }
+}
 
 .page-sizes {
   float: right;
 
-  ul {
-    @include clearfix();
-    margin-top: $spacing-small;
-    padding-top: $spacing-small;
-  }
-
-  li {
-    list-style: none;
-    display: block;
-    float: left;
-    white-space: nowrap;
-    color: $base-button-font-color;
-  }
-
-  li:first-child {
-    a {
-      border-top-left-radius: $border-radius;
-      border-bottom-left-radius: $border-radius;
-    }
-  }
-
-  li:last-child {
-    a {
-      border-top-right-radius: $border-radius;
-      border-bottom-right-radius: $border-radius;
-    }
-  }
-
-  .active
-  {
-    color: $primary-red;
-  }
-
-  // Style a link as though it were a button
-  a {
-    @extend button;
-    padding: $spacing-small;
-    text-decoration: none;
-    color: inherit;
-    border-radius: inherit;
-
-    &:hover {
-      color: $primary-red;
-      background-color: $base-button-bg-color-hover;
-      border: $border-size solid $base-button-border-color-hover;
-    }
-
-    &:focus,
-    &:active {
-      outline: none;
-    }
+  .active a {
+    color: $ui-dark-grey;
   }
 }
 
 .pagination {
   text-align: center;
 
-  span {
-    background-color: $base-button-bg-color;
-    border: $border-size solid $base-button-border-color;
-    line-height: $button-line-height;
-    padding: 0;
-    border-radius: 0;
-    display: block;
-    float: left;
-
-    a {
-      color: $base-button-font-color;
-      text-decoration: none;
-      padding: $spacing-small;
-    }
+  ul {
+    display: inline;
   }
-
-  span:hover {
-    color: $primary-red;
-    background-color: $base-button-bg-color-hover;
-    border-color: $primary-red;
-
-    a {
-      color: $primary-red;
-    }
-  }
-
-  a:focus,
-  a:active {
-    outline: none;
-  }
-
-  span:first-child {
-    border-top-left-radius: $border-radius;
-    border-bottom-left-radius: $border-radius;
-    margin-left: 40%;
-  }
-
-  span:last-child {
-    border-top-right-radius: $border-radius;
-    border-bottom-right-radius: $border-radius;
-  }
-
-  .current {
-    color: $primary-red;
-    background-color: $base-button-bg-color;
-    padding-left: $spacing-small;
-    padding-right: $spacing-small;
-    font-size: $base-font-size;
-  }
-
-  .current:hover {
-    border-color: $base-button-border-color;
+  .current,
+  .gap {
+    padding: 0 $spacing-small;
+    color: $ui-dark-grey;
   }
 }
+
 

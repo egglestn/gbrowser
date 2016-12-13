@@ -1,8 +1,8 @@
 <div class="page-sizes">
   <ul>
-    <li class="<%= 'active' if params[:per] == "10" %>" ><%= link_to t("pagination.per_page_10"), per: 10 %></li>
-    <li class="<%= 'active' if params[:per] == "25" %>"><%= link_to t("pagination.per_page_25"), per: 25 %></li>
-    <li class="<%= 'active' if params[:per] == "50" %>"><%= link_to t("pagination.per_page_50"), per: 50 %></li>
-    <li class="<%= 'active' if params[:per] == "100" %>"><%= link_to t("pagination.per_page_100"), per: 100 %></li>
+    <li class="<%= 'active' if per_page?(10) %>" ><%= link_to t("pagination.per_page_10"), per: 10 %></li>
+    <li class="<%= 'active' if per_page?(25) %>"><%= link_to t("pagination.per_page_25"), per: 25 %></li>
+    <li class="<%= 'active' if per_page?(50) %>"><%= link_to t("pagination.per_page_50"), per: 50 %></li>
+    <li class="<%= 'active' if per_page?(100) %>"><%= link_to t("pagination.per_page_100"), per: 100 %></li>
   </ul>
 </div>
