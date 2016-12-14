@@ -1,12 +1,48 @@
 # README
 
+This repository holds a white-labelled template for a rails project that follows the alliants way.
+
+It includes features:
+* Rails :)
+* Turbolinks for speed
+* Carrierwave (with fog and mini_magick) for uploading images / documents to storage
+* Cocoon
+* Devise for authentication
+* CanCanCan for authorising access in a more granular way
+
+Functional features:
+* SMTP EMail template
+
+
+Front end features:
+* jQuery & jquery UI for dynamic and responsive front end behaviour
+* SCSS (using import statements instead of asset pipeline ‘require’)
+* Bourbon & Neat for responsive grid layout
+* font awesome for icons
+
+Supporting features:
+* Rollbar for exception notification
+* Newrelic for performance monitoring
+* PostgreSQL database integration
+* Bullet for analysing DB queries
+
+Static test features:
+* rubocop
+* best practices
+* brakeman
+
+Unit test framework:
+* cucumber
+* rspec
+* phantomjs and poltergeist
+
 ## Setup
 
 - Install the ruby version defined in the `.ruby-version` file
 - Make sure you have bundler installed `gem install bundler`
 - Install PostgreSQL: either with `brew install postgresql` or download the [Postgres.app](http://postgresapp.com/)
-- Clone the project: `git clone https://github.com/Alliants/hoozzi.git`
-- `cd` into the project directory: `cd hoozzi`
+- *Fork* the project: `https://github.com/Alliants/rails-template.git`
+- `cd` into your forked project directory
 - Setup the project: `bin/setup`
 
 ## Running the application
@@ -20,10 +56,10 @@ email: admin@alliants.com
 password: 12345678
 ```
 
-For development mode only, the default homeowner user's credentials are:
+For development mode only, the default user's credentials are:
 
 ```
-email: homeowner@alliants.com
+email: user@alliants.com
 password: 12345678
 ```
 
@@ -85,7 +121,7 @@ Make sure the QA environment is clear for you to use first, ask in slack.
 
 Run `bin/qa_check` and your branch will be pushed up to the `qa` branch (`$ git push origin your-branch-name:qa` essentially).
 
-Codeship will run the tests on this branch and then deploy your branch to the qa environment for you. You can access the QA environment at: [hoozzi-qa.alliants.net](http://hoozzi-qa.alliants.net).
+Codeship will run the tests on this branch and then deploy your branch to the qa environment for you. You can access the QA environment at: [PROJECTNAME-qa.alliants.net](http://PROJECTNAME-qa.alliants.net).
 
 ### Deploy to Staging
 
@@ -93,7 +129,7 @@ Before deploying to production, the changes should be approved by the product ow
 
 Any commits merged into the `master` branch will be deployed to the staging environment by codeship, once the automated tests have passed.
 
-The staging environment can be accessed at: [hoozzi.alliants.net](hoozzi.alliants.net).
+The staging environment can be accessed at: [PROJECTNAME.alliants.net](PROJECTNAME.alliants.net).
 
 
 ### Deploy to Production Environment
@@ -123,7 +159,7 @@ $ git push --tags
 ```
 
 Codeship will run the tests for this commit and deploy this code to the production environment if successful.
-The alternative url for hoozzi production is: [hoozzi-prod.alliants.net](http://hoozzi-prod.alliants.net).
+The alternative url for production is: [PROJECTNAME-prod.alliants.net](http://PROJECTNAME-prod.alliants.net).
 
 ## Manual Deployment
 
@@ -138,7 +174,7 @@ $ brew install awsebcli
 Change into the projects directory and run the init script for the `eb` tool you just installed:
 
 ```
-$ cd hoozzi
+$ cd PROJECTNAME
 $ eb init
 # follow the prompts to choose default env from the list
 # answer no to using CodeCommit, we have Github :)

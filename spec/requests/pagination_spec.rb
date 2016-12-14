@@ -3,7 +3,7 @@ require "rails_helper"
 
 RSpec.describe "Pagination", type: :feature do
   it "provides page links" do
-    login_as create(:cf_admin)
+    login_as create(:admin)
 
     FactoryGirl.create_list(:developer, 11)
     visit "/developers"

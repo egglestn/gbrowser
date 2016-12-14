@@ -1,6 +1,6 @@
-class CreateHomeownerLoginContents < ActiveRecord::Migration[5.0]
+class CreateUserLoginContents < ActiveRecord::Migration[5.0]
   def change
-    create_table :homeowner_login_contents do |t|
+    create_table :user_login_contents do |t|
       t.string :title_left
       t.string :title_right
       t.text :blurb_para_1

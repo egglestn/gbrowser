@@ -1,10 +1,8 @@
 # frozen_string_literal: true
-When(/^I visit the hoozzi site$/) do
+When(/^I visit the site$/) do
   visit "/"
 end
 
-Then(/^I should be on the hoozzi homepage$/) do
-  expect(page).to have_content("Home")
-  expect(page).to have_link("Home")
-  expect(page).not_to have_link("Dashboard")
+Then(/^I should be on the guest homepage$/) do
+  pending
 end

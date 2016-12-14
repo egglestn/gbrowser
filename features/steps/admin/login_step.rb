@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 Given(/^I am an admin user$/) do
-  CFAdminUserFixture.create
+  AdminUserFixture.create
 end
 
 Given(/^I am logged in as an admin$/) do
-  login_as CFAdminUserFixture.create
+  login_as AdminUserFixture.create
   visit "/"
 end
 
 When(/^I log in as an admin$/) do
-  admin = CFAdminUserFixture
+  admin = AdminUserFixture
 
   visit "/admin"
   click_on "Login"
@@ -23,6 +23,6 @@ When(/^I log out as a an admin$/) do
   click_on "Log out"
 end
 
-Then(/^I should be on the admin dashboard$/) do
+Then(/^I should be on the admin home page/) do
   expect(page).to have_link("Dashboard")
 end

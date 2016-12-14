@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-module HomeownerLoginContentService
+module UserLoginContentService
   module_function
 
-  def call(model = HomeownerLoginContent)
+  def call(model = UserLoginContent)
     if model.none?
       model.new(default_content)
     else
@@ -24,6 +24,6 @@ module HomeownerLoginContentService
   end
 
   def default_text(key)
-    I18n.t(key, scope: "services.homeowner_login_content_service.defaults")
+    I18n.t(key, scope: "services.user_login_content_service.defaults")
   end
 end

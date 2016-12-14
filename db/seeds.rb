@@ -8,14 +8,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-if User.cf_admin.none?
+if User.admin.none?
   admin_email = "admin@alliants.com"
   admin_password = "12345678"
 
   User.create!(
     first_name: "admin",
     last_name: "admin",
-    role: :cf_admin,
+    role: :admin,
     email: admin_email,
     password: admin_password
   )
@@ -31,25 +31,32 @@ if User.cf_admin.none?
   INFO
 end
 
-if Rails.env.development? && User.owner.none?
-  homeowner_email = "homeowner@alliants.com"
-  homeowner_password = "12345678"
+if Rails.env.development? && User.user.none?
+  user_email = "user@alliants.com"
+  user_password = "12345678"
 
-  FactoryGirl.create(:homeowner, email: homeowner_email, password: homeowner_password)
+
+  User.create!(
+    first_name: "user",
+    last_name: "user",
+    role: :user,
+    email: user_email,
+    password: user_password
+  )
 
   STDOUT.puts <<-INFO
 
   #{'*' * 100}
-  Homeowner has been added:
-    email: #{homeowner_email}
-    password: #{homeowner_password}
+  User has been added:
+    email: #{user_email}
+    password: #{user_password}
   #{'*' * 100}
 
   INFO
 end
 
-if HomeownerLoginContent.none?
-  content = HomeownerLoginContent.new
+if UserLoginContent.none?
+  content = UserLoginContent.new
   content.title_left = I18n.t('devise.sessions.new.title.left')
   content.title_right = I18n.t('devise.sessions.new.title.right')
   content.blurb_para_1 = I18n.t('devise.sessions.new.intro_para_1')

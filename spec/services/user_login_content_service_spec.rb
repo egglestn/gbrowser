@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 require "rails_helper"
 
-RSpec.describe HomeownerLoginContentService do
+RSpec.describe UserLoginContentService do
   context "no content is in db" do
     it "returns default content" do
-      scope = "services.homeowner_login_content_service.defaults"
+      scope = "services.user_login_content_service.defaults"
 
       result = described_class.call
 
@@ -18,7 +18,7 @@ RSpec.describe HomeownerLoginContentService do
 
   context "content has been added to the db" do
     it "returns content from the model" do
-      content = create :homeowner_login_content
+      content = create :user_login_content
 
       result = described_class.call
 
@@ -30,12 +30,12 @@ RSpec.describe HomeownerLoginContentService do
     end
 
     it "returns content randomly" do
-      create :homeowner_login_content
+      create :user_login_content
 
-      allow(HomeownerLoginContent).to receive(:order).and_call_original
+      allow(UserLoginContent).to receive(:order).and_call_original
       described_class.call
 
-      expect(HomeownerLoginContent).to have_received(:order).with("RANDOM()")
+      expect(UserLoginContent).to have_received(:order).with("RANDOM()")
     end
   end
 end

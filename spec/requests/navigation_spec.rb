@@ -3,7 +3,7 @@ require "rails_helper"
 
 RSpec.describe "Navigation", type: :feature do
   it "only adds active link to the current page nav link" do
-    login_as create(:cf_admin)
+    login_as create(:admin)
 
     visit "/developers"
 
@@ -18,7 +18,7 @@ RSpec.describe "Navigation", type: :feature do
   it "displays nested breadcrumbs relative to the current page" do
     developer = create(:developer)
 
-    login_as create(:cf_admin)
+    login_as create(:admin)
     visit "/developers/#{developer.id}"
 
     within ".breadcrumb-container" do

@@ -7,6 +7,6 @@ if Rails.env.development?
     Bullet.rails_logger = true
     Bullet.add_footer = Features.bullet_footer?
     # Not using slack
-    # Bullet.slack = { webhook_url: 'https://alliants.slack.com/', channel: '#client-hoozzi', username: 'bullet-notifier' }
+    # Bullet.slack = { webhook_url: 'https://alliants.slack.com/', channel: '#PROJECTNAME', username: 'bullet-notifier' }
 end
 

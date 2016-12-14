@@ -35,26 +35,22 @@
 
 en:
   # User Enum Roles (enums do not support I18n OOTB)
-  cf_admin: "CF Admin"
-  client_admin: "Developer Admin"
-  division_admin: "Division Admin"
-  client_user: "Development Admin"
-  owner: "Home Owner"
+  admin: "Admin"
+  user: "User"
 
   # LAYOUTS
   layouts:
     application:
-      title: "Hoozzi"
+      title: "Demo"
     home:
-      title: "Hoozzi Home"
-    homeowner:
-      title: "My Home"
+      title: "Demo Home"
+    user:
+      title: "User Home"
       nav:
-        my_home: "My Home"
     admin_login:
-      title: "Admin Login to Hoozzi"
+      title: "Admin Login"
     login:
-      title: "Login to Hoozzi"
+      title: "Login"
 
   controller:
     success:
@@ -89,7 +85,7 @@ en:
     per_page_100: "100"
 
   components:
-    homeowner:
+    user:
       header:
         hi: "Hi %{first_name}"
         logout: "Log out"
@@ -102,7 +98,7 @@ en:
       log_out: "Log out"
 
   dashboard:
-    header: "Dashboard title for Hoozzi"
+    header: "Dashboard title for PROJECTNAME"
     title: "Dashboard"
     section:
       notifications: 
@@ -120,10 +116,10 @@ en:
     show:
       home: "Home"
 
-  homeowner:
+  user:
     dashboard:
       show:
-        my_home: "My Home"
+        my_home: "My Home Page"
 
   development:
     add: "Add development for"
@@ -140,14 +136,11 @@ en:
     sessions:
       new:
         title: 
-          left: "Hoozzi isn't just a map,"
-          right: "it's a tour guide"
+          left: "Introduction to"
+          right: "PROJECTNAME"
         login_cta: "Login"
-        intro_para_1: With pen in hand and fresh ideas in mind,
-                      Hoozzi is constantly churning out fun and helpful articles.
-        intro_para_2: You can scroll away to your hearts content,
-                      discovering exciting ideas on how to make the most of your home,
-                      habbits and hobbies.
+        intro_para_1: Description part 1
+        intro_para_2: Description part 2
 
   folders:
     title: "Folders"
@@ -182,12 +175,12 @@ en:
     loaded_name: "Upload parent"
 
   services:
-    homeowner_login_content_service:
+    user_login_content_service:
       defaults:
-        title_left: "Hoozzi Homeowner"
+        title_left: "Demo title"
         title_right: "Login"
         blurb_para_1: "Welcome back."
-        blurb_para_2: "Login to access your home owners manual and more."
+        blurb_para_2: "Login to access the demo site."
 
   activerecord:
     models:

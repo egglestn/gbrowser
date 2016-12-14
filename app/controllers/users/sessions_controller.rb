@@ -2,7 +2,7 @@
 class Users::SessionsController < Devise::SessionsController
   layout -> { admin_route? ? "admin_login" : "login" }
   skip_authorization_check
-  skip_before_action :redirect_homeowners
+  skip_before_action :redirect_users
 
   # before_action :configure_sign_in_params, only: [:create]
 
@@ -15,7 +15,7 @@ class Users::SessionsController < Devise::SessionsController
     if admin_route?
       render "devise/admin/sessions/new"
     else
-      @content = HomeownerLoginContentService.call
+      @content = UserLoginContentService.call
       respond_with(resource, serialize_options(resource))
     end
   end

@@ -1,9 +1,9 @@
-module HomeownerUserFixture
+module UserFixture
   module_function
 
   def create
     FactoryGirl.create(
-      :homeowner,
+      :user,
       email: email,
       password: password,
       first_name: first_name
@@ -11,7 +11,7 @@ module HomeownerUserFixture
   end
 
   def email
-    "homeowner@example.com"
+    "user@example.com"
   end
 
   def password

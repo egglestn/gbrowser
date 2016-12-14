@@ -33,6 +33,6 @@ Rails.application.routes.draw do
   end
 
   get "/admin/dashboard", to: 'admin/dashboard#show', as: :admin_dashboard
-  get "/dashboard", to: 'homeowner/dashboard#show', as: :homeowner_dashboard
+  get "/dashboard", to: 'user/dashboard#show', as: :user_dashboard
   root 'home#show'
 end

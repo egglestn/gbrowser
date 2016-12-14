@@ -43,7 +43,7 @@ gem "cancancan", "~> 1"
 gem "devise"
 gem "gretel" # breadcrumbs
 
-# Rollbar for exception monitoring, see https://rollbar.com/alliants/Hoozzi/#rails
+# Rollbar for exception monitoring, see https://rollbar.com/alliants/PROJECTNAME/#rails
 gem "rollbar"
 
 # New relic for performance monitoring, logging, and auditing
@@ -64,7 +64,7 @@ group :development, :test do
   gem "byebug", platform: :mri
   gem "pry-rails"
   gem "rubocop"
-  gem "factory_girl_rails"
+  gem "factory_girl_rails", require: false
   gem "faker"
   gem "rails_best_practices", require: false
   gem "brakeman", require: false
