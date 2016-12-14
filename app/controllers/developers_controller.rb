@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 class DevelopersController < ApplicationController
+  include PaginationConcern
   load_and_authorize_resource
 
   def index
-    @developers = @developers.page(params[:page]).per(params[:per])
+    @developers = paginate(@developers)
   end
 
   def new
