@@ -5,7 +5,6 @@ $(document).ready( function() {
     var dataIn = $(this).data();
     // Note: do not use _ in data content names, it will not work
 
-    console.log(dataIn);
     var dialog_container = document.createElement("div");
     dialog_container.id = "dialog";
     dialog_container.innerHTML = dataIn.text + "<h3>" + dataIn.name + "</h3>";

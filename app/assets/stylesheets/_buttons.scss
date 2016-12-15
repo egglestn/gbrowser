@@ -15,6 +15,7 @@ $primary-button-border-color: $primary-blue;
 $primary-button-border-color-hover: $primary-blue;
 $button-line-height: 28px;
 
+.btn,
 input[type="submit"],
 button {
   color: $base-button-font-color;
@@ -44,6 +45,11 @@ button {
     position: relative;
     top: -1px;
   }
+}
+
+.btn {
+  text-decoration: none;
+  display: inline-block;
 }
 
 .btn-label {

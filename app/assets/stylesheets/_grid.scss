@@ -127,3 +127,18 @@ body {
     @include span-columns(6 of 12);
   }
 }
+
+table {
+  min-width: 400px;
+  -webkit-border-horizontal-spacing: 0;
+  -webkit-border-vertical-spacing: 0;
+}
+
+tr {
+  background-color: $ui-white;
+}
+
+th {
+  text-align: left;
+  height: $spacing-medium;
+}

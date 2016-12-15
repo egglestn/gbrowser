@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module ButtonsHelper
   def edit_btn(edit_path, label = "")
-    link_to edit_path, class: "btn", data: { action: "edit" } do
+    content_tag(:button, data: { action: "edit" }, class: "btn") do
       icon "pencil", label
     end
   end
