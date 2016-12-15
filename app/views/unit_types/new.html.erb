@@ -1,7 +1,0 @@
-<% breadcrumb :unit_type_new, @development, @development.developer %>
-
-<h1><%= t("views.add_type", type: UnitType.model_name.human) %></h1>
-
-<%= render 'form', unit_type: @unit_type %>
-
-<%= link_to t("views.back"), development_unit_types_path(@development) %>

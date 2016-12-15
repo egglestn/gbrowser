@@ -1,7 +1,0 @@
-<% breadcrumb :plot_new, @plot, @development, @development.developer %>
-
-<h1><%= t("views.add_type", type: Plot.model_name.human) %></h1>
-
-<%= render 'form', plot: @plot %>
-
-<%= link_to t("views.back"), development_plots_path(@development) %>

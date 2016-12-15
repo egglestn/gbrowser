@@ -8,29 +8,9 @@ Rails.application.routes.draw do
                sessions: 'users/sessions'
              }
 
-  resources :users
+  resources :users, :samples
 
   resources :documents, except: :new
-
-  resources :rooms, only: [] do
-    resources :finishes
-  end
-
-  resources :developments do
-    resources :phases
-    resources :unit_types
-    resources :rooms
-    resources :plots
-  end
-
-  resources :developers do
-    resources :divisions
-    resources :developments, controller: 'developers/developments'
-  end
-
-  resources :divisions do
-    resources :developments, controller: 'divisions/developments'
-  end
 
   get "/admin/dashboard", to: 'admin/dashboard#show', as: :admin_dashboard
   get "/dashboard", to: 'user/dashboard#show', as: :user_dashboard
