@@ -17,7 +17,7 @@
           <td><%= sample.name %></td>
           <td><%= link_to 'Show', sample %></td>
           <td><%= link_to 'Edit', edit_sample_path(sample) %></td>
-          <td><%= button_tag "", name: "delete", 'aria-label': t("views.destroy"), class: "archive-btn fa fa-trash"%></td>
+          <td><%= delete_btn sample %></td>
         </tr>
       <% end %>
   <% end %>
