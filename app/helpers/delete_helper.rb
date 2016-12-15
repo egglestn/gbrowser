@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+
+# This helper only works if you have a to_s defined in the resource model
 module DeleteHelper
   def data_to_delete(resource)
     {

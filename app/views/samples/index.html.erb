@@ -12,13 +12,15 @@
 
   <tbody>
     <% @samples.each do |sample| %>
-      <tr>
-        <td><%= sample.name %></td>
-        <td><%= link_to 'Show', sample %></td>
-        <td><%= link_to 'Edit', edit_sample_path(sample) %></td>
-        <td><%= link_to 'Destroy', sample, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+      <%= content_tag(:tr, data_to_delete(sample)) do %>
+        <tr>
+          <td><%= sample.name %></td>
+          <td><%= link_to 'Show', sample %></td>
+          <td><%= link_to 'Edit', edit_sample_path(sample) %></td>
+          <td><%= button_tag "", name: "delete", 'aria-label': t("views.destroy"), class: "archive-btn fa fa-trash"%></td>
+        </tr>
+      <% end %>
+  <% end %>
   </tbody>
 </table>
 

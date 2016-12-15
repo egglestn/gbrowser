@@ -12,7 +12,7 @@ It includes features:
 
 Functional features:
 * SMTP EMail template
-
+* Confirm dialog for delete
 
 Front end features:
 * jQuery & jquery UI for dynamic and responsive front end behaviour
