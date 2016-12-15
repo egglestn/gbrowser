@@ -1,7 +1,10 @@
+# frozen_string_literal: true
 class SamplesController < ApplicationController
   load_and_authorize_resource
+  include PaginationConcern
 
   def index
+    @samples = paginate(@samples)
   end
 
   def new
@@ -15,7 +18,7 @@ class SamplesController < ApplicationController
 
   def create
     if @sample.save
-      redirect_to @sample, notice: t("controller.success.create", name: @document.title)
+      redirect_to @sample, notice: t("controller.success.create", name: @sample.name)
     else
       render :new
     end
@@ -23,7 +26,7 @@ class SamplesController < ApplicationController
 
   def update
     if @sample.update(sample_params)
-      redirect_to @sample, notice: t("controller.success.update", name: @document.title)
+      redirect_to @sample, notice: t("controller.success.update", name: @sample.name)
     else
       render :edit
     end
@@ -31,13 +34,13 @@ class SamplesController < ApplicationController
 
   def destroy
     @sample.destroy
-    redirect_to samples_url, notice: t("controller.success.destroy", name: @document.title)
+    redirect_to samples_url, notice: t("controller.success.destroy", name: :sample.name)
   end
 
   private
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def document_params
-    params.require(:sample).permit(:name )
+  def sample_params
+    params.require(:sample).permit(:name)
   end
 end

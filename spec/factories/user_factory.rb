@@ -10,9 +10,5 @@ FactoryGirl.define do
     factory :admin do
       role { :admin }
     end
-
-    factory :user do
-      role { :user }
-    end
   end
 end

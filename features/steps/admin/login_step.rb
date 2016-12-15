@@ -19,10 +19,14 @@ When(/^I log in as an admin$/) do
   click_on "Login"
 end
 
+Then(/^I should be on the admin dashboard/) do
+  expect(page).to have_content("Dashboard")
+end
+
 When(/^I log out as a an admin$/) do
   click_on "Log out"
 end
 
-Then(/^I should be on the admin home page/) do
-  expect(page).to have_link("Dashboard")
+Then(/^I should be on the login page/) do
+  expect(page).to have_link("Login")
 end

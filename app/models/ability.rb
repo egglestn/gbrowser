@@ -21,7 +21,6 @@ class Ability
     end
   end
 
-
   # rubocop:enable MethodLength
 
   def user_abilities(user)

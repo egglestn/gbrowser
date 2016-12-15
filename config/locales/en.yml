@@ -155,9 +155,6 @@ en:
     title: "Profile"
     prefix: "Title"
 
-  rooms:
-    no_rooms: "No rooms found"
-
   users:
     sign_out: "Sign out"
     choose_scope: "Select a developer, division, or development to associate this user with"
@@ -196,6 +193,8 @@ en:
       User: "User"
 
     attributes:
+      sample:
+        name: "Test Name"
       developer:
         company_name: "Developer name"
         head_office_address: "Head office address"
@@ -204,40 +203,6 @@ en:
         postcode: "Postcode"
         email: "Email address"
         contact_number: "Contact number"
-      division:
-        division_name: "Division name"
-        address: "Division address"
-        city: "Town / city"
-        county: "County"
-        postcode: "Postcode"
-        email: "Email address"
-        contact_number: "Contact number"
-      development:
-        development_name: "Development name"
-        office_address: "Marketing suite address"
-        city: "Town / city"
-        county: "County"
-        postcode: "Postcode"
-        email: "Email address"
-        contact_number: "Contact number"
-      phase:
-        name: "Name"
-      unit_type:
-        name: "Unit type name"
-      plot:
-        title: "Plots"
-        one: "Plot"
-        prefix: "Prefix"
-        number: "Number"
-      room:
-        name: "Room Name"
-      finish:
-        name: "Name"
-        type: "Type"
-        manuf: "Manufacturer"
-        descr: "Description"
-        image: "Picture"
-        provider: "Provider"
       document:
         title: "Document name"
         file: "File"
