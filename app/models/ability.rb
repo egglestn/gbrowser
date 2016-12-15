@@ -16,7 +16,7 @@ class Ability
     when :admin
       can :manage, :all
 
-    when :user
+    when :guest
       user_abilities(user)
     end
   end

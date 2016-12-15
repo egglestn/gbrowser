@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-module User
-  class DashboardController < User::BaseController
+module Guest
+  class DashboardController < Guest::BaseController
     skip_authorization_check
 
     def show

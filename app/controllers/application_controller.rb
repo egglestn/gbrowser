@@ -21,6 +21,6 @@ class ApplicationController < ActionController::Base
   private
 
   def redirect_users
-    redirect_to(user_dashboard_path) && return if current_user.user?
+    redirect_to(guest_dashboard_path) && return if current_user.guest?
   end
 end

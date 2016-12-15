@@ -39,7 +39,7 @@ if Rails.env.development? && User.user.none?
   User.create!(
     first_name: "user",
     last_name: "user",
-    role: :user,
+    role: :guest,
     email: user_email,
     password: user_password
   )

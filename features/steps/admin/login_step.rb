@@ -11,7 +11,7 @@ end
 When(/^I log in as an admin$/) do
   admin = AdminUserFixture
 
-  visit "/admin"
+  visit "/"
   click_on "Login"
 
   fill_in "Email Address", with: admin.email

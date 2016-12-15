@@ -3,7 +3,7 @@ module UserFixture
 
   def create
     FactoryGirl.create(
-      :user,
+      :guest,
       email: email,
       password: password,
       first_name: first_name

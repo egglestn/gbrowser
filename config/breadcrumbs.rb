@@ -52,7 +52,7 @@ crumb :users do
   link User.model_name.human.pluralize, users_path
 end
 
-crumb :user do |user|
+crumb :guest do |user|
   link "%{first_name} %{last_name}" % {
     first_name: user.first_name,
     last_name: user.last_name
@@ -62,7 +62,7 @@ end
 
 crumb :user_edit do |user|
   link t("views.edit")
-  parent :user, user
+  parent :guest, user
 end
 
 crumb :user_new do

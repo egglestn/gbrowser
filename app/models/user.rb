@@ -1,11 +1,5 @@
 # frozen_string_literal: true
 class User < ApplicationRecord
-  belongs_to :developer, optional: true
-  belongs_to :division, optional: true
-
-  has_many :plot_residents
-  has_many :plots, through: :plot_residents
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
@@ -16,7 +10,7 @@ class User < ApplicationRecord
 
   enum role: [
     :admin,
-    :user
+    :guest
   ]
 
   validates :role, :first_name, :last_name, presence: true

@@ -44,9 +44,10 @@ en:
       title: "Demo"
     home:
       title: "Demo Home"
-    user:
-      title: "User Home"
+    guest:
+      title: "Guest user home"
       nav:
+         my_home: "Home"
     admin_login:
       title: "Admin Login"
     login:
@@ -85,7 +86,7 @@ en:
     per_page_100: "100"
 
   components:
-    user:
+    guest:
       header:
         hi: "Hi %{first_name}"
         logout: "Log out"
@@ -116,13 +117,10 @@ en:
     show:
       home: "Home"
 
-  user:
+  guest:
     dashboard:
       show:
         my_home: "My Home Page"
-
-  development:
-    add: "Add development for"
 
   developers:
     index:
