@@ -1,9 +1,9 @@
 $login-form-bg-color: $ui-white;
 $login-title-left-color: $primary-green;
-$login-title-right-color: $primary-red;
+$login-title-right-color: $primary-blue;
 
 .admin-login-view {
-  @include grad-orange-pink(180deg);
+  @include grad-blue-pink(180deg);
 }
 
 .admin-login-panel {

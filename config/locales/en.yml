@@ -78,6 +78,10 @@ en:
     confirm_title: "Confirm delete"
     confirm_text: "Are you sure you wish to delete %{type}"
 
+  sample:
+   content:
+     line1: "Dummy entry 1"
+     line2: "Dummy entry 2"
 
   pagination:
     per_page_10: "10"
