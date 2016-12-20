@@ -9,10 +9,13 @@ It includes features:
 * Cocoon
 * Devise for authentication
 * CanCanCan for authorising access in a more granular way
+* I18n for translation and locale functions
 
 Functional features:
 * SMTP EMail template
 * Confirm dialog for delete
+* Pagination
+* Sorting
 
 Front end features:
 * jQuery & jquery UI for dynamic and responsive front end behaviour
@@ -44,6 +47,10 @@ Unit test framework:
 - *Fork* the project: `https://github.com/Alliants/rails-template.git`
 - `cd` into your forked project directory
 - Setup the project: `bin/setup`
+- Search for PROJECTNAME throughout the application and change it everywhere to the name of your project
+
+## TODO
+- Find out what setup is needed for AWS / rollbar / newrelic 
 
 ## Running the application
 
@@ -63,7 +70,7 @@ email: user@alliants.com
 password: 12345678
 ```
 
-This user is added when you run `bin/setup`.
+These users are added when you run `bin/setup`.
 
 ## Running the tests
 
