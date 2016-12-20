@@ -129,9 +129,8 @@ body {
 }
 
 table {
-  min-width: 400px;
+  width: 100%;
   -webkit-border-horizontal-spacing: 0;
-  -webkit-border-vertical-spacing: 0;
 }
 
 tr {
@@ -140,5 +139,17 @@ tr {
 
 th {
   text-align: left;
-  height: $spacing-medium;
+  padding: $spacing-small;
+}
+
+th:last-child {
+  text-align: right;
+}
+
+td {
+  padding: $spacing-small;
+}
+
+td:last-child {
+  float: right;
 }

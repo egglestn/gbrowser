@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 class SamplesController < ApplicationController
   load_and_authorize_resource
+  include SortingConcern
   include PaginationConcern
 
   def index
-    @samples = paginate(@samples)
+    @samples = paginate(sort(@samples, default: :name))
   end
 
   def new
