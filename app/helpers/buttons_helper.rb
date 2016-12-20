@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 module ButtonsHelper
   def edit_btn(edit_path, label = "")
-    content_tag(:button, data: { action: "edit" }, class: "btn") do
+    link_to edit_path, class: "btn", data: { action: "edit" } do
       icon "pencil", label
     end
   end
 
-  def delete_btn(resource, label = "")
-    content_tag(:button, data: data_to_delete(resource), class: "archive-btn") do
+  def delete_btn(resource, label = "", path: nil)
+    content_tag(:button, data: data_to_delete(resource, path: path), class: "archive-btn") do
       icon "trash", label
     end
   end

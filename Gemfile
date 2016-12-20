@@ -64,7 +64,7 @@ group :development, :test do
   gem "byebug", platform: :mri
   gem "pry-rails"
   gem "rubocop"
-  gem "factory_girl_rails", require: false
+  gem "factory_girl_rails"
   gem "faker"
   gem "rails_best_practices", require: false
   gem "brakeman", require: false

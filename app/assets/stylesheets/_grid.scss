@@ -128,28 +128,3 @@ body {
   }
 }
 
-table {
-  width: 100%;
-  -webkit-border-horizontal-spacing: 0;
-}
-
-tr {
-  background-color: $ui-white;
-}
-
-th {
-  text-align: left;
-  padding: $spacing-small;
-}
-
-th:last-child {
-  text-align: right;
-}
-
-td {
-  padding: $spacing-small;
-}
-
-td:last-child {
-  float: right;
-}

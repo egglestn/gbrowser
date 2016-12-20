@@ -4,16 +4,16 @@
 
 <table>
   <thead>
-    <tr>
+    <tr class="list-header">
       <th><%= sortable(Sample, :name) %></th>
-      <th colspan="3"><%= t("views.actions")%></th>
+      <th><%= t("views.actions")%></th>
     </tr>
   </thead>
 
   <tbody>
     <% @samples.each do |sample| %>
       <%= content_tag(:tr, data_to_delete(sample)) do %>
-        <tr>
+        <tr class="list-item">
           <td><%= link_to sample.name, sample_path(sample), class: "btn" %></td>
           <td><%= edit_btn edit_sample_path(sample) %> <%= delete_btn sample %></td>
         </tr>

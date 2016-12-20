@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 module SortingHelper
-
   def sortable(klass, column)
-
     title = klass.human_attribute_name(column)
 
     if params[:sort] == column.to_s
@@ -12,5 +10,4 @@ module SortingHelper
       link_to title, { sort: column, direction: "desc" }, class: "both"
     end
   end
-
 end

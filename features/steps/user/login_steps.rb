@@ -1,36 +1,25 @@
 # frozen_string_literal: true
-# Given(/^I am a user$/) do
-# end
+Given(/^I am a user$/) do
+  UserFixture.create
+end
 
-# Given(/^I am logged in as a user$/) do
-#  user = UserFixture.create
-#  login_as user
-# end
+Given(/^I am logged in as a user$/) do
+  guest = UserFixture.create
+  login_as guest
+end
 
-# When(/^I log in as a user$/) do
-#  visit "/"
-#  click_on "Login"
+When(/^I log in as a user$/) do
+  guest = UserFixture
 
-#  fill_in "Email Address", with: user.email
-#  fill_in "Password", with: user.password
-#  click_on "Login"
-# end
+  visit "/"
+  click_on "Login"
 
-# When(/^I log out as a user$/) do
-#  click_on "Log out"
-# end
+  fill_in "Email Address", with: guest.email
+  fill_in "Password", with: guest.password
+  click_on "Login"
+end
 
-# Then(/^I should be on the user dashboard$/) do
-#  user = UserFixture
-
-#  expect(page).to have_content "Hi #{user.first_name}"
-#  pending
-# end
-
-# Then(/^I should be on the user home page$/) do
-#  expect(current_path).to eq("/")
-# end
-
-# Then(/^I should be on the user login page/) do
-#  expect(page).to have_link("Login")
-# end
+Then(/^I should be on the user dashboard$/) do
+  guest = UserFixture
+  expect(page).to have_content "Hi #{guest.first_name}"
+end
