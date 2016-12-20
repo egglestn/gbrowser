@@ -48,9 +48,11 @@ Unit test framework:
 - `cd` into your forked project directory
 - Setup the project: `bin/setup`
 - Search for PROJECTNAME throughout the application and change it everywhere to the name of your project
+- Either remove or rename the "Sample" model, which is just there to show you some of the function
 
 ## TODO
 - Find out what setup is needed for AWS / rollbar / newrelic 
+- Should this template include neat & bourbon? If no: tidy up CSS / if yes: use it everywhere
 
 ## Running the application
 

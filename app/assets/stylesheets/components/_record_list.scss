@@ -69,6 +69,7 @@ $list-item-text-color-secondary: $ui-dark-grey;
   float: right;
 }
 
+// Alternative (S)CSS if not using neat and bourbon
 table {
   width: 100%;
   -webkit-border-horizontal-spacing: 0;
@@ -99,7 +100,6 @@ table {
     text-align: right;
   }
 }
-
 
 // Notifications List
 .notifications {
