@@ -1,6 +1,6 @@
 $login-form-bg-color: rgba($ui-white, 0.9);
 $login-title-left-color: $primary-green;
-$login-title-right-color: $primary-red;
+$login-title-right-color: $primary-blue;
 
 .login-view {
   // background image property is set with an inline style on the element
@@ -18,7 +18,7 @@ $login-title-right-color: $primary-red;
 }
 
 .login-form {
-  @include grad-orange-pink();
+  @include grad-blue-pink();
   @include flex(1);
   flex-basis: 1;
   padding: $spacing-medium;

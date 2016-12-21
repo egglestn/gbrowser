@@ -5,16 +5,17 @@ $base-button-bg-color: $ui-white;
 $base-button-border-color: $ui-grey;
 
 $base-button-bg-color-hover: $ui-white;
-$base-button-font-color-hover: $primary-red;
-$base-button-border-color-hover: $primary-red;
+$base-button-font-color-hover: $primary-blue;
+$base-button-border-color-hover: $primary-blue;
 
 $primary-button-font-color: $ui-white;
-$primary-button-font-color-hover: $primary-red;
-$primary-button-bg-color: $primary-red;
-$primary-button-border-color: $primary-red;
-$primary-button-border-color-hover: $primary-red;
+$primary-button-font-color-hover: $primary-blue;
+$primary-button-bg-color: $primary-blue;
+$primary-button-border-color: $primary-blue;
+$primary-button-border-color-hover: $primary-blue;
 $button-line-height: 28px;
 
+.btn,
 input[type="submit"],
 button {
   color: $base-button-font-color;
@@ -28,7 +29,7 @@ button {
   white-space: nowrap;
 
   &:hover {
-    color: $primary-red;
+    color: $primary-blue;
     background-color: $base-button-bg-color-hover;
     border: $border-size solid $base-button-border-color-hover;
   }
@@ -44,6 +45,11 @@ button {
     position: relative;
     top: -1px;
   }
+}
+
+.btn {
+  text-decoration: none;
+  display: inline-block;
 }
 
 .btn-label {

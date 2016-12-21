@@ -6,10 +6,10 @@
   <nav class="navbar-menu">
     <% if current_user %>
       <%= navigation_link(admin_dashboard_path, "tachometer", t("dashboard.title"), "navbar-link") %>
-      <%= navigation_link(developers_path, "vcard", Developer.model_name.human.pluralize, "navbar-link") %>
+      <%= navigation_link(samples_path, "vcard", Sample.model_name.human.pluralize, "navbar-link") %>
       <%= navigation_link(documents_path, "file", Document.model_name.human.pluralize, "navbar-link") %>
 
-      <% unless current_user.owner? %>
+      <% unless current_user.guest? %>
         <%= navigation_link(users_path, "users", User.model_name.human.pluralize, "navbar-link") %>
       <% end %>
 

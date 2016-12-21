@@ -69,6 +69,37 @@ $list-item-text-color-secondary: $ui-dark-grey;
   float: right;
 }
 
+// Alternative (S)CSS if not using neat and bourbon
+table {
+  width: 100%;
+  -webkit-border-horizontal-spacing: 0;
+}
+
+.list-item {
+  background-color: $ui-white;
+  td {
+    padding: $spacing-small;
+  }
+
+  td:last-child {
+    float: right;
+  }
+}
+
+.list-header {
+  th {
+    text-align: left;
+    padding: $spacing-small;
+
+    a {
+      font-weight: bold;
+    }
+  }
+
+  th:last-child {
+    text-align: right;
+  }
+}
 
 // Notifications List
 .notifications {

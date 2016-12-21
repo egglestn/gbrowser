@@ -1,12 +1,12 @@
 
 //Primary Colour Palette
-$primary-red: #F7525E;
 $primary-black: #252C31;
 $primary-green: #18A895;
 $primary-yellow: #FFC85D;
+$primary-blue: #394F5F;
 
 //Secondary Colour Palette
-$secondary-blue: #394F5F;
+$secondary-red: #F7525E;
 $secondary-orange: #F79461;
 $secondary-pink: #C53D72;
 $secondary-green: #48D5D9;
@@ -28,12 +28,12 @@ $base-opacity: 0.9;
 
 //Gradients
 
-@mixin grad-orange-pink($deg:135deg) {
-  @include linear-gradient($deg, $secondary-orange, $primary-red, $secondary-pink);
+@mixin grad-blue-pink($deg:135deg) {
+  @include linear-gradient($deg, $primary-blue, $secondary-pink);
 }
 
 @mixin grad-blue-black() {
-  @include linear-gradient(135deg, $secondary-blue, $primary-black);
+  @include linear-gradient(135deg, $primary-blue, $primary-black);
 }
 
 @mixin grad-green-green() {

@@ -10,6 +10,6 @@ echo
 
 echo "Once codeship has successfully run the tests for this branch it will be deployed to the qa_check environment"
 
-echo "Go to https://app.codeship.com/projects/187332 to check the status."
+echo "Go to https://app.codeship.com/projects/TODO to check the status."
 
-echo "Visit to http://hoozzi-qa.alliants.net to see your changes once deployed."
+echo "Visit to http://PROJECTNAME-qa.alliants.net to see your changes once deployed."

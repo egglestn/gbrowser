@@ -1,9 +1,0 @@
-<% breadcrumb :division_developments, @division, @division.developer %>
-
-<p id="notice"><%= notice %></p>
-
-<h1><%= @division %> <%= Development.model_name.human.pluralize %></h1>
-
-<%= render 'developments/developments', developments: @developments, parent: @division %>
-
-<%= link_to_unless cannot?(:create, Development), t("views.add_type", type: Development.model_name.human), new_division_development_path(@division) %>

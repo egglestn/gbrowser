@@ -35,26 +35,23 @@
 
 en:
   # User Enum Roles (enums do not support I18n OOTB)
-  cf_admin: "CF Admin"
-  client_admin: "Developer Admin"
-  division_admin: "Division Admin"
-  client_user: "Development Admin"
-  owner: "Home Owner"
+  admin: "Admin"
+  user: "User"
 
   # LAYOUTS
   layouts:
     application:
-      title: "Hoozzi"
+      title: "Demo"
     home:
-      title: "Hoozzi Home"
-    homeowner:
-      title: "My Home"
+      title: "Demo Home"
+    guest:
+      title: "Guest user home"
       nav:
-        my_home: "My Home"
+         my_home: "Home"
     admin_login:
-      title: "Admin Login to Hoozzi"
+      title: "Admin Login"
     login:
-      title: "Login to Hoozzi"
+      title: "Login"
 
   controller:
     success:
@@ -81,6 +78,10 @@ en:
     confirm_title: "Confirm delete"
     confirm_text: "Are you sure you wish to delete %{type}"
 
+  sample:
+   content:
+     line1: "Dummy entry 1"
+     line2: "Dummy entry 2"
 
   pagination:
     per_page_10: "10"
@@ -89,7 +90,7 @@ en:
     per_page_100: "100"
 
   components:
-    homeowner:
+    guest:
       header:
         hi: "Hi %{first_name}"
         logout: "Log out"
@@ -102,7 +103,7 @@ en:
       log_out: "Log out"
 
   dashboard:
-    header: "Dashboard title for Hoozzi"
+    header: "Dashboard title for PROJECTNAME"
     title: "Dashboard"
     section:
       notifications: 
@@ -120,13 +121,10 @@ en:
     show:
       home: "Home"
 
-  homeowner:
+  guest:
     dashboard:
       show:
-        my_home: "My Home"
-
-  development:
-    add: "Add development for"
+        my_home: "My Home Page"
 
   developers:
     index:
@@ -140,14 +138,11 @@ en:
     sessions:
       new:
         title: 
-          left: "Hoozzi isn't just a map,"
-          right: "it's a tour guide"
+          left: "Introduction to"
+          right: "PROJECTNAME"
         login_cta: "Login"
-        intro_para_1: With pen in hand and fresh ideas in mind,
-                      Hoozzi is constantly churning out fun and helpful articles.
-        intro_para_2: You can scroll away to your hearts content,
-                      discovering exciting ideas on how to make the most of your home,
-                      habbits and hobbies.
+        intro_para_1: Description part 1
+        intro_para_2: Description part 2
 
   folders:
     title: "Folders"
@@ -161,9 +156,6 @@ en:
   profiles:
     title: "Profile"
     prefix: "Title"
-
-  rooms:
-    no_rooms: "No rooms found"
 
   users:
     sign_out: "Sign out"
@@ -182,12 +174,12 @@ en:
     loaded_name: "Upload parent"
 
   services:
-    homeowner_login_content_service:
+    user_login_content_service:
       defaults:
-        title_left: "Hoozzi Homeowner"
+        title_left: "Demo title"
         title_right: "Login"
         blurb_para_1: "Welcome back."
-        blurb_para_2: "Login to access your home owners manual and more."
+        blurb_para_2: "Login to access the demo site."
 
   activerecord:
     models:
@@ -203,6 +195,8 @@ en:
       User: "User"
 
     attributes:
+      sample:
+        name: "Test Name"
       developer:
         company_name: "Developer name"
         head_office_address: "Head office address"
@@ -211,40 +205,6 @@ en:
         postcode: "Postcode"
         email: "Email address"
         contact_number: "Contact number"
-      division:
-        division_name: "Division name"
-        address: "Division address"
-        city: "Town / city"
-        county: "County"
-        postcode: "Postcode"
-        email: "Email address"
-        contact_number: "Contact number"
-      development:
-        development_name: "Development name"
-        office_address: "Marketing suite address"
-        city: "Town / city"
-        county: "County"
-        postcode: "Postcode"
-        email: "Email address"
-        contact_number: "Contact number"
-      phase:
-        name: "Name"
-      unit_type:
-        name: "Unit type name"
-      plot:
-        title: "Plots"
-        one: "Plot"
-        prefix: "Prefix"
-        number: "Number"
-      room:
-        name: "Room Name"
-      finish:
-        name: "Name"
-        type: "Type"
-        manuf: "Manufacturer"
-        descr: "Description"
-        image: "Picture"
-        provider: "Provider"
       document:
         title: "Document name"
         file: "File"

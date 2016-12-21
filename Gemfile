@@ -43,7 +43,7 @@ gem "cancancan", "~> 1"
 gem "devise"
 gem "gretel" # breadcrumbs
 
-# Rollbar for exception monitoring, see https://rollbar.com/alliants/Hoozzi/#rails
+# Rollbar for exception monitoring, see https://rollbar.com/alliants/PROJECTNAME/#rails
 gem "rollbar"
 
 # New relic for performance monitoring, logging, and auditing

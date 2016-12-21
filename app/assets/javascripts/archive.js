@@ -2,7 +2,7 @@ $(document).ready( function() {
 
   $(document).on('click', '.archive-btn', function (event) {
 
-    var dataIn = $(this).parents("tr").data();
+    var dataIn = $(this).data();
     // Note: do not use _ in data content names, it will not work
 
     var dialog_container = document.createElement("div");
@@ -26,7 +26,7 @@ $(document).ready( function() {
           },
           {
             // Font awesome trash icon added in SCSS
-            text: dataIn.confirm,
+            text: dataIn.cta,
             class: "btn-delete",
             id: "btn_confirm",
             click: function () {

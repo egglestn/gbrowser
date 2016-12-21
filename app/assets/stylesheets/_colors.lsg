@@ -3,13 +3,13 @@
 ## Primary Colors
 
 @colors {
-  $primary-red $primary-black $primary-green  $primary-yellow 
+  $primary-blue $primary-black $primary-green  $primary-yellow
 }
 
 ## Secondary Colors
 
 @colors {
-  $secondary-blue $secondary-orange $secondary-pink 
+  $secondary-red $secondary-orange $secondary-pink
 }
 
 
@@ -30,8 +30,8 @@
 
 ```
 <ul class="lsg-color-swatches lsg-4-columns">
-  <li class="lsg-color-swatch lsg-grad-orange-pink">
-    <span class="lsg-color-swatch-source">grad-orange-pink()</span>
+  <li class="lsg-color-swatch lsg-grad-blue-pink">
+    <span class="lsg-color-swatch-source">grad-blue-pink()</span>
   </li>
   <li class="lsg-color-swatch lsg-grad-blue-black">
     <span class="lsg-color-swatch-source">grad-blue-black()</span>
@@ -59,8 +59,8 @@
   }
 }
 @scss {
-  .lsg-grad-orange-pink {
-    @include grad-orange-pink();
+  .lsg-grad-bluee-pink {
+    @include grad-blue-pink();
   }
   .lsg-grad-blue-black {
     @include grad-blue-black();
@@ -81,6 +81,6 @@ Include a gradient mixin within the CSS selector you want to apply it to:
 
 ```plain
 .some-selector {
-  @include grad-orange-pink();
+  @include grad-blue-pink();
 }
 ```

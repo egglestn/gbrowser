@@ -1,0 +1,32 @@
+<% breadcrumb :samples %>
+
+<h1>Samples</h1>
+
+<table>
+  <thead>
+    <tr class="list-header">
+      <th><%= sortable(Sample, :name) %></th>
+      <th><%= t("views.actions")%></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @samples.each do |sample| %>
+      <%= content_tag(:tr, data_to_delete(sample)) do %>
+        <tr class="list-item">
+          <td><%= link_to sample.name, sample_path(sample), class: "btn" %></td>
+          <td><%= edit_btn edit_sample_path(sample) %> <%= delete_btn sample %></td>
+        </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sample', new_sample_path, class: "btn" %>
+
+<div class="paging">
+  <%= render 'components/page_size' %>
+  <%= paginate @samples %>
+</div>

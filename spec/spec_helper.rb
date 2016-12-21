@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require "pry"
 require "webmock/rspec"
+require "factory_girl_rails"
 
 $LOAD_PATH.unshift("app/errors")
 $LOAD_PATH.unshift("app/services")
@@ -8,6 +9,8 @@ $LOAD_PATH.unshift("spec/support")
 
 RSpec.configure do |config|
   WebMock.disable_net_connect!(allow_localhost: true)
+
+  config.include FactoryGirl::Syntax::Methods
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
