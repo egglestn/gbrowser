@@ -44,11 +44,19 @@ Unit test framework:
 - Install the ruby version defined in the `.ruby-version` file
 - Make sure you have bundler installed `gem install bundler`
 - Install PostgreSQL: either with `brew install postgresql` or download the [Postgres.app](http://postgresapp.com/)
-- *Fork* the project: `https://github.com/Alliants/rails-template.git`
-- `cd` into your forked project directory
-- Setup the project: `bin/setup`
-- Search for PROJECTNAME throughout the application and change it everywhere to the name of your project
-- Either remove or rename the "Sample" model, which is just there to show you some of the function
+- Create a new project in git and locally
+- Execute 
+
+`$ git remote add rails-template https://github.com/Alliants/rails-template.git`
+- Execute 
+
+`$ git pull rails-template master`
+- Open config/database.yml and rename demo_ to the name of your DB for all your enviroments
+- Run 
+
+`$ bin/setup`
+
+You should now have all the local content you need to run your project
 
 ## TODO
 - Find out what setup is needed for AWS / rollbar / newrelic 
