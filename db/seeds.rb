@@ -31,7 +31,7 @@ if User.admin.none?
   INFO
 end
 
-if Rails.env.development? && User.user.none?
+if Rails.env.development? && User.none?
   user_email = "user@alliants.com"
   user_password = "12345678"
 
